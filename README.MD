@@ -20,3 +20,4 @@ This is the repository for our CodeDay Game app 2020.
 - [ ] Create Backend
 - [ ] Create GUI
 - [ ] Add game dynamics
+- [ ] Add more
