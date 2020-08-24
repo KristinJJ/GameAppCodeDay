@@ -21,3 +21,5 @@ This is the repository for our CodeDay Game app 2020.
 - [ ] Create GUI
 - [ ] Add game dynamics
 - [ ] Add more
+- [ ] Make video presentation and submit
+- [ ] Graphical design
