@@ -57,6 +57,8 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        super.dispose();
+        background.dispose();
+        playBtn.dispose();
+        game.dispose();
     }
 }

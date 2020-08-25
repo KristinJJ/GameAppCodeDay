@@ -21,56 +21,44 @@ public class PlayScreen extends ScreenAdapter {
 
     @Override
     public void show() {
+        Gdx.gl.glClearColor(0, 0.75f, 0.25f, 1);
+
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
             public boolean keyDown(int keycode) {
-                switch (keycode) {
-                    case Input.Keys.LEFT:
-                        bee.move(-1, 0);
-                        break;
-                    case Input.Keys.RIGHT:
-                        bee.move(1, 0);
-                        break;
-                    case Input.Keys.UP:
-                        bee.move(0, 1);
-                        break;
-                    case Input.Keys.DOWN:
-                        bee.move(0, -1);
-                        break;
-                }
+                // Implement key presses
                 return true;
             }
         });
     }
 
     public void update() {
+        // Update bee new position after motion keys
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             bee.move(Bee.Direction.LEFT);
         }
-
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             bee.move(Bee.Direction.RIGHT);
         }
-
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             bee.move(Bee.Direction.UP);
         }
-
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             bee.move(Bee.Direction.DOWN);
         }
+
+
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0.75f, 0.25f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        SpriteBatch batch = game.getSpriteBatch();
-        update();
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); //Clear screen before drawing
+        SpriteBatch batch = game.getSpriteBatch(); //get sprite batch from game
+
+        update(); // Update sprite's location
         batch.begin();
         batch.draw(bee.getTexture(), bee.getPosition().x, bee.getPosition().y, Bee.WIDTH, Bee.HEIGHT);
         batch.end();
-
     }
 
 
@@ -82,6 +70,7 @@ public class PlayScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        super.dispose();
+        game.dispose();
+        bee.dispose();
     }
 }

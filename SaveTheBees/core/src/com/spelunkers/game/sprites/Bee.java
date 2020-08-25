@@ -3,11 +3,12 @@ package com.spelunkers.game.sprites;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Disposable;
 
 /**
  * Represents a bee
  */
-public class Bee {
+public class Bee implements Disposable {
     private Vector3 position;
     private Vector3 velocity;
     private Texture bee;
@@ -26,11 +27,7 @@ public class Bee {
     }
 
     public void update(float delta) {
-        position.mulAdd(velocity, delta);
-    }
 
-    public void move(int velocityX, int velocityY) {
-        velocity.add(SPEED * velocityX, SPEED * velocityY, 0);
     }
 
     public void move(Direction dir) {
@@ -51,7 +48,6 @@ public class Bee {
         if (dir == Direction.DOWN) {
             position.y -= SPEED * deltaTime;
         }
-
     }
 
     public Texture getTexture() {
@@ -62,4 +58,8 @@ public class Bee {
         return position;
     }
 
+    @Override
+    public void dispose() {
+        bee.dispose();
+    }
 }
