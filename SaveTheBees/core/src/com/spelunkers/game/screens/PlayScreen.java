@@ -43,12 +43,30 @@ public class PlayScreen extends ScreenAdapter {
         });
     }
 
+    public void update() {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            bee.move(Bee.Direction.LEFT);
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            bee.move(Bee.Direction.RIGHT);
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            bee.move(Bee.Direction.UP);
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            bee.move(Bee.Direction.DOWN);
+        }
+    }
+
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0.75f, 0.25f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SpriteBatch batch = game.getSpriteBatch();
-        bee.update(delta);
+        update();
         batch.begin();
         batch.draw(bee.getTexture(), bee.getPosition().x, bee.getPosition().y, Bee.WIDTH, Bee.HEIGHT);
         batch.end();
