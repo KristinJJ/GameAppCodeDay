@@ -12,12 +12,14 @@ import com.spelunkers.game.BeesGame;
 public class MenuScreen extends ScreenAdapter {
     private BeesGame game;
     private Texture background;
+    private Texture logo;
     private Texture playBtn;
 
     public MenuScreen(BeesGame game) {
         this.game = game;
         background = new Texture("background.png");
         playBtn = new Texture("worker-bee.png");
+        logo = new Texture("SaveTheBees-Logo.png");
     }
 
     @Override
@@ -46,7 +48,8 @@ public class MenuScreen extends ScreenAdapter {
         SpriteBatch batch = game.getSpriteBatch();
         batch.begin();
         batch.draw(background, 0, 0, BeesGame.WIDTH, BeesGame.HEIGHT);
-        batch.draw(playBtn, (BeesGame.WIDTH / 2) - 25, BeesGame.HEIGHT / 2, 50, 50);
+        batch.draw(logo, (BeesGame.WIDTH / 2) - 200, (BeesGame.HEIGHT / 2) - 200, 400, 400);
+        //batch.draw(playBtn, (BeesGame.WIDTH / 2) - 25, BeesGame.HEIGHT / 2, 50, 50);
         batch.end();
     }
 
