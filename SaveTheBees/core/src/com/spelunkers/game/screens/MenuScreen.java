@@ -111,6 +111,12 @@ public class MenuScreen extends ScreenAdapter {
         greenCircleFlowerImage.setPosition((0),(200));
         greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
 
+        //Dark Pink flower picture
+        Texture darkPinkCircleFlower = new Texture("darkPinkFlowers.png");
+        Image darkPinkCircleFlowerImage = new Image();
+        darkPinkCircleFlowerImage.setSize(100, 100);
+        darkPinkCircleFlowerImage.setPosition((100),(0));
+        darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
         //credits
         String text = "\n" +
@@ -140,6 +146,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(purpleShortFlowerImage);
         stage.addActor(lightBlueFlowerImage);
         stage.addActor(greenCircleFlowerImage);
+        stage.addActor(darkPinkCircleFlowerImage);
 
     }
 
