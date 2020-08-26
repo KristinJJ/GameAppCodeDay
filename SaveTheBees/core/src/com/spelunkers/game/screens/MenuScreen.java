@@ -133,7 +133,7 @@ public class MenuScreen extends ScreenAdapter {
         String scoreText = "Scoreboard";
 
         Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition((BeesGame.WIDTH/4, 600));
+        scoreBoard.setPosition((BeesGame.WIDTH/4), 600);
 
         stage.addActor(background);
         stage.addActor(scoreBoard);
