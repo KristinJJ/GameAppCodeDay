@@ -9,7 +9,5 @@ public class Beehive extends Actor {
 
     public Beehive() {
 
-
-
     }
 }

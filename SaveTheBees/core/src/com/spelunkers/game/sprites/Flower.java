@@ -8,13 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public abstract class Flower extends Actor {
     private Sprite sprite;
-    //private Circle body;
+    private Circle center;
+    int pollenCount;
 
     private static final float SCALE = 0.125f;
 
-    public Flower(String imageName) {
-
+    public Flower(String imageName, int pollenCount) {
         sprite = new Sprite(new Texture(imageName));
+        this.pollenCount = pollenCount;
 
         double randomNumberA = Math.random();
         double randomNumberB = Math.random();
@@ -23,13 +24,7 @@ public abstract class Flower extends Actor {
         sprite.setScale(SCALE);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
-        //body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() / 1.5f);
-    }
-
-    @Override
-    protected void positionChanged() {
-        sprite.setPosition(getX(), getY());
-        super.positionChanged();
+        center = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() / 3.0f);
     }
 
     @Override
