@@ -34,6 +34,14 @@ public class MenuScreen extends ScreenAdapter {
 
     }
 
+    public MenuScreen(BeesGame game) {
+        this.game = game;
+        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
+        music_level.setVolume((float) 0.2);
+        music_level.setLooping(true);
+        music_level.play();
+    }
+
     @Override
     public void show() {
         OrthographicCamera camera = new OrthographicCamera(BeesGame.WIDTH, BeesGame.HEIGHT);
