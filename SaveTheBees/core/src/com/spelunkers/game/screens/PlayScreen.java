@@ -1,5 +1,6 @@
 package com.spelunkers.game.screens;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
@@ -11,7 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
 
-public class PlayScreen extends ScreenAdapter {
+public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
     private Bee bee;
     private Music music_level;
