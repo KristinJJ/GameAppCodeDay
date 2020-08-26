@@ -34,11 +34,6 @@ public class MenuScreen extends ScreenAdapter {
     public MenuScreen(BeesGame game) {
         this.game = game;
         background = new Background();
-
-    }
-
-    public MenuScreen(BeesGame game) {
-        this.game = game;
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
         music.setVolume((float) 0.2);
         music.setLooping(true);
