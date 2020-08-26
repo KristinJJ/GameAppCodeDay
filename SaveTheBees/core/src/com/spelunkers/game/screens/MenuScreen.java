@@ -93,23 +93,23 @@ public class MenuScreen extends ScreenAdapter {
         //Light Blue flower picture
         Texture lightBlueFlower = new Texture("lightBlueCircleFlower.png");
         Image lightBlueFlowerImage = new Image();
-        hiveBeesImage.setSize(100, 100);
-        hiveBeesImage.setPosition((0),(0));
-        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
+        lightBlueFlowerImage.setSize(100, 100);
+        lightBlueFlowerImage.setPosition((0),(0));
+        lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
 
         //Purple flower picture
         Texture purpleShortFlower = new Texture("purpleShortFlower.png");
         Image purpleShortFlowerImage = new Image();
-        hiveBeesImage.setSize(100, 100);
-        hiveBeesImage.setPosition((0),(105));
-        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
+        purpleShortFlowerImage.setSize(100, 100);
+        purpleShortFlowerImage.setPosition((0),(100));
+        purpleShortFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
 
         //Purple flower picture
         Texture greenCircleFlower = new Texture("greenCircleFlower.png");
         Image greenCircleFlowerImage = new Image();
-        hiveBeesImage.setSize(100, 100);
-        hiveBeesImage.setPosition((0),(210));
-        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
+        greenCircleFlowerImage.setSize(100, 100);
+        greenCircleFlowerImage.setPosition((0),(200));
+        greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
 
 
         //credits
