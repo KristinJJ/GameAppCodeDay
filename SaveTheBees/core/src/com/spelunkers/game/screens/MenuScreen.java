@@ -131,15 +131,7 @@ public class MenuScreen extends ScreenAdapter {
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
-        //scoreboard
-        String scoreText = "Scoreboard";
-
-        Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition((BeesGame.WIDTH/4), 600);
-
         stage.addActor(background);
-        stage.addActor(scoreBoard);
-
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);

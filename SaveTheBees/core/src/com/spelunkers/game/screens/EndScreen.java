@@ -99,6 +99,13 @@ public class EndScreen extends ScreenAdapter {
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
+        //scoreboard
+        String scoreText = "Scoreboard";
+
+        Label scoreBoard = new Label(scoreText, skin);
+        scoreBoard.setPosition((BeesGame.WIDTH/4), 600);
+
+        stage.addActor(scoreBoard);
         stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
