@@ -98,17 +98,17 @@ public class MenuScreen extends ScreenAdapter {
         lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
 
         //Purple flower picture
-        Texture purpleShortFlower = new Texture("purpleShortFlower.png");
-        Image purpleShortFlowerImage = new Image();
-        purpleShortFlowerImage.setSize(100, 100);
-        purpleShortFlowerImage.setPosition((0),(100));
-        purpleShortFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
+        Texture blueShortFlower = new Texture("blueCircleFlower.png");
+        Image blueCircleFlowerImage = new Image();
+        blueCircleFlowerImage.setSize(100, 100);
+        blueCircleFlowerImage.setPosition((0),(85));
+        blueCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower)));
 
         //Purple flower picture
         Texture greenCircleFlower = new Texture("greenCircleFlower.png");
         Image greenCircleFlowerImage = new Image();
         greenCircleFlowerImage.setSize(100, 100);
-        greenCircleFlowerImage.setPosition((0),(200));
+        greenCircleFlowerImage.setPosition((0),(160));
         greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
 
         //Dark Pink flower picture
@@ -135,7 +135,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
-        stage.addActor(purpleShortFlowerImage);
+        stage.addActor(blueCircleFlowerImage);
         stage.addActor(lightBlueFlowerImage);
         stage.addActor(greenCircleFlowerImage);
         stage.addActor(darkPinkCircleFlowerImage);
