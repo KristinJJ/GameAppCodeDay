@@ -90,6 +90,20 @@ public class MenuScreen extends ScreenAdapter {
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
+        //Light Blue flower picture
+        Texture lightBlueFlower = new Texture("lightBlueCircleFlower.png");
+        Image lightBlueFlowerImage = new Image();
+        hiveBeesImage.setSize(100, 100);
+        hiveBeesImage.setPosition((0),(0));
+        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
+
+        //Purple flower picture
+        Texture purpleShortFlower = new Texture("purpleShortFlower.png");
+        Image purpleShortFlowerImage = new Image();
+        hiveBeesImage.setSize(100, 100);
+        hiveBeesImage.setPosition((0),(105));
+        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
+
 
         //credits
         String text = "\n" +
@@ -108,6 +122,9 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
+        stage.addActor(purpleShortFlowerImage);
+        stage.addActor(lightBlueFlowerImage);
+
     }
 
     @Override
