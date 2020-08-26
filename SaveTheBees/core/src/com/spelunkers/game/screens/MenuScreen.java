@@ -93,28 +93,28 @@ public class MenuScreen extends ScreenAdapter {
         //Light Blue flower picture
         Texture lightBlueFlower = new Texture("lightBlueCircleFlower.png");
         Image lightBlueFlowerImage = new Image();
-        lightBlueFlowerImage.setSize(100, 100);
+        lightBlueFlowerImage.setSize(90, 90);
         lightBlueFlowerImage.setPosition((0),(0));
         lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
 
         //Purple flower picture
         Texture blueShortFlower = new Texture("blueCircleFlower.png");
         Image blueCircleFlowerImage = new Image();
-        blueCircleFlowerImage.setSize(100, 100);
+        blueCircleFlowerImage.setSize(90, 90);
         blueCircleFlowerImage.setPosition((0),(85));
         blueCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower)));
 
         //Purple flower picture
         Texture greenCircleFlower = new Texture("greenCircleFlower.png");
         Image greenCircleFlowerImage = new Image();
-        greenCircleFlowerImage.setSize(100, 100);
+        greenCircleFlowerImage.setSize(90, 90);
         greenCircleFlowerImage.setPosition((0),(160));
         greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
 
         //Dark Pink flower picture
         Texture darkPinkCircleFlower = new Texture("darkPinkFlowers.png");
         Image darkPinkCircleFlowerImage = new Image();
-        darkPinkCircleFlowerImage.setSize(100, 100);
+        darkPinkCircleFlowerImage.setSize(90, 90);
         darkPinkCircleFlowerImage.setPosition((100),(0));
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
