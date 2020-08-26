@@ -67,7 +67,22 @@ public class MenuScreen extends ScreenAdapter {
         logoImage.setSize(400, 400);
         logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
-        
+
+        //Honey picture
+        Texture honey = new Texture("honey.png");
+        Image honeyImage = new Image();
+        honeyImage.setSize(800, 300);
+        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2) + (logoImage.getHeight() / 3));
+        honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
+
+        //HoneyHive picture
+        Texture honeyHive = new Texture("hiveBees.png");
+        Image hiveBeesImage = new Image();
+        hiveBeesImage.setSize(300, 300);
+        hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
+        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
+
+
         //credits
         String text = "\n" +
                 "    Kristin Jue\n" +
@@ -83,6 +98,8 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
+        stage.addActor(honeyImage);
+        stage.addActor(hiveBeesImage);
     }
 
     @Override

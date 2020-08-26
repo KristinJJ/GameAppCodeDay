@@ -34,10 +34,29 @@ public class PlayScreen extends ScreenAdapter{
         Bee bee = new Bee();
         BeeAI beeAI = new BeeAI();
         BeeAI beeAI2 = new BeeAI();
+        Flower[] flowerList = new Flower[25];
+
+        for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
+            Flower aFlower;
+            double randomNumberA = Math.random();
+
+            String imageName;
+            if (randomNumberA < (1.0 / 3.0)) aFlower = new RedFlower();
+            else if (randomNumberA < (2.0 / 3.0)) {
+                aFlower = new PurpleFlower();
+            } else {
+                aFlower = new YellowFlower();
+            }
+
+            flowerList[flowerNum] = aFlower;
+            stage.addActor(flowerList[flowerNum]);
+        }
+
         stage.addActor(bee);
         stage.addActor(beeAI);
         stage.addActor(beeAI2);
     }
+
 
     @Override
     public void render(float delta) {
