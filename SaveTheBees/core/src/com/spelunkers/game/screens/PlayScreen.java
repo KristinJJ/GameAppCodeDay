@@ -11,11 +11,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
+import com.spelunkers.game.sprites.BeeAI;
 import com.spelunkers.game.sprites.Flower;
 import com.spelunkers.game.sprites.PurpleFlower;
 import com.spelunkers.game.sprites.RedFlower;
 import com.spelunkers.game.sprites.YellowFlower;
 
+import com.spelunkers.game.sprites.BeeAI;
 
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
@@ -25,6 +27,10 @@ public class PlayScreen extends ScreenAdapter{
 
     public PlayScreen(BeesGame game) {
         this.game = game;
+        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
+        music_level.setVolume((float) 0.2);
+        music_level.setLooping(true);
+        music_level.play();
     }
 
 
@@ -34,6 +40,10 @@ public class PlayScreen extends ScreenAdapter{
 
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
+
+        Bee bee = new Bee();
+        BeeAI beeAI = new BeeAI();
+        BeeAI beeAI2 = new BeeAI();
 
         Flower[] flowerList = new Flower[25];
 
@@ -53,8 +63,9 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
-        Bee bee = new Bee();
         stage.addActor(bee);
+        stage.addActor(beeAI);
+        stage.addActor(beeAI2);
     }
 
 
@@ -63,11 +74,6 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
-
-        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
-        music_level.setVolume((float) 0.2);
-        music_level.setLooping(true);
-        music_level.play();
     }
 
     @Override
