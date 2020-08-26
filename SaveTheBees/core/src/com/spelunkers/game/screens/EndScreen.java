@@ -15,23 +15,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
-import com.spelunkers.game.sprites.Bee;
 
 
-
-public class MenuScreen extends ScreenAdapter {
+public class EndScreen extends ScreenAdapter {
     private BeesGame game;
     private Background background;
     private Stage stage;
     private Music music;
 
 
-    public MenuScreen(BeesGame game) {
+    public EndScreen(BeesGame game) {
         this.game = game;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
@@ -51,7 +48,7 @@ public class MenuScreen extends ScreenAdapter {
         Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         // So much work for a button...
-        Button playBtn = new TextButton("Play", skin, "small");
+        Button playBtn = new TextButton("Play Again", skin, "small");
         playBtn.setSize(100, 50);
         playBtn.setPosition((BeesGame.WIDTH / 2) - 70, (BeesGame.HEIGHT / 2) - 200);
         playBtn.setTransform(true);
@@ -59,14 +56,13 @@ public class MenuScreen extends ScreenAdapter {
         playBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
                 return true;
             }
 
-            //@Override
-            //public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-              //  game.setScreen(new PlayScreen(game));
-            //}
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new PlayScreen(game));
+            }
         });
 
         // Here goes our logo
@@ -91,33 +87,6 @@ public class MenuScreen extends ScreenAdapter {
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
-        //Light Blue flower picture
-        Texture lightBlueFlower = new Texture("lightBlueCircleFlower.png");
-        Image lightBlueFlowerImage = new Image();
-        lightBlueFlowerImage.setSize(100, 100);
-        lightBlueFlowerImage.setPosition((0),(0));
-        lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
-
-        //Purple flower picture
-        Texture purpleShortFlower = new Texture("purpleShortFlower.png");
-        Image purpleShortFlowerImage = new Image();
-        purpleShortFlowerImage.setSize(100, 100);
-        purpleShortFlowerImage.setPosition((0),(100));
-        purpleShortFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
-
-        //Purple flower picture
-        Texture greenCircleFlower = new Texture("greenCircleFlower.png");
-        Image greenCircleFlowerImage = new Image();
-        greenCircleFlowerImage.setSize(100, 100);
-        greenCircleFlowerImage.setPosition((0),(200));
-        greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
-
-        //Dark Pink flower picture
-        Texture darkPinkCircleFlower = new Texture("darkPinkFlowers.png");
-        Image darkPinkCircleFlowerImage = new Image();
-        darkPinkCircleFlowerImage.setSize(100, 100);
-        darkPinkCircleFlowerImage.setPosition((100),(0));
-        darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
         //credits
         String text = "\n" +
@@ -130,25 +99,12 @@ public class MenuScreen extends ScreenAdapter {
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
-        //scoreboard
-        String scoreText = "Scoreboard";
-
-        Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition((BeesGame.WIDTH/4), 600);
-
         stage.addActor(background);
-        stage.addActor(scoreBoard);
-
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
-        stage.addActor(purpleShortFlowerImage);
-        stage.addActor(lightBlueFlowerImage);
-        stage.addActor(greenCircleFlowerImage);
-        stage.addActor(darkPinkCircleFlowerImage);
-
     }
 
     @Override
