@@ -12,6 +12,12 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
 import com.spelunkers.game.sprites.BeeAI;
+import com.spelunkers.game.sprites.Flower;
+import com.spelunkers.game.sprites.PurpleFlower;
+import com.spelunkers.game.sprites.RedFlower;
+import com.spelunkers.game.sprites.YellowFlower;
+
+import com.spelunkers.game.sprites.BeeAI;
 
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
@@ -38,15 +44,17 @@ public class PlayScreen extends ScreenAdapter{
         Bee bee = new Bee();
         BeeAI beeAI = new BeeAI();
         BeeAI beeAI2 = new BeeAI();
-        /*Flower[] flowerList = new Flower[25];
+
+        Flower[] flowerList = new Flower[25];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
             Flower aFlower;
             double randomNumberA = Math.random();
 
             String imageName;
-            if (randomNumberA < (1.0 / 3.0)) aFlower = new RedFlower();
-            else if (randomNumberA < (2.0 / 3.0)) {
+            if (randomNumberA < (1.0 / 3.0)) {
+                aFlower = new RedFlower();
+            } else if (randomNumberA < (2.0 / 3.0)) {
                 aFlower = new PurpleFlower();
             } else {
                 aFlower = new YellowFlower();
@@ -54,7 +62,7 @@ public class PlayScreen extends ScreenAdapter{
 
             flowerList[flowerNum] = aFlower;
             stage.addActor(flowerList[flowerNum]);
-        }*/
+        }
 
         stage.addActor(bee);
         stage.addActor(beeAI);
