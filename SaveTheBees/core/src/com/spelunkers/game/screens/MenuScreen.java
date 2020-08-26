@@ -104,6 +104,13 @@ public class MenuScreen extends ScreenAdapter {
         hiveBeesImage.setPosition((0),(105));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(purpleShortFlower)));
 
+        //Purple flower picture
+        Texture greenCircleFlower = new Texture("greenCircleFlower.png");
+        Image greenCircleFlowerImage = new Image();
+        hiveBeesImage.setSize(100, 100);
+        hiveBeesImage.setPosition((0),(210));
+        hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
+
 
         //credits
         String text = "\n" +
@@ -124,6 +131,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(hiveBeesImage);
         stage.addActor(purpleShortFlowerImage);
         stage.addActor(lightBlueFlowerImage);
+        stage.addActor(greenCircleFlowerImage);
 
     }
 
