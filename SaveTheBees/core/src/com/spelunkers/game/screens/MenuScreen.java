@@ -59,7 +59,7 @@ public class MenuScreen extends ScreenAdapter {
         // So much work for a button...
         Button playBtn = new TextButton("Play", skin, "small");
         playBtn.setSize(100, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) - (playBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 200);
+        playBtn.setPosition((BeesGame.WIDTH / 2) - 70, (BeesGame.HEIGHT / 2) - 200);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
@@ -78,7 +78,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture logo = new Texture("SaveTheBees-Logo.png");
         Image logoImage = new Image();
         logoImage.setSize(400, 400);
-        logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2), (BeesGame.HEIGHT / 2));
+        logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
 
         stage.addActor(playBtn);
@@ -103,5 +103,6 @@ public class MenuScreen extends ScreenAdapter {
         background.dispose();
         //playBtn.dispose();
         game.dispose();
+        stage.dispose();
     }
 }
