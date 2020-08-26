@@ -60,6 +60,7 @@ public class MenuScreen extends ScreenAdapter {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new PlayScreen(game));
+                music.pause();
                 return true;
             }
 
