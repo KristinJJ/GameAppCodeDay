@@ -1,6 +1,6 @@
 package com.spelunkers.game.screens;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
@@ -20,8 +20,8 @@ public class PlayScreen extends ScreenAdapter{
     public PlayScreen(BeesGame game) {
         this.game = game;
         bee = new Bee(100, 100);
-
     }
+
 
     @Override
     public void show() {
@@ -59,6 +59,7 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); //Clear screen before drawing
         SpriteBatch batch = game.getSpriteBatch(); //get sprite batch from game
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
+        music_level.setVolume((float) 0.2);
         music_level.setLooping(true);
         music_level.play();
 
@@ -79,5 +80,6 @@ public class PlayScreen extends ScreenAdapter{
     public void dispose() {
         game.dispose();
         bee.dispose();
+        music_level.dispose();
     }
 }
