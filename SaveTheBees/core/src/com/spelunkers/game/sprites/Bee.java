@@ -12,6 +12,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 public class Bee extends Actor {
+    private int pollenCount;
+    private boolean poisonStatus;
+    private int health;
+
     private Sprite sprite;
     private Circle body;
     private ShapeRenderer shapeRenderer;
@@ -20,6 +24,10 @@ public class Bee extends Actor {
     private static final float SCALE = 0.075f;
 
     public Bee() {
+        pollenCount = 0;
+        poisonStatus = false;
+        health = 100;
+
         sprite = new Sprite(new Texture("worker-bee.png"));
         sprite.setSize(sprite.getWidth() * SCALE, sprite.getHeight() * SCALE);
         sprite.setOrigin(0, 0);
@@ -28,7 +36,6 @@ public class Bee extends Actor {
 
         shapeRenderer = new ShapeRenderer();
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.25f);
-
     }
 
     @Override
@@ -43,7 +50,7 @@ public class Bee extends Actor {
         sprite.draw(batch);
 
         batch.end();
-
+        /// temporary just to make sure the circle is the right size and position
         shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         shapeRenderer.circle(body.x, body.y, body.radius);
@@ -56,11 +63,13 @@ public class Bee extends Actor {
     @Override
     public void act(float delta) {
         // Update bee new position after motion keys
+        // Bee bounces off the walls
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (getX() > 0) {
                 moveBy(-SPEED * delta, 0);
             } else {
                 moveBy(SPEED * delta, 0);
+
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
@@ -89,4 +98,7 @@ public class Bee extends Actor {
         super.act(delta);
     }
 
+    public Circle getBody() {
+        return body;
+    }
 }
