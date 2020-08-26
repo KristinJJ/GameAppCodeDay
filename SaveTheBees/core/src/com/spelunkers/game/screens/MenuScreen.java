@@ -59,13 +59,15 @@ public class MenuScreen extends ScreenAdapter {
         playBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new PlayScreen(game));
+                music.pause();
                 return true;
             }
 
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
-            }
+            //@Override
+            //public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+              //  game.setScreen(new PlayScreen(game));
+            //}
         });
 
         // Here goes our logo
