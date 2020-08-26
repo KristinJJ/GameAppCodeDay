@@ -30,10 +30,28 @@ public class PlayScreen extends ScreenAdapter{
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
 
-        Bee bee = new Bee();
+        Flower[] flowerList = new Flower[25];
 
+        for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
+            Flower aFlower;
+            double randomNumberA = Math.random();
+
+            String imageName;
+            if (randomNumberA < (1.0 / 3.0)) aFlower = new RedFlower();
+            else if (randomNumberA < (2.0 / 3.0)) {
+                aFlower = new PurpleFlower();
+            } else {
+                aFlower = new YellowFlower();
+            }
+
+            flowerList[flowerNum] = aFlower;
+            stage.addActor(flowerList[flowerNum]);
+        }
+
+        Bee bee = new Bee();
         stage.addActor(bee);
     }
+
 
     @Override
     public void render(float delta) {
