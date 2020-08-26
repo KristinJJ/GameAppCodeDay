@@ -21,6 +21,10 @@ public class PlayScreen extends ScreenAdapter{
 
     public PlayScreen(BeesGame game) {
         this.game = game;
+        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
+        music_level.setVolume((float) 0.2);
+        music_level.setLooping(true);
+        music_level.play();
     }
 
 
@@ -34,7 +38,7 @@ public class PlayScreen extends ScreenAdapter{
         Bee bee = new Bee();
         BeeAI beeAI = new BeeAI();
         BeeAI beeAI2 = new BeeAI();
-        Flower[] flowerList = new Flower[25];
+        /*Flower[] flowerList = new Flower[25];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
             Flower aFlower;
@@ -50,7 +54,7 @@ public class PlayScreen extends ScreenAdapter{
 
             flowerList[flowerNum] = aFlower;
             stage.addActor(flowerList[flowerNum]);
-        }
+        }*/
 
         stage.addActor(bee);
         stage.addActor(beeAI);
@@ -63,11 +67,6 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
-
-        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
-        music_level.setVolume((float) 0.2);
-        music_level.setLooping(true);
-        music_level.play();
     }
 
     @Override
