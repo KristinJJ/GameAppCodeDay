@@ -18,19 +18,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
+import com.spelunkers.game.sprites.Background;
 import com.spelunkers.game.sprites.Bee;
 
 
 
 public class MenuScreen extends ScreenAdapter {
     private BeesGame game;
-    private Texture background;
+    private Background background;
     private Stage stage;
 
 
     public MenuScreen(BeesGame game) {
         this.game = game;
-        background = new Texture("background.png");
+        background = new Background();
 
     }
 
@@ -96,6 +97,7 @@ public class MenuScreen extends ScreenAdapter {
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
+        stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
@@ -118,7 +120,7 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        background.dispose();
+        //background.dispose();
         //playBtn.dispose();
         game.dispose();
         stage.dispose();
