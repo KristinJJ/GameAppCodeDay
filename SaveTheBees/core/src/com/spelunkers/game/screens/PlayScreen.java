@@ -6,6 +6,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
@@ -19,7 +20,6 @@ import com.spelunkers.game.sprites.YellowFlower;
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
     private Stage stage;
-    //private Bee bee;
     private Music music_level;
     Skin skin;
 
@@ -56,6 +56,7 @@ public class PlayScreen extends ScreenAdapter{
         Bee bee = new Bee();
         stage.addActor(bee);
     }
+
 
     @Override
     public void render(float delta) {
