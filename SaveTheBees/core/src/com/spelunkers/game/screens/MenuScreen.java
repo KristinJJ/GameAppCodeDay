@@ -115,7 +115,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture darkPinkCircleFlower = new Texture("darkPinkFlowers.png");
         Image darkPinkCircleFlowerImage = new Image();
         darkPinkCircleFlowerImage.setSize(90, 90);
-        darkPinkCircleFlowerImage.setPosition((100),(0));
+        darkPinkCircleFlowerImage.setPosition((90),(0));
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
         //credits
