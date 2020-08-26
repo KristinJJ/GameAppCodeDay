@@ -1,19 +1,24 @@
 package com.spelunkers.game.screens;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
 
-public class PlayScreen extends ScreenAdapter {
+public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
     private Stage stage;
+    private Bee bee;
+    private Music music_level;
 
     public PlayScreen(BeesGame game) {
         this.game = game;
+        bee = new Bee();
     }
 
     @Override
@@ -32,9 +37,11 @@ public class PlayScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
+
+        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
+        music_level.setLooping(true);
+        music_level.play();
     }
-
-
 
     @Override
     public void hide() {
