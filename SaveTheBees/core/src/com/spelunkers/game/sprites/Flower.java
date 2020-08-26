@@ -9,13 +9,15 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public abstract class Flower extends Actor {
     private Sprite sprite;
     private Circle center;
-    int pollenCount;
+    private int pollenCount;
+    private boolean pollinated;
 
     private static final float SCALE = 0.125f;
 
     public Flower(String imageName, int pollenCount) {
         sprite = new Sprite(new Texture(imageName));
         this.pollenCount = pollenCount;
+        pollinated = true;
 
         double randomNumberA = Math.random();
         double randomNumberB = Math.random();
@@ -25,6 +27,19 @@ public abstract class Flower extends Actor {
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
         center = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() / 3.0f);
+    }
+
+    public int harvestPollen() {
+        pollinated = false;
+        return pollenCount;
+    }
+
+    public int getPollenCount() {
+        return pollenCount;
+    }
+
+    public boolean isPollinated() {
+        return pollinated;
     }
 
     @Override

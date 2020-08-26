@@ -2,17 +2,17 @@ package com.spelunkers.game.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class Beehive extends Actor {
+public class Water extends Actor {
 
     private Sprite sprite;
     private static final float SCALE = 0.50f;
 
-    public Beehive() {
-        sprite = new Sprite(new Texture("beehive.png"));
-        sprite.setPosition(-200.0f, 400f);
+    public Water() {
+        sprite = new Sprite(new Texture("stream.png"));
+        sprite.setPosition(250f, -300f);
         sprite.setScale(SCALE);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
     }

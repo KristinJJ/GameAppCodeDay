@@ -1,12 +1,10 @@
 package com.spelunkers.game.screens;
 
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
@@ -15,9 +13,9 @@ import com.spelunkers.game.sprites.BeeAI;
 import com.spelunkers.game.sprites.Flower;
 import com.spelunkers.game.sprites.PurpleFlower;
 import com.spelunkers.game.sprites.RedFlower;
+import com.spelunkers.game.sprites.Water;
 import com.spelunkers.game.sprites.YellowFlower;
 import com.spelunkers.game.sprites.Beehive;
-
 import com.spelunkers.game.sprites.BeeAI;
 
 public class PlayScreen extends ScreenAdapter{
@@ -46,7 +44,10 @@ public class PlayScreen extends ScreenAdapter{
         BeeAI beeAI = new BeeAI();
         BeeAI beeAI2 = new BeeAI();
 
-        Flower[] flowerList = new Flower[25];
+        Beehive beehive = new Beehive();
+        Water stream = new Water();
+
+        Flower[] flowerList = new Flower[15];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
             Flower aFlower;
@@ -64,7 +65,8 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
-        stage.addActor(new Beehive());
+        stage.addActor(beehive);
+        stage.addActor(stream);
 
         stage.addActor(bee);
         stage.addActor(beeAI);
