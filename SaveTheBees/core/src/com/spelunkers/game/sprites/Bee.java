@@ -16,7 +16,7 @@ public class Bee extends Actor {
     private boolean poisonStatus;
     private int health;
 
-    private Sprite sprite;
+    protected Sprite sprite;
     private Circle body;
     private ShapeRenderer shapeRenderer;
 
@@ -94,8 +94,6 @@ public class Bee extends Actor {
                 moveBy(0, SPEED * delta);
             }
         }
-
-        super.act(delta);
     }
 
     public Circle getBody() {

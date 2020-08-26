@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
+import com.spelunkers.game.sprites.BeeAI;
 
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
@@ -31,8 +32,11 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.input.setInputProcessor(stage);
 
         Bee bee = new Bee();
-
+        BeeAI beeAI = new BeeAI();
+        BeeAI beeAI2 = new BeeAI();
         stage.addActor(bee);
+        stage.addActor(beeAI);
+        stage.addActor(beeAI2);
     }
 
     @Override
