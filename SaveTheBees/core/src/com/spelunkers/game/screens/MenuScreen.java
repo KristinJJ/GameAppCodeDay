@@ -2,6 +2,7 @@ package com.spelunkers.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,28 +19,30 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
+import com.spelunkers.game.sprites.Background;
 import com.spelunkers.game.sprites.Bee;
 
 
 
 public class MenuScreen extends ScreenAdapter {
     private BeesGame game;
-    private Texture background;
+    private Background background;
     private Stage stage;
+    private Music music;
 
 
     public MenuScreen(BeesGame game) {
         this.game = game;
-        background = new Texture("background.png");
+        background = new Background();
 
     }
 
     public MenuScreen(BeesGame game) {
         this.game = game;
-        music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
-        music_level.setVolume((float) 0.2);
-        music_level.setLooping(true);
-        music_level.play();
+        music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
+        music.setVolume((float) 0.2);
+        music.setLooping(true);
+        music.play();
     }
 
     @Override
@@ -104,6 +107,7 @@ public class MenuScreen extends ScreenAdapter {
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
+        stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
@@ -126,9 +130,10 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        background.dispose();
+        //background.dispose();
         //playBtn.dispose();
         game.dispose();
         stage.dispose();
+        music.dispose();
     }
 }
