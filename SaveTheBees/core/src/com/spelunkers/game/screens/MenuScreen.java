@@ -20,8 +20,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
 
-
-
 public class MenuScreen extends ScreenAdapter {
     private BeesGame game;
     private Texture background;
@@ -68,18 +66,6 @@ public class MenuScreen extends ScreenAdapter {
         logoImage.setSize(400, 400);
         logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
-        
-        //credits
-        String text = "\n" +
-                "    Kristin Jue\n" +
-                "    Erica Chong\n" +
-                "    Obaid Sidiqi\n" +
-                "    Lily Aguirre\n" +
-                "    Monica King\n" +
-                "    Jardi Martinez\n";
-        Label credits = new Label(text, skin);
-
-
 
         //credits
         String text = "\n" +
@@ -90,7 +76,6 @@ public class MenuScreen extends ScreenAdapter {
                 "    Monica King\n" +
                 "    Jardi Martinez\n";
         Label credits = new Label(text, skin);
-
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
         stage.addActor(playBtn);
