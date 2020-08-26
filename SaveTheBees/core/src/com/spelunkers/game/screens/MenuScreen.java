@@ -20,6 +20,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Bee;
 
+
+
 public class MenuScreen extends ScreenAdapter {
     private BeesGame game;
     private Texture background;
@@ -67,6 +69,14 @@ public class MenuScreen extends ScreenAdapter {
         logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
 
+
+        //Honey picture
+        Texture honey = new Texture("honey.png");
+        Image honeyImage = new Image();
+        honeyImage.setSize(800, 300);
+        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2) + (logoImage.getHeight() / 3));
+        honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
+
         //credits
         String text = "\n" +
                 "    Kristin Jue\n" +
@@ -81,6 +91,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
+        stage.addActor(honeyImage);
     }
 
     @Override
