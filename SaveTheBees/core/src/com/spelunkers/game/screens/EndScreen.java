@@ -104,13 +104,13 @@ public class EndScreen extends ScreenAdapter {
 
         //scoreboard
         // do something with the high score here
-        String scoreText = "Scoreboard";
+        String scoreText = "Scoreboard : " + highScore;
 
         Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition((BeesGame.WIDTH/4), 600);
+        scoreBoard.setPosition(100, 100);
 
-        stage.addActor(scoreBoard);
         stage.addActor(background);
+        stage.addActor(scoreBoard);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
