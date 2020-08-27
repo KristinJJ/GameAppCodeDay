@@ -37,9 +37,6 @@ public abstract class Flower extends Actor {
         flowerSprite.setPosition(randomX, randomY);
 
         centerSprite = new Sprite(new Texture(pollenImageName));
-        centerSprite.setPosition(randomX, randomY);
-        centerSprite.setScale(POLLENSCALE);
-        centerSprite = new Sprite(new Texture(pollenImageName));
         centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.5f, randomY + flowerSprite.getHeight() / 2.5f);
         centerSprite.setSize(centerSprite.getWidth() * POLLENSCALE, centerSprite.getHeight() * POLLENSCALE);
 

@@ -72,6 +72,7 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(background); //set it and forget it
 
         bee = new Bee();
+
         Group aiBees = new Group();
         aiBees.setName("aiBees");
         aiBees.addActor(new BeeAI());
@@ -79,7 +80,7 @@ public class PlayScreen extends ScreenAdapter{
 
         beehive = new Beehive();
         stream = new Water();
-        scoreboard = new Scoreboard(bee);
+        scoreboard = new Scoreboard(bee, beehive);
 
         flowerList = new Flower[15];
 

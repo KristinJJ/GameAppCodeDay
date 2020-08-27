@@ -21,31 +21,14 @@ import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
 
 
-public class EndScreen extends ScreenAdapter {
+public class CreditScreen extends ScreenAdapter {
     private BeesGame game;
     private Background background;
     private Stage stage;
     private Music music;
 
-    private int playerPollenCount;
-    private int playerPesticideCount;
-    private int playerHP;
 
-    private int computerPollenCount;
-    private int computerPesticideCount;
-    private int computerHP;
-
-
-    public EndScreen(BeesGame game, int playerPollenCount, int playerPesticideCount, int playerHP,
-            int computerPollenCount, int computerPesticideCount, int computerHP) {
-        this.playerPollenCount = playerPollenCount;
-        this.playerPesticideCount = playerPesticideCount;
-        this.playerHP = playerHP;
-
-        this.computerPollenCount = computerPollenCount;
-        this.computerPesticideCount = computerPesticideCount;
-        this.computerHP = computerHP;
-
+    public CreditScreen(BeesGame game) {
         this.game = game;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
@@ -65,12 +48,12 @@ public class EndScreen extends ScreenAdapter {
         Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         // So much work for a button...
-        Button playBtn = new TextButton("Play Again", skin, "small");
-        playBtn.setSize(120, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
-        playBtn.setTransform(true);
-        playBtn.scaleBy(0.5f);
-        playBtn.addListener(new InputListener() {
+        Button backBtn = new TextButton("back", skin, "small");
+        backBtn.setSize(120, 50);
+        backBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        backBtn.setTransform(true);
+        backBtn.scaleBy(0.5f);
+        backBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
@@ -78,7 +61,7 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new MenuScreen(game));
             }
         });
 
@@ -106,43 +89,21 @@ public class EndScreen extends ScreenAdapter {
 
 
         //credits
-       /*String text = "\n" +
+        String text = "\n" +
                "    Kristin Jue\n" +
                "    Erica Chong\n" +
                "    Obaid Sidiqi\n" +
                "    Lily Aguirre\n" +
                "    Monica King\n" +
                "    Jardi Martinez\n";
-       Label credits = new Label(text, skin);
-       credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);*/
+        Label credits = new Label(text, skin);
+        credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
-        //scoreboard
-        // do something with the high score here
-        String scoreText = "Scoreboard\n\n" +
-                "\nPlayer" +
-                "\n________________" +
-                "\nPesticide Count : " + playerPesticideCount +
-                "\n________________" +
-                "\nPollen Count : " + playerPollenCount +
-                "\n________________" +
-                "\nHP : " + playerHP +
-
-                "\n\n\nComputer" +
-                "\n________________" +
-                "\nPesticide Count : " + computerPesticideCount +
-                "\n________________" +
-                "\nPollen Count : " + computerPollenCount +
-                "\n________________" +
-                "\nHP : " + computerHP ;
-
-        Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
 
         stage.addActor(background);
-        stage.addActor(scoreBoard);
-        stage.addActor(playBtn);
+        stage.addActor(backBtn);
         stage.addActor(logoImage);
-        //stage.addActor(credits);
+        stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
     }

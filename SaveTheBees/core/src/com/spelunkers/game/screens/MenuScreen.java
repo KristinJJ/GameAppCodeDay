@@ -64,8 +64,8 @@ public class MenuScreen extends ScreenAdapter {
 
         // So much work for a button...
         Button playBtn = new TextButton("Play", skin, "small");
-        playBtn.setSize(100, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2f) - 70, (BeesGame.HEIGHT / 2f) - 200);
+        playBtn.setSize(150, 50);
+        playBtn.setPosition(((BeesGame.WIDTH / 2f) - 110), (BeesGame.HEIGHT / 2f) - 160);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
@@ -76,10 +76,23 @@ public class MenuScreen extends ScreenAdapter {
             }
         });
 
+        Button creditsBtn = new TextButton("Credits", skin, "small");
+        creditsBtn.setSize(100, 40);
+        creditsBtn.setPosition((BeesGame.WIDTH / 2f - 70), (BeesGame.HEIGHT / 2f) - 250);
+        creditsBtn.setTransform(true);
+        creditsBtn.scaleBy(0.5f);
+        creditsBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new CreditScreen(game));
+                return true;
+            }
+        });
+
         // ---------   Temporary button to get to the end Screen -----------------------------------
         Button endBtn = new TextButton("The End", skin, "small");
         endBtn.setSize(100, 50);
-        endBtn.setPosition((BeesGame.WIDTH / 1.5f), (BeesGame.HEIGHT / 2f) - 200);
+        endBtn.setPosition((BeesGame.WIDTH / 1.5f) + 100, (BeesGame.HEIGHT / 2f) - 200);
         endBtn.setTransform(true);
         endBtn.scaleBy(0.5f);
         endBtn.addListener(new InputListener() {
@@ -246,6 +259,7 @@ public class MenuScreen extends ScreenAdapter {
         // Add our stellar actors
         stage.addActor(background);
         stage.addActor(playBtn);
+        stage.addActor(creditsBtn);
         stage.addActor(endBtn); // This is temporary to get to end screen
         stage.addActor(logoImage);
         stage.addActor(honeyImage);
