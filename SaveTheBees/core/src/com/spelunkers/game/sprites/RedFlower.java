@@ -3,6 +3,6 @@ package com.spelunkers.game.sprites;
 public class RedFlower extends Flower{
 
     public RedFlower() {
-        super("red-flower.png", 2);
+        super("red-flower.png", 2, "twoPollen.png");
     }
 }
