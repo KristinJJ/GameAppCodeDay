@@ -14,7 +14,7 @@ public abstract class Flower extends Actor {
     private boolean poisoned;
 
     private static final float SCALE = 0.125f;
-    private static final float POLLENSCALE = .12f;
+    private static final float POLLENSCALE = .20f; //.12f;
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
         pollinated = true;

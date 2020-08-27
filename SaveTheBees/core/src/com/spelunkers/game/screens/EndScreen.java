@@ -132,7 +132,7 @@ public class EndScreen extends ScreenAdapter {
                 "\nHP : " + computerHP ;
 
         Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 8));
+        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
 
         stage.addActor(background);
         stage.addActor(scoreBoard);
