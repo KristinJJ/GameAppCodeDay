@@ -115,18 +115,24 @@ public class EndScreen extends ScreenAdapter {
         //scoreboard
         // do something with the high score here
         String scoreText = "Scoreboard\n\n" +
-                "Player" +
-                "Pollen Count    | " + playerPollenCount +
-                "Pesticide Count | " + playerPesticideCount +
-                "HP              | " + playerHP +
+                "\nPlayer" +
+                "\n________________" +
+                "\nPesticide Count : " + playerPesticideCount +
+                "\n________________" +
+                "\nPollen Count : " + playerPollenCount +
+                "\n________________" +
+                "\nHP : " + playerHP +
 
-                "\n\nComputer" +
-                "Pollen Count    | " + computerPollenCount +
-                "Pesticide Count | " + computerPesticideCount +
-                "HP              | " + computerHP ;
+                "\n\n\nComputer" +
+                "\n________________" +
+                "\nPesticide Count : " + computerPesticideCount +
+                "\n________________" +
+                "\nPollen Count : " + computerPollenCount +
+                "\n________________" +
+                "\nHP : " + computerHP ;
 
         Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 2) - 100);
+        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 8));
 
         stage.addActor(background);
         stage.addActor(scoreBoard);
