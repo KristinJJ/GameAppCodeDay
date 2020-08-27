@@ -135,7 +135,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
-        stage.addActor(credits);
+        //stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
         stage.addActor(blueCircleFlowerImage);
