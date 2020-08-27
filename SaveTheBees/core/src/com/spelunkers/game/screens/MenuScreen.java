@@ -181,7 +181,7 @@ public class MenuScreen extends ScreenAdapter {
 
         //credits
         String text = "\n" +
-                "Spelunker Studios";
+                "Spelunkers Studios";
         Label credits = new Label(text, skin);
         credits.setPosition(((BeesGame.WIDTH / 2f) - (credits.getWidth() / 2f)), 7);
 
