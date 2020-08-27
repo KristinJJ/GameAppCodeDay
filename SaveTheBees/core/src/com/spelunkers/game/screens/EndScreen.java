@@ -94,7 +94,7 @@ public class EndScreen extends ScreenAdapter {
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
-        Texture honeyHive = new Texture("hiveBees.png");
+        Texture honeyHive = new Texture("beeHiveTrim.png");
         Image hiveBeesImage = new Image();
         hiveBeesImage.setSize(300, 300);
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
