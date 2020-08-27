@@ -130,14 +130,14 @@ public class MenuScreen extends ScreenAdapter {
         darkPinkCircleFlowerImage.setPosition((90),(0));
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
-        //Bees
+        //Bees looking at the left
         Texture leftYellowBee = new Texture("leftYellowBee.png");
         Image leftYellowBeeImage = new Image();
         leftYellowBeeImage.setSize(30, 30);
         leftYellowBeeImage.setPosition((50),(200));
         leftYellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee)));
 
-        //Bees
+        //Bees looking at the right
         Texture yellowBee = new Texture("yellowBee.png");
         Image yellowBeeImage = new Image();
         yellowBeeImage.setSize(30, 30);
@@ -146,7 +146,7 @@ public class MenuScreen extends ScreenAdapter {
 
         Texture yellowBee2 = new Texture("yellowBee.png");
         Image yellowBeeImage2 = new Image();
-        yellowBeeImage2.setSize(30, 30);
+        yellowBeeImage2.setSize(40, 40);
         yellowBeeImage2.setPosition((350),(125));
         yellowBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee2)));
 
