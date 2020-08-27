@@ -17,6 +17,10 @@ public class Water extends Actor {
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
     }
 
+    public void wash(Bee bee) {
+
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
         sprite.draw(batch);

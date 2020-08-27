@@ -54,6 +54,11 @@ public class Bee extends Actor {
         pollenCount += flower.harvestPollen();
     }
 
+    public void wash() {
+        poisonStatus = false;
+        pollenCount = 0;
+    }
+
     @Override
     protected void positionChanged() {
         sprite.setPosition(getX(), getY());

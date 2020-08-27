@@ -11,15 +11,16 @@ public abstract class Flower extends Actor {
     private Sprite centerSprite;
     private int pollenCount;
     private boolean pollinated;
+    private boolean poisoned;
 
     private static final float SCALE = 0.125f;
-    private static final float POLLENSCALE = .15f;
     private static final float POLLENSCALE = .12f;
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
+        pollinated = true;
+        poisoned = false;
         flowerSprite = new Sprite(new Texture(flowerImageName));
         this.pollenCount = pollenCount;
-        pollinated = true;
 
         //creating a random point for the flower to be drawn at
         float randomX = (float)(Math.random() * 800.0f);
@@ -31,22 +32,18 @@ public abstract class Flower extends Actor {
         }
         flowerSprite.setOrigin(randomX, randomY);
 
-        flowerSprite.setScale(SCALE);
-        setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
         //flowerSprite.setScale(SCALE);
+        setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
         flowerSprite.setSize(flowerSprite.getWidth() * SCALE, flowerSprite.getHeight() * SCALE);
         flowerSprite.setPosition(randomX, randomY);
-        setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
+        //setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
 
         centerSprite = new Sprite(new Texture(pollenImageName));
-        //centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.0f, randomY + flowerSprite.getHeight() / 2.0f);
-        //centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.0f, randomY + flowerSprite.getHeight() / 2.0f);
         centerSprite.setPosition(randomX, randomY);
         centerSprite.setScale(POLLENSCALE);
         centerSprite = new Sprite(new Texture(pollenImageName));
         centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.5f, randomY + flowerSprite.getHeight() / 2.5f);
         centerSprite.setSize(centerSprite.getWidth() * POLLENSCALE, centerSprite.getHeight() * POLLENSCALE);
-        //centerSprite.setScale(POLLENSCALE);
 
     }
 
