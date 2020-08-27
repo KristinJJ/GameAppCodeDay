@@ -48,9 +48,6 @@ public class Bee extends Actor {
     }
 
     public void drawPollen(Flower flower) {
-        // TODO: check if body overlaps flower center
-
-        //
         pollenCount += flower.harvestPollen();
     }
 

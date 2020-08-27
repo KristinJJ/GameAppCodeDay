@@ -26,6 +26,8 @@ public class PlayScreen extends ScreenAdapter{
     private Stage stage;
     private Music music_level;
     private Bee bee;
+    private Flower[] flowerList;
+    private Water stream;
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
@@ -52,31 +54,7 @@ public class PlayScreen extends ScreenAdapter{
         this.playerPesticideCount = playerPesticideCount;
     }
 
-    // Call this whenever you want to save the playerHP
-    void savePlayerHP(int playerHP) {
-        this.playerHP = playerHP;
-    }
 
-    // Call this whenever you want to save the computerPollenCount
-    void saveComputerPollenCount(int computerPollenCount) {
-        this.computerPollenCount = computerPollenCount;
-    }
-
-    // Call this whenever you want to save the computerPesticideCount
-    void saveComputerPesticideCount(int computerPesticideCount) {
-        this.computerPesticideCount = computerPesticideCount;
-    }
-
-    // Call this whenever you want to save the computerHP
-    void saveComputerHP(int computerHP) {
-        this.computerHP = computerHP;
-    }
-
-    // Call this whenever you want to switch to the EndScreen
-    void goToEndScreen() {
-        game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP,
-                computerPollenCount, computerPesticideCount, computerHP));
-    }
 
     @Override
     public void show() {
@@ -97,10 +75,10 @@ public class PlayScreen extends ScreenAdapter{
         aiBees.addActor(new BeeAI());
 
         Beehive beehive = new Beehive();
-        Water stream = new Water();
+        stream = new Water();
         Scoreboard scoreboard = new Scoreboard();
 
-        Flower[] flowerList = new Flower[15];
+        flowerList = new Flower[15];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
             Flower aFlower;
@@ -137,8 +115,9 @@ public class PlayScreen extends ScreenAdapter{
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
-        Group aiBees = (Group)stage.getRoot().findActor("aiBees");
 
+        //boing when playerbee hits aibee
+        Group aiBees = (Group)stage.getRoot().findActor("aiBees");
         for (Actor actor : aiBees.getChildren()) {
             Bee ai = (Bee)actor;
             if (bee.getBody().overlaps(ai.getBody())) {
@@ -147,7 +126,44 @@ public class PlayScreen extends ScreenAdapter{
             }
         }
 
+        //wash in the water
+        if(bee.getBody().overlaps(stream.getBody())){
+            bee.wash();
+        }
+        //pollinate from flowers
+        for(Flower aFlower : flowerList) {
+            if(bee.getBody().overlaps(aFlower.getBody())) {
+                bee.drawPollen(aFlower);
+            }
+        }
+
         stage.draw();
+    }
+
+    // Call this whenever you want to save the playerHP
+    void savePlayerHP(int playerHP) {
+        this.playerHP = playerHP;
+    }
+
+    // Call this whenever you want to save the computerPollenCount
+    void saveComputerPollenCount(int computerPollenCount) {
+        this.computerPollenCount = computerPollenCount;
+    }
+
+    // Call this whenever you want to save the computerPesticideCount
+    void saveComputerPesticideCount(int computerPesticideCount) {
+        this.computerPesticideCount = computerPesticideCount;
+    }
+
+    // Call this whenever you want to save the computerHP
+    void saveComputerHP(int computerHP) {
+        this.computerHP = computerHP;
+    }
+
+    // Call this whenever you want to switch to the EndScreen
+    void goToEndScreen() {
+        game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP,
+                computerPollenCount, computerPesticideCount, computerHP));
     }
 
     @Override

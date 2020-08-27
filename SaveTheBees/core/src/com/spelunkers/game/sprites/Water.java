@@ -1,5 +1,6 @@
 package com.spelunkers.game.sprites;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -17,8 +18,8 @@ public class Water extends Actor {
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
     }
 
-    public void wash(Bee bee) {
-
+    public Circle getBody() {
+        return new Circle(sprite.getX(), sprite.getY(), 50);
     }
 
     @Override

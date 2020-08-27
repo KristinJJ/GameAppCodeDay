@@ -58,6 +58,10 @@ public abstract class Flower extends Actor {
         return pollinated;
     }
 
+    public Circle getBody() {
+        return new Circle(centerSprite.getX(), centerSprite.getY(), 25);
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
         flowerSprite.draw(batch);
