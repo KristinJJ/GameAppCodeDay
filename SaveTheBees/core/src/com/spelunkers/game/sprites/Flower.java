@@ -59,7 +59,7 @@ public abstract class Flower extends Actor {
     }
 
     public Circle getBody() {
-        return new Circle(centerSprite.getX(), centerSprite.getY(), 25);
+        return new Circle(centerSprite.getX(), centerSprite.getY(), 5);
     }
 
     @Override

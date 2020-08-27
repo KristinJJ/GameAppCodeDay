@@ -43,10 +43,6 @@ public class Bee extends Actor {
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
     }
 
-    public Circle getBody() {
-        return body;
-    }
-
     public void drawPollen(Flower flower) {
         pollenCount += flower.harvestPollen();
     }
@@ -69,10 +65,10 @@ public class Bee extends Actor {
 
         batch.end();
         /// temporary just to make sure the circle is the right size and position
-        shapeRenderer.setColor(Color.BLACK);
+        /*shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         shapeRenderer.circle(body.x, body.y, body.radius);
-        shapeRenderer.end();
+        shapeRenderer.end();*/
 
         batch.begin();
 
@@ -117,8 +113,18 @@ public class Bee extends Actor {
                 moveBy(0, SPEED * boost * delta);
             }
         }
+    }
 
+    public Circle getBody() {
+        return body;
+    }
 
+    public int getPollenCount() {
+        return pollenCount;
+    }
+
+    public int getHealth() {
+        return health;
     }
 
 }

@@ -76,7 +76,7 @@ public class PlayScreen extends ScreenAdapter{
 
         Beehive beehive = new Beehive();
         stream = new Water();
-        Scoreboard scoreboard = new Scoreboard();
+        Scoreboard scoreboard = new Scoreboard(bee);
 
         flowerList = new Flower[15];
 
@@ -96,8 +96,8 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
-        Flower flower = new YellowFlower();
-        stage.addActor(flower);
+        //Flower flower = new YellowFlower();
+        //stage.addActor(flower);
 
         stage.addActor(beehive);
         stage.addActor(stream);

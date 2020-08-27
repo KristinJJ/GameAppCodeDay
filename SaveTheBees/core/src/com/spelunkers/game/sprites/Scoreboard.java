@@ -6,10 +6,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class Scoreboard extends Actor {
     private Sprite sprite;
+    private Bee bee;
 
-    public Scoreboard() {
+    public Scoreboard(Bee bee) {
         sprite = new Sprite();
         sprite.setPosition(800,800);
+
+        this.bee = bee;
+    }
+
+    @Override
+    public void act(float delta) {
+        //get bee updates
+        
     }
 
     @Override
