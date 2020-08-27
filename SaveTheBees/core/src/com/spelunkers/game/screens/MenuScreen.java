@@ -53,28 +53,38 @@ public class MenuScreen extends ScreenAdapter {
         // So much work for a button...
         Button playBtn = new TextButton("Play", skin, "small");
         playBtn.setSize(100, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) - 70, (BeesGame.HEIGHT / 2) - 200);
+        playBtn.setPosition((BeesGame.WIDTH / 2f) - 70, (BeesGame.HEIGHT / 2f) - 200);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new PlayScreen(game));
-                music.pause();
                 return true;
             }
-
-            //@Override
-            //public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-              //  game.setScreen(new PlayScreen(game));
-            //}
         });
+
+        // ---------   Temporary button to get to the end Screen -----------------------------------
+        Button endBtn = new TextButton("The End", skin, "small");
+        endBtn.setSize(100, 50);
+        endBtn.setPosition((BeesGame.WIDTH / 1.5f), (BeesGame.HEIGHT / 2f) - 200);
+        endBtn.setTransform(true);
+        endBtn.scaleBy(0.5f);
+        endBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new EndScreen(game));
+                return true;
+            }
+        });
+        // -----------------------------------------------------------------------------------------
 
         // Here goes our logo
         Texture logo = new Texture("SaveTheBees-Logo.png");
         Image logoImage = new Image();
         logoImage.setSize(400, 400);
-        logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
+        logoImage.setPosition((BeesGame.WIDTH / 2f) - (logoImage.getWidth() / 2f),
+                              (BeesGame.HEIGHT / 2f) - (logoImage.getHeight() / 3f));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
 
 
@@ -82,14 +92,14 @@ public class MenuScreen extends ScreenAdapter {
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
         honeyImage.setSize(800, 300);
-        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2) + (logoImage.getHeight() / 3));
+        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2f) + (logoImage.getHeight() / 3f));
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
         Texture honeyHive = new Texture("hiveBees.png");
         Image hiveBeesImage = new Image();
         hiveBeesImage.setSize(300, 300);
-        hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
+        hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2f) + (hiveBeesImage.getHeight() / 3f));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
         //Light Blue flower picture
@@ -158,10 +168,13 @@ public class MenuScreen extends ScreenAdapter {
                 "    Monica King\n" +
                 "    Jardi Martinez\n";
         Label credits = new Label(text, skin);
-        credits.setPosition(((BeesGame.WIDTH / 2) - (credits.getWidth() / 2)), 10);
+        credits.setPosition(((BeesGame.WIDTH / 2f) - (credits.getWidth() / 2f)), 10);
         */
+
+        // Add our stellar actors
         stage.addActor(background);
         stage.addActor(playBtn);
+        stage.addActor(endBtn); // This is temporary to get to end screen
         stage.addActor(logoImage);
         //stage.addActor(credits);
         stage.addActor(honeyImage);
@@ -187,6 +200,7 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void hide() {
+        music.stop();
         Gdx.input.setInputProcessor(null);
     }
 
