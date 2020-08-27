@@ -34,7 +34,7 @@ public class EndScreen extends ScreenAdapter {
         this.highScore = highScore;
         this.game = game;
         background = new Background();
-        music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
         music.setVolume((float) 0.2);
         music.setLooping(true);
         music.play();
