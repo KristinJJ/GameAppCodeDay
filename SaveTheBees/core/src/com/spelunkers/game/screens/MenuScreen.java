@@ -296,14 +296,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(playBtn);
         stage.addActor(instructBtn);
         stage.addActor(creditsBtn);
-<<<<<<< HEAD
         //stage.addActor(endBtn); // This is temporary to get to end screen
-
-
-
-=======
-        stage.addActor(endBtn); // This is temporary to get to end screen
->>>>>>> e73041693560cf246d898f235840a32451f7b3e1
     }
 
     @Override
