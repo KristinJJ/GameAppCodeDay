@@ -82,6 +82,24 @@ public class EndScreen extends ScreenAdapter {
             }
         });
 
+        // button to go back to the menu
+        Button menuBtn = new TextButton("Menu", skin, "small");
+        menuBtn.setSize(120, 50);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 400);
+        menuBtn.setTransform(true);
+        menuBtn.scaleBy(0.5f);
+        menuBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new MenuScreen(game));
+            }
+        });
+
         // Here goes our logo
         Texture logo = new Texture("SaveTheBees-Logo.png");
         Image logoImage = new Image();
@@ -103,18 +121,6 @@ public class EndScreen extends ScreenAdapter {
         hiveBeesImage.setSize(300, 300);
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
-
-
-        //credits
-       /*String text = "\n" +
-               "    Kristin Jue\n" +
-               "    Erica Chong\n" +
-               "    Obaid Sidiqi\n" +
-               "    Lily Aguirre\n" +
-               "    Monica King\n" +
-               "    Jardi Martinez\n";
-       Label credits = new Label(text, skin);
-       credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);*/
 
         //scoreboard
         // do something with the high score here
@@ -141,8 +147,8 @@ public class EndScreen extends ScreenAdapter {
         stage.addActor(background);
         stage.addActor(scoreBoard);
         stage.addActor(playBtn);
+        stage.addActor(menuBtn);
         stage.addActor(logoImage);
-        //stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
     }
