@@ -1,3 +1,4 @@
+
 package com.spelunkers.game.screens;
 
 import com.badlogic.gdx.Gdx;
@@ -26,9 +27,11 @@ public class EndScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+    private int highScore;
 
 
-    public EndScreen(BeesGame game) {
+    public EndScreen(BeesGame game, int highScore) {
+        this.highScore = highScore;
         this.game = game;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
@@ -100,6 +103,7 @@ public class EndScreen extends ScreenAdapter {
         credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
 
         //scoreboard
+        // do something with the high score here
         String scoreText = "Scoreboard";
 
         Label scoreBoard = new Label(scoreText, skin);

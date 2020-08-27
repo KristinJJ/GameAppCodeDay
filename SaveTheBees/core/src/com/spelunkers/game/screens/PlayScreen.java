@@ -23,6 +23,7 @@ public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
     private Stage stage;
     private Music music_level;
+    private int highScore;
     Skin skin;
 
     public PlayScreen(BeesGame game) {
@@ -33,6 +34,15 @@ public class PlayScreen extends ScreenAdapter{
         music_level.play();
     }
 
+    // Call this whenever you want to save the high score
+    void saveHighScore(int highScore) {
+        this.highScore = highScore;
+    }
+
+    // Call this whenever you want to switch to the EndScreen
+    void goToEndScreen() {
+        game.setScreen(new EndScreen(game, highScore));
+    }
 
     @Override
     public void show() {

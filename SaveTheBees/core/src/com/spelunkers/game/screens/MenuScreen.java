@@ -29,6 +29,7 @@ public class MenuScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+    private int highScore;
 
 
     public MenuScreen(BeesGame game) {
@@ -38,6 +39,7 @@ public class MenuScreen extends ScreenAdapter {
         music.setVolume((float) 0.2);
         music.setLooping(true);
         music.play();
+        this.highScore = 0;
     }
 
     @Override
@@ -73,7 +75,7 @@ public class MenuScreen extends ScreenAdapter {
         endBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new EndScreen(game));
+                game.setScreen(new EndScreen(game, highScore));
                 return true;
             }
         });
