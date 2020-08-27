@@ -14,6 +14,7 @@ public abstract class Flower extends Actor {
 
     private static final float SCALE = 0.125f;
     private static final float POLLENSCALE = .15f;
+    private static final float POLLENSCALE = .12f;
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
         flowerSprite = new Sprite(new Texture(flowerImageName));
@@ -32,12 +33,21 @@ public abstract class Flower extends Actor {
 
         flowerSprite.setScale(SCALE);
         setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
+        //flowerSprite.setScale(SCALE);
+        flowerSprite.setSize(flowerSprite.getWidth() * SCALE, flowerSprite.getHeight() * SCALE);
+        flowerSprite.setPosition(randomX, randomY);
+        setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
 
         centerSprite = new Sprite(new Texture(pollenImageName));
         //centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.0f, randomY + flowerSprite.getHeight() / 2.0f);
         //centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.0f, randomY + flowerSprite.getHeight() / 2.0f);
         centerSprite.setPosition(randomX, randomY);
         centerSprite.setScale(POLLENSCALE);
+        centerSprite = new Sprite(new Texture(pollenImageName));
+        centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.5f, randomY + flowerSprite.getHeight() / 2.5f);
+        centerSprite.setSize(centerSprite.getWidth() * POLLENSCALE, centerSprite.getHeight() * POLLENSCALE);
+        //centerSprite.setScale(POLLENSCALE);
+
     }
 
     public int harvestPollen() {
@@ -67,5 +77,6 @@ public abstract class Flower extends Actor {
     }
 
 }
+
 
 
