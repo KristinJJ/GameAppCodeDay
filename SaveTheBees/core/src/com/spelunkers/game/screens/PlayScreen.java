@@ -28,6 +28,8 @@ public class PlayScreen extends ScreenAdapter{
     private Bee bee;
     private Flower[] flowerList;
     private Water stream;
+    private Beehive beehive;
+    private Scoreboard scoreboard;
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
@@ -63,6 +65,7 @@ public class PlayScreen extends ScreenAdapter{
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
 
+        //this needs to be the first thing added
         Background background = new Background();
         stage.addActor(background); //set it and forget it
 
@@ -74,9 +77,9 @@ public class PlayScreen extends ScreenAdapter{
         aiBees.addActor(new BeeAI());
         aiBees.addActor(new BeeAI());
 
-        Beehive beehive = new Beehive();
+        beehive = new Beehive();
         stream = new Water();
-        Scoreboard scoreboard = new Scoreboard(bee);
+        scoreboard = new Scoreboard(bee);
 
         flowerList = new Flower[15];
 
@@ -96,12 +99,9 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
-        //Flower flower = new YellowFlower();
-        //stage.addActor(flower);
-
         stage.addActor(beehive);
         stage.addActor(stream);
-        //stage.addActor(scoreboard);
+        stage.addActor(scoreboard);
 
         stage.addActor(aiBees);
         //stage.addActor(beeAI2);
@@ -129,12 +129,21 @@ public class PlayScreen extends ScreenAdapter{
         //wash in the water
         if(bee.getBody().overlaps(stream.getBody())){
             bee.wash();
+            scoreboard.update();
         }
+
         //pollinate from flowers
         for(Flower aFlower : flowerList) {
             if(bee.getBody().overlaps(aFlower.getBody())) {
                 bee.drawPollen(aFlower);
+                scoreboard.update();
             }
+        }
+
+        //deposit pollen at beehive
+        if(bee.getBody().overlaps(beehive.getBody())) {
+            bee.depositPollen(beehive);
+            scoreboard.update();
         }
 
         stage.draw();
