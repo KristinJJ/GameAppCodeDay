@@ -87,6 +87,8 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
+        Flower flower = new YellowFlower();
+        stage.addActor(flower);
 
         stage.addActor(beehive);
         stage.addActor(stream);

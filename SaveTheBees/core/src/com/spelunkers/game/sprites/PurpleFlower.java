@@ -1,8 +1,8 @@
 package com.spelunkers.game.sprites;
 
-public class RedFlower extends Flower{
+public class PurpleFlower extends Flower{
 
-    public RedFlower() {
+    public PurpleFlower() {
         super("red-flower.png", 2, "twoPollen.png");
     }
 }
