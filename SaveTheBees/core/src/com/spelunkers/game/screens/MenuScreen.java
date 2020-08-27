@@ -122,10 +122,10 @@ public class MenuScreen extends ScreenAdapter {
         lightBlueFlowerImage.setPosition((0),(0));
         lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
 
-        //Purple flower picture
+        //Blue flower picture
         Texture blueShortFlower = new Texture("blueCircleFlower.png");
         Image blueCircleFlowerImage = new Image();
-        blueCircleFlowerImage.setSize(90, 90);
+        blueCircleFlowerImage.setSize(80, 80);
         blueCircleFlowerImage.setPosition((0),(85));
         blueCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower)));
 
@@ -133,7 +133,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture greenCircleFlower = new Texture("greenCircleFlower.png");
         Image greenCircleFlowerImage = new Image();
         greenCircleFlowerImage.setSize(90, 90);
-        greenCircleFlowerImage.setPosition((0),(160));
+        greenCircleFlowerImage.setPosition((370),(20));
         greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
 
         //Dark Pink flower picture
@@ -146,15 +146,15 @@ public class MenuScreen extends ScreenAdapter {
         //Orange flower picture
         Texture orangeCircleFlower = new Texture("orangeCircleFlower.png");
         Image orangeCircleFlowerImage = new Image();
-        orangeCircleFlowerImage.setSize(90, 90);
+        orangeCircleFlowerImage.setSize(115, 115);
         orangeCircleFlowerImage.setPosition((190),(0));
         orangeCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(orangeCircleFlower)));
 
         //Indigo flower picture
         Texture indigoCircleFlower = new Texture("indigoCircleFlower.png");
         Image indigoCircleFlowerImage = new Image();
-        indigoCircleFlowerImage.setSize(90, 90);
-        indigoCircleFlowerImage.setPosition((500),(0));
+        indigoCircleFlowerImage.setSize(115, 115);
+        indigoCircleFlowerImage.setPosition((480),(0));
         indigoCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(indigoCircleFlower)));
 
         //Yellow flower picture
@@ -164,18 +164,18 @@ public class MenuScreen extends ScreenAdapter {
         yellowCircleFlowerImage.setPosition((600),(0));
         yellowCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowCircleFlower)));
 
-        //Dark Pink flower picture
+        //Dark Pink on the right flower picture
         Texture darkPinkCircleFlower2 = new Texture("darkPinkFlowers.png");
         Image darkPinkCircleFlowerImage2 = new Image();
-        darkPinkCircleFlowerImage2.setSize(90, 90);
-        darkPinkCircleFlowerImage2.setPosition((700),(0));
+        darkPinkCircleFlowerImage2.setSize(110, 110);
+        darkPinkCircleFlowerImage2.setPosition((690),(0));
         darkPinkCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower2)));
 
-        //Dark Pink flower picture
+        //light blue on the right flower picture
         Texture lightBlueCircleFlower2 = new Texture("lightBlueCircleFlower.png");
         Image lightBlueCircleFlowerImage2 = new Image();
-        lightBlueCircleFlowerImage2.setSize(90, 90);
-        lightBlueCircleFlowerImage2.setPosition((710),(80));
+        lightBlueCircleFlowerImage2.setSize(85, 85);
+        lightBlueCircleFlowerImage2.setPosition((710),(90));
         lightBlueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueCircleFlower2)));
 
         //Bees looking at the left
@@ -227,13 +227,13 @@ public class MenuScreen extends ScreenAdapter {
 
         Texture cuteBee2 = new Texture("cuteBeeTrimed.png");
         Image cuteBeeImage2 = new Image();
-        cuteBeeImage2.setSize(110, 110);
+        cuteBeeImage2.setSize(100, 100);
         cuteBeeImage2.setPosition((680),(630));
         cuteBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee2)));
 
         Texture cuteBee3 = new Texture("cuteBeeHorizontalTrimed.png");
         Image cuteBeeImage3 = new Image();
-        cuteBeeImage3.setSize(140, 140);
+        cuteBeeImage3.setSize(145, 145);
         cuteBeeImage3.setPosition((550),(520));
         cuteBeeImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee3)));
 
