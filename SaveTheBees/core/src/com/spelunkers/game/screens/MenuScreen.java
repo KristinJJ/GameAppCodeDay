@@ -146,14 +146,14 @@ public class MenuScreen extends ScreenAdapter {
         //Orange flower picture
         Texture orangeCircleFlower = new Texture("orangeCircleFlower.png");
         Image orangeCircleFlowerImage = new Image();
-        orangeCircleFlowerImage.setSize(115, 115);
+        orangeCircleFlowerImage.setSize(135, 135);
         orangeCircleFlowerImage.setPosition((190),(0));
         orangeCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(orangeCircleFlower)));
 
         //Indigo flower picture
         Texture indigoCircleFlower = new Texture("indigoCircleFlower.png");
         Image indigoCircleFlowerImage = new Image();
-        indigoCircleFlowerImage.setSize(115, 115);
+        indigoCircleFlowerImage.setSize(120, 120);
         indigoCircleFlowerImage.setPosition((480),(0));
         indigoCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(indigoCircleFlower)));
 
@@ -174,8 +174,8 @@ public class MenuScreen extends ScreenAdapter {
         //light blue on the right flower picture
         Texture lightBlueCircleFlower2 = new Texture("lightBlueCircleFlower.png");
         Image lightBlueCircleFlowerImage2 = new Image();
-        lightBlueCircleFlowerImage2.setSize(85, 85);
-        lightBlueCircleFlowerImage2.setPosition((710),(90));
+        lightBlueCircleFlowerImage2.setSize(75, 75);
+        lightBlueCircleFlowerImage2.setPosition((720),(95));
         lightBlueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueCircleFlower2)));
 
         //Bees looking at the left
