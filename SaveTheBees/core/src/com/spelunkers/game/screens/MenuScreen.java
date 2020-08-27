@@ -137,14 +137,6 @@ public class MenuScreen extends ScreenAdapter {
         leftYellowBeeImage.setPosition((50),(200));
         leftYellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee)));
 
-        //Bees
-        Texture leftYellowBee = new Texture("leftYellowBee.png");
-        Image leftYellowBeeImage = new Image();
-        leftYellowBeeImage.setSize(30, 30);
-        leftYellowBeeImage.setPosition((50),(200));
-        leftYellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee)));
-
-
         //credits
         /*
         String text = "\n" +
