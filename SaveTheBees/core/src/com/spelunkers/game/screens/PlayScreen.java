@@ -121,8 +121,8 @@ public class PlayScreen extends ScreenAdapter{
         for (Actor actor : aiBees.getChildren()) {
             Bee ai = (Bee)actor;
             if (bee.getBody().overlaps(ai.getBody())) {
-                bee.moveBy(-100, 0);
-                ai.moveBy(100, 0);
+                bee.moveBy(Bee.SPEED * -bee.getXdir() * delta * 10f, Bee.SPEED * -bee.getYdir() * delta * 10f);
+                ai.moveBy(Bee.SPEED * bee.getXdir() * delta * 10f, Bee.SPEED * bee.getYdir() * delta * 10f);
             }
         }
 

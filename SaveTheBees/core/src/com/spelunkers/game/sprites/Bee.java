@@ -16,6 +16,9 @@ public class Bee extends Actor {
     private boolean poisonStatus;
     private int health;
 
+    private int xDir;
+    private int yDir;
+
     protected Sprite sprite;
     private Circle body;
     private ShapeRenderer shapeRenderer;
@@ -52,6 +55,42 @@ public class Bee extends Actor {
         pollenCount = 0;
     }
 
+    public void stop() {
+        xDir = 0;
+        yDir = 0;
+    }
+
+    public Circle getBody() {
+        return body;
+    }
+
+    public int getPollenCount() {
+        return pollenCount;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public boolean isPoisonStatus() {
+        return poisonStatus;
+    }
+
+    public int getXdir() {
+        return xDir;
+    }
+
+    public int getYdir() {
+        return yDir;
+    }
+
+    public boolean hitWall() {
+        float x = getX();
+        float y = getY();
+        return x < 0 || x > getStage().getWidth() - sprite.getWidth() ||
+               y < 0 || y > getStage().getHeight() - sprite.getHeight();
+    }
+
     @Override
     protected void positionChanged() {
         sprite.setPosition(getX(), getY());
@@ -83,48 +122,45 @@ public class Bee extends Actor {
             boost = 3;
         }
 
+        stop();
+
+        // Fixes bug where bee an get out of the cage
+        if (hitWall()) {
+            if (getX() < 0) {
+                moveBy(25 * boost, 0);
+            }
+            if (getX() > getStage().getWidth() - sprite.getWidth()) {
+                moveBy(-25 * boost, 0);
+            }
+            if (getY() < 0) {
+                moveBy(0, 25 * boost);
+            }
+            if (getY() > getStage().getHeight() - sprite.getHeight()) {
+                moveBy(0, -25 * boost);
+            }
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            if (getX() > 0) {
-                moveBy(-SPEED * boost * delta, 0);
-            } else {
-                moveBy(SPEED * boost * delta, 0);
-
-            }
+            xDir = -1;
         }
+
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            if (getX() < getStage().getWidth() - sprite.getWidth()) {
-                moveBy(SPEED * boost * delta, 0);
-            } else {
-                moveBy(-SPEED * boost * delta, 0);
-            }
+            xDir = 1;
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            if (getY() < getStage().getHeight() - sprite.getHeight()) {
-                moveBy(0, SPEED * boost * delta);
-            } else {
-                moveBy(0, -SPEED * boost * delta);
-            }
 
-        }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            if (getY() > 0) {
-                moveBy(0, -SPEED * boost * delta);
-            } else {
-                moveBy(0, SPEED * boost * delta);
-            }
+            yDir = -1;
         }
-    }
 
-    public Circle getBody() {
-        return body;
-    }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            yDir = 1;
+        }
 
-    public int getPollenCount() {
-        return pollenCount;
-    }
+        float futureX = getX() + (SPEED * xDir * boost * delta);
+        float futureY = getY() + (SPEED * yDir * boost * delta);
 
-    public int getHealth() {
-        return health;
+        setPosition(futureX, futureY);
+
     }
 
 }
