@@ -50,9 +50,19 @@ public class Bee extends Actor {
         pollenCount += flower.harvestPollen();
     }
 
+    public void depositPollen(Beehive beehive) {
+        beehive.addPollen(pollenCount);
+        emptyPockets();
+    }
+
     public void wash() {
         poisonStatus = false;
+        emptyPockets();
+    }
+
+    private void emptyPockets() {
         pollenCount = 0;
+        //add code to remove graphics of bee holding pollen
     }
 
     public void stop() {
