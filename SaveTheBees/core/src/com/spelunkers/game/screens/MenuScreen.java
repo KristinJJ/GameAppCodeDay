@@ -164,6 +164,13 @@ public class MenuScreen extends ScreenAdapter {
         tallGrassImage.setPosition((0),(0));
         tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
 
+        //Cute Bee
+        Texture cuteBee1 = new Texture("cuteBee.png");
+        Image cuteBeeImage1 = new Image();
+        cuteBeeImage1.setSize(80, 80);
+        cuteBeeImage1.setPosition((350),(800));
+        cuteBeeImage1.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee1)));
+
         //credits
         /*
         String text = "\n" +
@@ -194,6 +201,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(yellowBeeImage);
         stage.addActor(blackBeeYellowImage);
         stage.addActor(blackBeeYellowImage2);
+        stage.addActor(cuteBeeImage1);
 
 
     }
