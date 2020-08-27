@@ -17,6 +17,7 @@ import com.spelunkers.game.sprites.Flower;
 import com.spelunkers.game.sprites.PurpleFlower;
 import com.spelunkers.game.sprites.RedFlower;
 import com.spelunkers.game.sprites.Scoreboard;
+import com.spelunkers.game.sprites.Timer;
 import com.spelunkers.game.sprites.Water;
 import com.spelunkers.game.sprites.YellowFlower;
 import com.spelunkers.game.sprites.Beehive;
@@ -36,7 +37,8 @@ public class PlayScreen extends ScreenAdapter{
     private int computerPollenCount;
     private int computerPesticideCount;
     private int computerHP;
-    Skin skin;
+    private Timer timer;
+    private Skin skin;
 
     public PlayScreen(BeesGame game) {
         this.game = game;
@@ -70,8 +72,6 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(background); //set it and forget it
 
         bee = new Bee();
-//        BeeAI beeAI = new BeeAI();
-//        BeeAI beeAI2 = new BeeAI();
         Group aiBees = new Group();
         aiBees.setName("aiBees");
         aiBees.addActor(new BeeAI());
@@ -99,12 +99,15 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
+        // Starting the timer
+        timer = new Timer();
+
         stage.addActor(beehive);
         stage.addActor(stream);
         stage.addActor(scoreboard);
+        stage.addActor(timer);
 
         stage.addActor(aiBees);
-        //stage.addActor(beeAI2);
 
         //make sure this is last so player is top layer
         stage.addActor(bee);
@@ -115,6 +118,11 @@ public class PlayScreen extends ScreenAdapter{
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
+
+        // Checking if time is over
+        if (timer.timeOver()) {
+            game.setScreen(new EndScreen(game, bee.getPollenCount(), 0, bee.getHealth(), 0, 0, 0));
+        }
 
         //boing when playerbee hits aibee
         Group aiBees = (Group)stage.getRoot().findActor("aiBees");

@@ -134,7 +134,7 @@ public class Bee extends Actor {
 
         stop();
 
-        // Fixes bug where bee an get out of the cage
+        // Fixes bug where bee could get out of the cage
         if (hitWall()) {
             if (getX() < 0) {
                 moveBy(25 * boost, 0);
