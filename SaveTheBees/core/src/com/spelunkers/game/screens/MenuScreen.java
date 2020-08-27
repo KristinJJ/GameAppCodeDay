@@ -180,24 +180,16 @@ public class MenuScreen extends ScreenAdapter {
         cuteBeeImage1.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee1)));
 
         //credits
-        /*
         String text = "\n" +
-                "    Kristin Jue\n" +
-                "    Erica Chong\n" +
-                "    Obaid Sidiqi\n" +
-                "    Lily Aguirre\n" +
-                "    Monica King\n" +
-                "    Jardi Martinez\n";
+                "Spelunker Studios";
         Label credits = new Label(text, skin);
-        credits.setPosition(((BeesGame.WIDTH / 2f) - (credits.getWidth() / 2f)), 10);
-        */
+        credits.setPosition(((BeesGame.WIDTH / 2f) - (credits.getWidth() / 2f)), 7);
 
         // Add our stellar actors
         stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(endBtn); // This is temporary to get to end screen
         stage.addActor(logoImage);
-        //stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
         stage.addActor(tallGrassImage);
@@ -211,6 +203,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(blackBeeYellowImage2);
         stage.addActor(cuteBeeImage1);
         stage.addActor(yellowBeeImage2);
+        stage.addActor(credits);
 
 
     }
