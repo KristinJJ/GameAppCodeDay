@@ -29,6 +29,7 @@ public class MenuScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+    private int highScore;
 
 
     public MenuScreen(BeesGame game) {
@@ -38,6 +39,7 @@ public class MenuScreen extends ScreenAdapter {
         music.setVolume((float) 0.2);
         music.setLooping(true);
         music.play();
+        this.highScore = 0;
     }
 
     @Override
@@ -73,7 +75,7 @@ public class MenuScreen extends ScreenAdapter {
         endBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new EndScreen(game));
+                game.setScreen(new EndScreen(game, highScore));
                 return true;
             }
         });
@@ -130,19 +132,25 @@ public class MenuScreen extends ScreenAdapter {
         darkPinkCircleFlowerImage.setPosition((90),(0));
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
-        //Bees
+        //Bees looking at the left
         Texture leftYellowBee = new Texture("leftYellowBee.png");
         Image leftYellowBeeImage = new Image();
         leftYellowBeeImage.setSize(30, 30);
         leftYellowBeeImage.setPosition((50),(200));
         leftYellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee)));
 
-        //Bees
+        //Bees looking at the right
         Texture yellowBee = new Texture("yellowBee.png");
         Image yellowBeeImage = new Image();
         yellowBeeImage.setSize(30, 30);
         yellowBeeImage.setPosition((0),(20));
         yellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee)));
+
+        Texture yellowBee2 = new Texture("yellowBee.png");
+        Image yellowBeeImage2 = new Image();
+        yellowBeeImage2.setSize(40, 40);
+        yellowBeeImage2.setPosition((350),(125));
+        yellowBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee2)));
 
         //BlackBees
         Texture yellowBlackBee = new Texture("blackBeeYellow.png");
@@ -163,6 +171,13 @@ public class MenuScreen extends ScreenAdapter {
         tallGrassImage.setSize(800, 180);
         tallGrassImage.setPosition((0),(0));
         tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
+
+        //Cute Bee
+        Texture cuteBee1 = new Texture("cuteBee.png");
+        Image cuteBeeImage1 = new Image();
+        cuteBeeImage1.setSize(80, 80);
+        cuteBeeImage1.setPosition((420),(680));
+        cuteBeeImage1.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee1)));
 
         //credits
         /*
@@ -194,6 +209,8 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(yellowBeeImage);
         stage.addActor(blackBeeYellowImage);
         stage.addActor(blackBeeYellowImage2);
+        stage.addActor(cuteBeeImage1);
+        stage.addActor(yellowBeeImage2);
 
 
     }
