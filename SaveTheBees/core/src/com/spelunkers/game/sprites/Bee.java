@@ -28,7 +28,7 @@ public class Bee extends Actor {
         poisonStatus = false;
         health = 100;
 
-        setImage("singleBee2.png", SCALE);
+        setImage("cuteBeeTrimmed.png", SCALE);
 
         setTouchable(Touchable.enabled);
         shapeRenderer = new ShapeRenderer();

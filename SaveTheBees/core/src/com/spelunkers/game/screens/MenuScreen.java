@@ -225,7 +225,7 @@ public class MenuScreen extends ScreenAdapter {
         cuteBeeImage1.setPosition((420),(680));
         cuteBeeImage1.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee1)));
 
-        Texture cuteBee2 = new Texture("cuteBeeTrimed.png");
+        Texture cuteBee2 = new Texture("cuteBeeTrimmed.png");
         Image cuteBeeImage2 = new Image();
         cuteBeeImage2.setSize(100, 100);
         cuteBeeImage2.setPosition((680),(630));
