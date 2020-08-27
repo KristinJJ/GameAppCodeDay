@@ -124,6 +124,7 @@ public class EndScreen extends ScreenAdapter {
 
     @Override
     public void hide() {
+        music.stop();
         Gdx.input.setInputProcessor(null);
     }
 

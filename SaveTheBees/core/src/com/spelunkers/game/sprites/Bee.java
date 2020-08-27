@@ -21,21 +21,21 @@ public class Bee extends Actor {
     private ShapeRenderer shapeRenderer;
 
     public static final int SPEED = 500;
-    private static final float SCALE = 0.075f;
+    private static final float SCALE = 0.25f;
 
     public Bee() {
         pollenCount = 0;
         poisonStatus = false;
         health = 100;
 
-        sprite = new Sprite(new Texture("worker-bee.png"));
+        sprite = new Sprite(new Texture("singleBee2.png"));
         sprite.setSize(sprite.getWidth() * SCALE, sprite.getHeight() * SCALE);
         sprite.setOrigin(0, 0);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
         setTouchable(Touchable.enabled);
 
         shapeRenderer = new ShapeRenderer();
-        body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.25f);
+        body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
     }
 
     @Override
