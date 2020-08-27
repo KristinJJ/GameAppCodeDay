@@ -98,7 +98,7 @@ public class MenuScreen extends ScreenAdapter {
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
-        Texture honeyHive = new Texture("hiveBees.png");
+        Texture honeyHive = new Texture("beeHiveTrim.png");
         Image hiveBeesImage = new Image();
         hiveBeesImage.setSize(300, 300);
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2f) + (hiveBeesImage.getHeight() / 3f));
@@ -131,6 +131,13 @@ public class MenuScreen extends ScreenAdapter {
         darkPinkCircleFlowerImage.setSize(90, 90);
         darkPinkCircleFlowerImage.setPosition((90),(0));
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
+
+        //Orange flower picture
+        Texture orangeCircleFlower = new Texture("orangeCircleFlower.png");
+        Image orangeCircleFlowerImage = new Image();
+        orangeCircleFlowerImage.setSize(90, 90);
+        orangeCircleFlowerImage.setPosition((190),(0));
+        orangeCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(orangeCircleFlower)));
 
         //Bees looking at the left
         Texture leftYellowBee = new Texture("leftYellowBee.png");
@@ -175,9 +182,15 @@ public class MenuScreen extends ScreenAdapter {
         //Cute Bee
         Texture cuteBee1 = new Texture("cuteBee.png");
         Image cuteBeeImage1 = new Image();
-        cuteBeeImage1.setSize(80, 80);
+        cuteBeeImage1.setSize(75, 75);
         cuteBeeImage1.setPosition((420),(680));
         cuteBeeImage1.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee1)));
+
+        Texture cuteBee2 = new Texture("cuteBeeTrimed.png");
+        Image cuteBeeImage2 = new Image();
+        cuteBeeImage2.setSize(110, 110);
+        cuteBeeImage2.setPosition((650),(630));
+        cuteBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee2)));
 
         //credits
         String text = "\n" +
@@ -204,6 +217,8 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(cuteBeeImage1);
         stage.addActor(yellowBeeImage2);
         stage.addActor(credits);
+        stage.addActor(orangeCircleFlowerImage);
+        stage.addActor(cuteBeeImage2);
 
 
     }
