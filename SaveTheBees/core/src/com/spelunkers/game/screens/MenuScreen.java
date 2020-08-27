@@ -121,6 +121,7 @@ public class MenuScreen extends ScreenAdapter {
         darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
 
         //credits
+        /*
         String text = "\n" +
                 "    Kristin Jue\n" +
                 "    Erica Chong\n" +
@@ -130,7 +131,7 @@ public class MenuScreen extends ScreenAdapter {
                 "    Jardi Martinez\n";
         Label credits = new Label(text, skin);
         credits.setPosition(((BeesGame.WIDTH / 2) - (credits.getWidth() / 2)), 10);
-
+        */
         stage.addActor(background);
         stage.addActor(playBtn);
         stage.addActor(logoImage);
