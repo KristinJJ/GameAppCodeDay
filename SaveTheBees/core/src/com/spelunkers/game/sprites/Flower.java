@@ -33,7 +33,7 @@ public abstract class Flower extends Actor {
         flowerSprite.setScale(SCALE);
         setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
 
-        centerSprite = new Sprite(new Texture("aPollen.png"));
+        centerSprite = new Sprite(new Texture(pollenImageName));
         centerSprite.setOrigin(flowerSprite.getX() + flowerSprite.getWidth() / 2.0f, flowerSprite.getY() + flowerSprite.getHeight() / 2.0f);
         centerSprite.setScale(POLLENSCALE);
     }
@@ -54,7 +54,9 @@ public abstract class Flower extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         flowerSprite.draw(batch);
-        centerSprite.draw(batch);
+        if(pollinated) {
+            centerSprite.draw(batch);
+        }
     }
 
     @Override
