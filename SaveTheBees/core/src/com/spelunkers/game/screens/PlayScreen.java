@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -23,6 +25,7 @@ public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
     private Stage stage;
     private Music music_level;
+    private Bee bee;
     Skin skin;
 
     public PlayScreen(BeesGame game) {
@@ -44,9 +47,13 @@ public class PlayScreen extends ScreenAdapter{
         Background background = new Background();
         stage.addActor(background); //set it and forget it
 
-        Bee bee = new Bee();
-        BeeAI beeAI = new BeeAI();
-        BeeAI beeAI2 = new BeeAI();
+        bee = new Bee();
+//        BeeAI beeAI = new BeeAI();
+//        BeeAI beeAI2 = new BeeAI();
+        Group aiBees = new Group();
+        aiBees.setName("aiBees");
+        aiBees.addActor(new BeeAI());
+        aiBees.addActor(new BeeAI());
 
         Beehive beehive = new Beehive();
         Water stream = new Water();
@@ -75,8 +82,8 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(stream);
         //stage.addActor(scoreboard);
 
-        stage.addActor(beeAI);
-        stage.addActor(beeAI2);
+        stage.addActor(aiBees);
+        //stage.addActor(beeAI2);
 
         //make sure this is last so player is top layer
         stage.addActor(bee);
@@ -87,6 +94,16 @@ public class PlayScreen extends ScreenAdapter{
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
+        Group aiBees = (Group)stage.getRoot().findActor("aiBees");
+
+        for (Actor actor : aiBees.getChildren()) {
+            Bee ai = (Bee)actor;
+            if (bee.getBody().overlaps(ai.getBody())) {
+                bee.moveBy(-100, 0);
+                ai.moveBy(100, 0);
+            }
+        }
+
         stage.draw();
     }
 

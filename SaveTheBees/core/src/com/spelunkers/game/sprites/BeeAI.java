@@ -1,5 +1,7 @@
 package com.spelunkers.game.sprites;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveByAction;
 
@@ -12,6 +14,8 @@ public class BeeAI extends Bee {
     private static final Random RANDOM = new Random();
 
     public BeeAI() {
+        //super("yellowBee.png");
+        setImage("yellowBee.png", 0.15f);
         setPosition(200, 200);
     }
 

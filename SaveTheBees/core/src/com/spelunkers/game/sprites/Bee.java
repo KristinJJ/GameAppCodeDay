@@ -28,13 +28,18 @@ public class Bee extends Actor {
         poisonStatus = false;
         health = 100;
 
-        sprite = new Sprite(new Texture("singleBee2.png"));
-        sprite.setSize(sprite.getWidth() * SCALE, sprite.getHeight() * SCALE);
+        setImage("singleBee2.png", SCALE);
+
+        setTouchable(Touchable.enabled);
+        shapeRenderer = new ShapeRenderer();
+
+    }
+
+    public void setImage(String internalPicPath, float scale) {
+        sprite = new Sprite(new Texture(internalPicPath));
+        sprite.setSize(sprite.getWidth() * scale, sprite.getHeight() * scale);
         sprite.setOrigin(0, 0);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
-        setTouchable(Touchable.enabled);
-
-        shapeRenderer = new ShapeRenderer();
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
     }
 
