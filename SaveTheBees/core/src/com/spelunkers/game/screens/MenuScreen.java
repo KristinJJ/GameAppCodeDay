@@ -144,12 +144,18 @@ public class MenuScreen extends ScreenAdapter {
         yellowBeeImage.setPosition((0),(20));
         yellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee)));
 
-        //Bees
+        //BlackBees
         Texture yellowBlackBee = new Texture("blackBeeYellow.png");
         Image blackBeeYellowImage = new Image();
         blackBeeYellowImage.setSize(30, 30);
         blackBeeYellowImage.setPosition((60),(40));
         blackBeeYellowImage.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee)));
+
+        Texture yellowBlackBee2 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage2 = new Image();
+        blackBeeYellowImage2.setSize(40, 40);
+        blackBeeYellowImage2.setPosition((150),(125));
+        blackBeeYellowImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee2)));
 
         //grass
         Texture tallGrass = new Texture("pngegg.png");
@@ -179,6 +185,7 @@ public class MenuScreen extends ScreenAdapter {
         //stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
+        stage.addActor(tallGrassImage);
         stage.addActor(blueCircleFlowerImage);
         stage.addActor(lightBlueFlowerImage);
         stage.addActor(greenCircleFlowerImage);
@@ -186,7 +193,8 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(leftYellowBeeImage);
         stage.addActor(yellowBeeImage);
         stage.addActor(blackBeeYellowImage);
-        stage.addActor(tallGrassImage);
+        stage.addActor(blackBeeYellowImage2);
+
 
     }
 
