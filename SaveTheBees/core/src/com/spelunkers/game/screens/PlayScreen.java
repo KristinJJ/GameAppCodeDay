@@ -113,7 +113,6 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(bee);
     }
 
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -186,6 +185,7 @@ public class PlayScreen extends ScreenAdapter{
     @Override
     public void hide() {
         Gdx.input.setInputProcessor(null);
+        music_level.stop();
         super.hide();
     }
 
