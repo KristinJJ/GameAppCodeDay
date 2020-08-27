@@ -13,7 +13,7 @@ public abstract class Flower extends Actor {
     private boolean pollinated;
 
     private static final float SCALE = 0.125f;
-    private static final float POLLENSCALE = .5f;
+    private static final float POLLENSCALE = .25f;
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
         flowerSprite = new Sprite(new Texture(flowerImageName));
@@ -34,7 +34,8 @@ public abstract class Flower extends Actor {
         setBounds(flowerSprite.getX(), flowerSprite.getY(), flowerSprite.getWidth(), flowerSprite.getHeight());
 
         centerSprite = new Sprite(new Texture(pollenImageName));
-        centerSprite.setOrigin(flowerSprite.getX() + flowerSprite.getWidth() / 2.0f, flowerSprite.getY() + flowerSprite.getHeight() / 2.0f);
+        //centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.0f, randomY + flowerSprite.getHeight() / 2.0f);
+        centerSprite.setPosition(randomX, randomY);
         centerSprite.setScale(POLLENSCALE);
     }
 
@@ -65,5 +66,6 @@ public abstract class Flower extends Actor {
     }
 
 }
+
 
 
