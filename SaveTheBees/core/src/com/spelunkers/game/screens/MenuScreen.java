@@ -258,9 +258,6 @@ public class MenuScreen extends ScreenAdapter {
 
         // Add our stellar actors
         stage.addActor(background);
-        stage.addActor(playBtn);
-        stage.addActor(creditsBtn);
-        stage.addActor(endBtn); // This is temporary to get to end screen
         stage.addActor(logoImage);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
@@ -283,7 +280,9 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(darkPinkCircleFlowerImage2);
         stage.addActor(lightBlueCircleFlowerImage2);
         stage.addActor(cuteBeeImage3);
-
+        stage.addActor(playBtn);
+        stage.addActor(creditsBtn);
+        stage.addActor(endBtn); // This is temporary to get to end screen
 
 
 
