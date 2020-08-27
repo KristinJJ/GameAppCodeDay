@@ -129,7 +129,7 @@ public class MenuScreen extends ScreenAdapter {
                 "    Monica King\n" +
                 "    Jardi Martinez\n";
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
+        credits.setPosition(((BeesGame.WIDTH / 2) - (credits.getWidth() / 2)), 10);
 
         stage.addActor(background);
         stage.addActor(playBtn);
