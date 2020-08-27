@@ -48,12 +48,12 @@ public class CreditScreen extends ScreenAdapter {
         Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         // So much work for a button...
-        Button backBtn = new TextButton("back", skin, "small");
-        backBtn.setSize(120, 50);
-        backBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
-        backBtn.setTransform(true);
-        backBtn.scaleBy(0.5f);
-        backBtn.addListener(new InputListener() {
+        Button menuBtn = new TextButton("Menu", skin, "small");
+        menuBtn.setSize(120, 50);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        menuBtn.setTransform(true);
+        menuBtn.scaleBy(0.5f);
+        menuBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
@@ -101,7 +101,7 @@ public class CreditScreen extends ScreenAdapter {
 
 
         stage.addActor(background);
-        stage.addActor(backBtn);
+        stage.addActor(menuBtn);
         stage.addActor(logoImage);
         stage.addActor(credits);
         stage.addActor(honeyImage);
