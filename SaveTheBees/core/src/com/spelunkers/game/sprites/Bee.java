@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.graphics.GL20;
 
 public class Bee extends Actor {
     private int pollenCount;
@@ -110,14 +111,20 @@ public class Bee extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
         sprite.draw(batch);
 
         batch.end();
         /// temporary just to make sure the circle is the right size and position
-        /*shapeRenderer.setColor(Color.BLACK);
+        /*
+        shapeRenderer.setColor(Color.BLACK);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        shapeRenderer.setColor(0.3f, 0.75f, 0.9f, 0.01f);
         shapeRenderer.circle(body.x, body.y, body.radius);
-        shapeRenderer.end();*/
+        shapeRenderer.end();
+         */
 
         batch.begin();
 
