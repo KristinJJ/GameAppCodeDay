@@ -20,7 +20,7 @@ public class Bee extends Actor {
     private Circle body;
     private ShapeRenderer shapeRenderer;
 
-    public static final int SPEED = 500;
+    public static final int SPEED = 200;
     private static final float SCALE = 0.25f;
 
     public Bee() {
@@ -41,6 +41,17 @@ public class Bee extends Actor {
         sprite.setOrigin(0, 0);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
+    }
+
+    public Circle getBody() {
+        return body;
+    }
+
+    public void drawPollen(Flower flower) {
+        // TODO: check if body overlaps flower center
+
+        //
+        pollenCount += flower.harvestPollen();
     }
 
     @Override
@@ -69,39 +80,43 @@ public class Bee extends Actor {
     public void act(float delta) {
         // Update bee new position after motion keys
         // Bee bounces off the walls
+        int boost = 1;
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            boost = 3;
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (getX() > 0) {
-                moveBy(-SPEED * delta, 0);
+                moveBy(-SPEED * boost * delta, 0);
             } else {
-                moveBy(SPEED * delta, 0);
+                moveBy(SPEED * boost * delta, 0);
 
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (getX() < getStage().getWidth() - sprite.getWidth()) {
-                moveBy(SPEED * delta, 0);
+                moveBy(SPEED * boost * delta, 0);
             } else {
-                moveBy(-SPEED * delta, 0);
+                moveBy(-SPEED * boost * delta, 0);
             }
         }
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (getY() < getStage().getHeight() - sprite.getHeight()) {
-                moveBy(0, SPEED * delta);
+                moveBy(0, SPEED * boost * delta);
             } else {
-                moveBy(0, -SPEED * delta);
+                moveBy(0, -SPEED * boost * delta);
             }
 
         }
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (getY() > 0) {
-                moveBy(0, -SPEED * delta);
+                moveBy(0, -SPEED * boost * delta);
             } else {
-                moveBy(0, SPEED * delta);
+                moveBy(0, SPEED * boost * delta);
             }
         }
+
+
     }
 
-    public Circle getBody() {
-        return body;
-    }
 }
