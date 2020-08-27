@@ -26,9 +26,11 @@ public class EndScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
+
     private int computerPollenCount;
     private int computerPesticideCount;
     private int computerHP;
@@ -39,9 +41,11 @@ public class EndScreen extends ScreenAdapter {
         this.playerPollenCount = playerPollenCount;
         this.playerPesticideCount = playerPesticideCount;
         this.playerHP = playerHP;
+
         this.computerPollenCount = computerPollenCount;
         this.computerPesticideCount = computerPesticideCount;
         this.computerHP = computerHP;
+
         this.game = game;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
