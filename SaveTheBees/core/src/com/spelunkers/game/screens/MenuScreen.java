@@ -29,7 +29,12 @@ public class MenuScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
-    private int highScore;
+    private int playerPollenCount;
+    private int playerPesticideCount;
+    private int playerHP;
+    private int computerPollenCount;
+    private int computerPesticideCount;
+    private int computerHP;
 
 
     public MenuScreen(BeesGame game) {
@@ -39,7 +44,12 @@ public class MenuScreen extends ScreenAdapter {
         music.setVolume((float) 0.2);
         music.setLooping(true);
         music.play();
-        this.highScore = 0;
+        this.playerPollenCount = 0;
+        this.playerPesticideCount = 0;
+        this.playerHP = 0;
+        this.computerPollenCount = 0;
+        this.computerPesticideCount = 0;
+        this.computerHP = 0;
     }
 
     @Override
@@ -75,7 +85,8 @@ public class MenuScreen extends ScreenAdapter {
         endBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new EndScreen(game, highScore));
+                game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP,
+                        computerPollenCount, computerPesticideCount, computerHP));
                 return true;
             }
         });
