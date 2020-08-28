@@ -94,7 +94,7 @@ public class InstructionScreen extends ScreenAdapter {
                 "- Use arrow keys to move the Bee\n\n" +
                 "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
                 "- Move to the hive and click to deposit the Pollen\n\n" +
-                "- The Pollen that is being carried by the Bee but has not been deposited \n" +
+                "- The Pollen that is being carried by the Bee, but has not been deposited \n" +
                 "      will only count for half points when the Timer runs out\n\n" +
                 "- There is a chance the Pollen you've collected has Pesticide on it \n" +
                 "      when it translucent\n\n" +
