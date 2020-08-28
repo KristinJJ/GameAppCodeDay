@@ -123,7 +123,7 @@ public class EndScreen extends ScreenAdapter {
                                 "\n" +
                                 "\nBee Pollen Count / 2 : %d" +
                                 "\n" +
-                                "\nHP : %.2f" +
+                                "\nBee Health : %.2f" +
                                 "\n" +
                                 "\nTotal Score : %.2f";
         String scoreText = String.format(Locale.getDefault(),

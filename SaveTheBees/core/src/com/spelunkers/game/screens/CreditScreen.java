@@ -86,7 +86,6 @@ public class CreditScreen extends ScreenAdapter {
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
-
         //credits
         String musicCredit = "\t\tMenu Screen - \"The Cannery\" by Kevin MacLeod\n\n" +
                              "\t\tPlay Screen - \"Happy Bee\" by Kevin MacLeod\n\n" +
@@ -100,13 +99,13 @@ public class CreditScreen extends ScreenAdapter {
                 "\tMusic:\n\n" +
                 musicCredit +
                 "\tArt:\n\n" +
-                "\t\t'honey credit goes here'\n\n";
-                "\t\t'bee credits goes here'\n\n";
-                "\t\t'other bees credit goes here'\n\n";
+                "\t\t'honey credit goes here'\n\n" +
+                "\t\t'bee credits goes here'\n\n" +
+                "\t\t'other bees credit goes here'\n\n" +
                 "\t\t'other art credit goes here'\n\n";
 
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 10));
+        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 14));
 
 
         stage.addActor(background);

@@ -50,7 +50,7 @@ public class InstructionScreen extends ScreenAdapter {
         // So much work for a button...
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) + 150);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -91,18 +91,20 @@ public class InstructionScreen extends ScreenAdapter {
         //instructions
         String text = "\n" +
                 "Instructions\n\n\n" +
-                "- Use arrow keys to move the Bee\n\n" +
+                "- Use Arrow Keys to move the Bee\n\n" +
+                "- Pressing the Spacebar will give your Bee a Speed Boost\n\n" +
                 "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
                 "- Move to the hive and click to deposit the Pollen\n\n" +
-                "- The Pollen that is being carried by the Bee, but has not been deposited \n" +
-                "      will only count for half points when the Timer runs out\n\n" +
-                "- There is a chance the Pollen you've collected has Pesticide on it \n" +
-                "      when it translucent\n\n" +
-                "- If you get Poisoned from the Pesticide, move to the Water \n" +
-                "      and click to wash the Pesticide off\n\n";
+                "- The Pollen that is being carried by the Bee, but has not been deposited,\n" +
+                "  \twill only count for half points when the Timer runs out\n\n" +
+                "- There is a chance the Pollen you've collected has Pesticide on it\n" +
+                "  \twhen it the Flower the Pollen is produced from is see-through\n\n" +
+                "- When Poisoned, you will lose HP rapidly until you become Un-poisoned\n\n" +
+                "- If you get Poisoned from the Pesticide, move to the Water\n" +
+                "  \tto wash the Pesticide off and become Un-poisoned\n\n";
 
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 8), BeesGame.HEIGHT / 4);
+        credits.setPosition((BeesGame.WIDTH / 8), BeesGame.HEIGHT / 7);
 
 
         stage.addActor(background);
