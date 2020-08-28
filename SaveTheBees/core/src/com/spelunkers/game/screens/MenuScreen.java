@@ -15,12 +15,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
-import com.spelunkers.game.sprites.Bee;
 
 
 
@@ -322,7 +320,6 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        //background.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();

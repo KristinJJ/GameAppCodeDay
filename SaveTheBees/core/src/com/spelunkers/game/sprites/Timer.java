@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.spelunkers.game.BeesGame;
 
+import java.util.Locale;
+
 public class Timer extends Label {
     private float timePassed;
     private float maxTime;
@@ -43,7 +45,8 @@ public class Timer extends Label {
     @Override
     public void act(float delta) {
         super.act(delta);
-        setText(String.format("Remaining Time: %.2f", maxTime - timePassed));
+        setText(String.format(Locale.getDefault(),"Remaining Time: %.2f", maxTime - timePassed));
+
         timePassed += delta;
     }
 }
