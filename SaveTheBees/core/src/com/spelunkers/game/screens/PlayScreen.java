@@ -19,6 +19,7 @@ import com.spelunkers.game.sprites.Background;
 import com.spelunkers.game.sprites.Bee;
 import com.spelunkers.game.sprites.BeeAI;
 import com.spelunkers.game.sprites.Flower;
+import com.spelunkers.game.sprites.Level;
 import com.spelunkers.game.sprites.PurpleFlower;
 import com.spelunkers.game.sprites.RedFlower;
 import com.spelunkers.game.sprites.Scoreboard;
@@ -38,15 +39,14 @@ public class PlayScreen extends ScreenAdapter{
     private Water stream;
     private Beehive beehive;
     private Scoreboard scoreboard;
-    private int playerPollenCount;
-    private int playerPesticideCount;
-    private int playerHP;
     private Timer timer;
     private Skin skin;
     private int pollenGoal = 10;
+    private Level level;
 
-    public PlayScreen(BeesGame game) {
+    public PlayScreen(BeesGame game, Level level) {
         this.game = game;
+        this.level = level;
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
@@ -129,7 +129,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Checking if time is over
         if (timer.timeOver()) {
-            game.setScreen(new EndScreen(game, scoreboard));
+            game.setScreen(new EndScreen(game, level, scoreboard));
         }
 
         //boing when playerbee hits aiBee
@@ -168,7 +168,7 @@ public class PlayScreen extends ScreenAdapter{
 
     // Call this whenever you want to switch to the EndScreen
     void goToEndScreen() {
-        game.setScreen(new EndScreen(game, scoreboard));
+        game.setScreen(new EndScreen(game, level, scoreboard));
     }
 
     @Override

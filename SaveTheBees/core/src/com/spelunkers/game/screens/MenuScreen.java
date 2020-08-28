@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
+import com.spelunkers.game.sprites.Level;
 import com.spelunkers.game.sprites.Scoreboard;
 
 
@@ -27,10 +28,12 @@ public class MenuScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+    private Level level;
 
 
     public MenuScreen(BeesGame game) {
         this.game = game;
+        this.level = new Level(10, 50.0, 0.0);
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - The Cannery (Background Gaming Music).mp3"));
         music.setVolume((float) 0.2);
@@ -57,7 +60,7 @@ public class MenuScreen extends ScreenAdapter {
         playBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new PlayScreen(game, level));
                 return true;
             }
         });

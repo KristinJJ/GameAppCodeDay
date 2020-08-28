@@ -20,6 +20,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
 import com.spelunkers.game.sprites.BlackSquare;
+import com.spelunkers.game.sprites.Level;
 import com.spelunkers.game.sprites.Scoreboard;
 
 import java.util.Locale;
@@ -27,6 +28,7 @@ import java.util.Locale;
 
 public class EndScreen extends ScreenAdapter {
     private BeesGame game;
+    private Level level;
     private Background background;
     private Stage stage;
     private Music music;
@@ -35,12 +37,13 @@ public class EndScreen extends ScreenAdapter {
     private int beePollen;
     private float beeHealth;
 
-    public EndScreen(BeesGame game, Scoreboard scoreboard) {
+    public EndScreen(BeesGame game, Level level, Scoreboard scoreboard) {
         this.beeHivePollen = scoreboard.getBeeHivePollenCount();
         this.beePollen = scoreboard.getBeePollenCount();
         this.beeHealth = scoreboard.getBeeHealth();
 
         this.game = game;
+        this.level = level;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
         music.setVolume((float) 0.2);
@@ -72,7 +75,7 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new PlayScreen(game, level));
             }
         });
 
@@ -108,7 +111,7 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
+                game.setScreen(new PlayScreen(game, level));
             }
         });
 
