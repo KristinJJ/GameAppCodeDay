@@ -88,21 +88,21 @@ public class CreditScreen extends ScreenAdapter {
 
 
         //credits
+        String musicCredit = "\"The Cannery\" by Kevin MacLeod\n\n\t\t\"Happy Bee\" by Kevin MacLeod\n\n\t\t\"Move Forward\" by Kevin MacLeod \n\n\";
+
         String text = "\n" +
                 "Credits\n\n" +
-                "    Kristin Jue\n" +
-                "    Erica Chong\n" +
-                "    Obaid Sidiqi\n" +
-                "    Lily Aguirre\n" +
-                "    Monica King\n" +
-                "    Jardi Martinez\n" +
-                "\nAdditional Credits\n\n" +
-                "    Music:\n\n" +
-                "         \"The Cannery\" by Kevin MacLeod\n\n\"" +
-                "         \"Happy Bee\" by Kevin MacLeod\n\n\"" +
-                "         \"Move Forward\" by Kevin MacLeod \n\n\"" +
-                "    Art:\n\n" +
-                "        'art credit goes here'\n\n";
+                "\tKristin Jue\n" +
+                "\tErica Chong\n" +
+                "\tObaid Sidiqi\n" +
+                "\tLily Aguirre\n" +
+                "\tMonica King\n" +
+                "\tJardi Martinez\n\n" +
+                "\nAdditional Credits\n" +
+                "\tMusic:\n" +
+                "\t\t" + musicCredit +
+                "\tArt:\n\n" +
+                "\t\t'art credit goes here'\n\n";
 
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 6));
