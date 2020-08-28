@@ -41,12 +41,13 @@ public class PlayScreen extends ScreenAdapter{
     private Scoreboard scoreboard;
     private Timer timer;
     private Skin skin;
-    private int pollenGoal = 10;
+    private int pollenGoal;
     private Level level;
 
     public PlayScreen(BeesGame game, Level level) {
         this.game = game;
         this.level = level;
+        this.pollenGoal = level.getPollenGoal();
         skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);

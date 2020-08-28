@@ -20,6 +20,17 @@ public class Level {
         this.beePollenGoal = beePollenGoal;
         this.pesticideRate = pesticideRate;
         this.wind = wind;
+    }
 
+    public int getPollenGoal() {
+        return this.beePollenGoal;
+    }
+
+    public double getPesticideRate() {
+        return this.pesticideRate;
+    }
+
+    public double getWind() {
+        return this.wind;
     }
 }
