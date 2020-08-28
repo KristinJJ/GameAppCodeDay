@@ -54,18 +54,6 @@ public class PlayScreen extends ScreenAdapter{
         music_level.play();
     }
 
-    // Call this whenever you want to save the playerPollenCount
-    void savePlayerPollenCount(int playerPollenCount) {
-        this.playerPollenCount = playerPollenCount;
-    }
-
-    // Call this whenever you want to save the playerPesticideCount
-    void savePlayerPesticideCount(int playerPesticideCount) {
-        this.playerPesticideCount = playerPesticideCount;
-    }
-
-
-
     @Override
     public void show() {
         Gdx.gl.glClearColor(0, 0.75f, 0.25f, 1);
@@ -173,11 +161,6 @@ public class PlayScreen extends ScreenAdapter{
         }
 
         stage.draw();
-    }
-
-    // Call this whenever you want to save the playerHP
-    void savePlayerHP(int playerHP) {
-        this.playerHP = playerHP;
     }
 
     // Call this whenever you want to switch to the EndScreen
