@@ -67,7 +67,7 @@ public class EndScreen extends ScreenAdapter {
         // So much work for a button...
         Button playBtn = new TextButton("Play Again", skin, "small");
         playBtn.setSize(120, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        playBtn.setPosition((BeesGame.WIDTH / 2) - (playBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 200);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
@@ -85,7 +85,7 @@ public class EndScreen extends ScreenAdapter {
         // button to go back to the menu
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) - (menuBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -104,22 +104,22 @@ public class EndScreen extends ScreenAdapter {
         Texture logo = new Texture("SaveTheBees-Logo.png");
         Image logoImage = new Image();
         logoImage.setSize(400, 400);
-        logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
+        logoImage.setPosition((BeesGame.WIDTH / 2f) - (logoImage.getWidth() / 2.2f),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
 
 
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(800, 300);
-        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2) + (logoImage.getHeight() / 3));
+        honeyImage.setSize(BeesGame.WIDTH, 300);
+        honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
         Texture honeyHive = new Texture("beeHiveTrim.png");
         Image hiveBeesImage = new Image();
         hiveBeesImage.setSize(300, 300);
-        hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
+        hiveBeesImage.setPosition(0f,BeesGame.HEIGHT - hiveBeesImage.getHeight());
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
         //scoreboard
