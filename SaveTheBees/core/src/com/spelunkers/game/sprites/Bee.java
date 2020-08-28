@@ -25,7 +25,7 @@ public class Bee extends Actor {
 
     public static final int SPEED = 200;
     private static final float SCALE = 0.25f;
-    private static final float POISON_HIT = 2f;
+    private static final float POISON_HIT = 5f;
 
     public Bee() {
         pollenCount = 0;

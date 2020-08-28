@@ -21,6 +21,8 @@ import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
 import com.spelunkers.game.sprites.Scoreboard;
 
+import java.util.Locale;
+
 
 public class EndScreen extends ScreenAdapter {
     private BeesGame game;
@@ -114,16 +116,22 @@ public class EndScreen extends ScreenAdapter {
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
         //scoreboard
-        String scoreText = "Scoreboard\n\n" +
-                "\nPlayer" +
-                "\n________________" +
-                "\nBee Hive Count : " + beeHivePollen +
-                "\n________________" +
-                "\nBee Pollen Count / 2 : " + beePollen / 2 +
-                "\n________________" +
-                "\nHP : " + beeHealth +
-                "\n________________" +
-                "\nTotal Score : " + (beeHivePollen + (beePollen / 2) + beeHealth) ;
+        String scoreFormatter = "Scoreboard\n\n" +
+                                "\nPlayer" +
+                                "\n" +
+                                "\nBee Hive Count : %d" +
+                                "\n" +
+                                "\nBee Pollen Count / 2 : %d" +
+                                "\n" +
+                                "\nHP : %.2f" +
+                                "\n" +
+                                "\nTotal Score : %.2f";
+        String scoreText = String.format(Locale.getDefault(),
+                                        scoreFormatter,
+                                        beeHivePollen,
+                                        beePollen,
+                                        beeHealth,
+                                        (beeHivePollen + (beePollen / 2) + beeHealth));
 
         Label scoreBoard = new Label(scoreText, skin);
         scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
