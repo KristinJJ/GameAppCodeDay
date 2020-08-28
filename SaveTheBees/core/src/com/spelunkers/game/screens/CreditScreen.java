@@ -98,7 +98,9 @@ public class CreditScreen extends ScreenAdapter {
                 "    Jardi Martinez\n" +
                 "\nAdditional Credits\n\n" +
                 "    Music:\n\n" +
-                "        'music credit goes here'\n\n" +
+                "         \"The Cannery\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\n\\n\" +\n" +
+                "         \"Happy Bee\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\\n\\n\" +\n" +
+                "         \"Move Forward\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\\n\\n\" +\n\n" +
                 "    Art:\n\n" +
                 "        'art credit goes here'\n\n";
 

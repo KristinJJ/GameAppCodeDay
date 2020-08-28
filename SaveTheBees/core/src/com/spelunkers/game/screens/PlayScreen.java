@@ -41,9 +41,6 @@ public class PlayScreen extends ScreenAdapter{
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
-    private int computerPollenCount;
-    private int computerPesticideCount;
-    private int computerHP;
     private Timer timer;
     private Skin skin;
     private int pollenGoal = 10;
@@ -144,7 +141,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Checking if time is over
         if (timer.timeOver()) {
-            game.setScreen(new EndScreen(game, bee.getPollenCount(), 0, bee.getHealth(), 0, 0, 0));
+            game.setScreen(new EndScreen(game, bee.getPollenCount(), 0, bee.getHealth()));
         }
 
         //boing when playerbee hits aiBee
@@ -183,25 +180,9 @@ public class PlayScreen extends ScreenAdapter{
         this.playerHP = playerHP;
     }
 
-    // Call this whenever you want to save the computerPollenCount
-    void saveComputerPollenCount(int computerPollenCount) {
-        this.computerPollenCount = computerPollenCount;
-    }
-
-    // Call this whenever you want to save the computerPesticideCount
-    void saveComputerPesticideCount(int computerPesticideCount) {
-        this.computerPesticideCount = computerPesticideCount;
-    }
-
-    // Call this whenever you want to save the computerHP
-    void saveComputerHP(int computerHP) {
-        this.computerHP = computerHP;
-    }
-
     // Call this whenever you want to switch to the EndScreen
     void goToEndScreen() {
-        game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP,
-                computerPollenCount, computerPesticideCount, computerHP));
+        game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP));
     }
 
     @Override
