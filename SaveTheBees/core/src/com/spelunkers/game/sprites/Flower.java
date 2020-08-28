@@ -6,19 +6,26 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import java.util.Random;
+
 public abstract class Flower extends Actor {
     private Sprite flowerSprite;
     private Sprite centerSprite;
     private int pollenCount;
     private boolean pollinated;
     private boolean poisoned;
+    private float timeToPoison;
     private float timeSinceEmptied;
+    private float timeSinceLastPoisoned;
 
     private static final float SCALE = 0.125f;
     private static final float POLLEN_SCALE = .12f; //.20f;
     private static final float POLLINATION_TIME = 2f;
+    private static final Random RANDOM = new Random();
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
+        timeToPoison = 5f;
+
         pollinated = true;
         poisoned = false;
         flowerSprite = new Sprite(new Texture(flowerImageName));
@@ -68,7 +75,7 @@ public abstract class Flower extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        flowerSprite.draw(batch);
+        flowerSprite.draw(batch, poisoned ? 0.5f : 1f);
         if(pollinated) {
             centerSprite.draw(batch);
         }
@@ -76,10 +83,20 @@ public abstract class Flower extends Actor {
 
     @Override
     public void act(float delta) {
-        if (timeSinceEmptied > POLLINATION_TIME * pollenCount) {
-            pollinated = true;
+        if (!pollinated) {
+            if (timeSinceEmptied > POLLINATION_TIME * pollenCount) {
+                pollinated = true;
+            } else {
+                timeSinceEmptied += delta;
+            }
+        }
+
+        if (timeSinceLastPoisoned > timeToPoison) {
+            int randomInt = RANDOM.nextInt(10);
+            poisoned = randomInt < 2;
+            timeSinceLastPoisoned = 0;
         } else {
-            timeSinceEmptied += delta;
+            timeSinceLastPoisoned += delta;
         }
     }
 
