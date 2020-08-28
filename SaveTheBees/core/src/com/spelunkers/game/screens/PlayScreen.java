@@ -105,7 +105,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Starting the timer
         timer = new Timer(skin);
-        timer.setMaxTime(20f);
+        timer.setMaxTime(30f);
 
          stage.addActor(beehive);
         stage.addActor(stream);
