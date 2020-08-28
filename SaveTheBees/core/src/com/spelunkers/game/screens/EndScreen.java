@@ -115,14 +115,12 @@ public class EndScreen extends ScreenAdapter {
 
         //scoreboard
         String scoreText = "Scoreboard\n\n" +
-                "\nPlayer" +
-                "\n________________" +
-                "\nBee Hive Count : " + beeHivePollen +
-                "\n________________" +
-                "\nBee Pollen Count / 2 : " + beePollen / 2 +
-                "\n________________" +
-                "\nHP : " + beeHealth +
-                "\n________________" +
+                "\nBee Hive Count = " + beeHivePollen +
+                "\n______________________" +
+                "\nBee Pollen Count / 2 = " + beePollen / 2 +
+                "\n______________________" +
+                "\nHP = " + beeHealth +
+                "\n______________________" +
                 "\nTotal Score : " + (beeHivePollen + (beePollen / 2) + beeHealth) ;
 
         Label scoreBoard = new Label(scoreText, skin);
