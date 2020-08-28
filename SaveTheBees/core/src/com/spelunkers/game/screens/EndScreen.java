@@ -111,14 +111,6 @@ public class EndScreen extends ScreenAdapter {
             }
         });
 
-        // Here goes our logo
-        Texture logo = new Texture("SaveTheBees-Logo.png");
-        Image logoImage = new Image();
-        logoImage.setSize(400, 400);
-        logoImage.setPosition((BeesGame.WIDTH / 2f) - (logoImage.getWidth() / 2.2f),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
-        logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
-
-
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
@@ -156,7 +148,6 @@ public class EndScreen extends ScreenAdapter {
 
         stage.addActor(background);
         stage.addActor(scoreBoard);
-        //stage.addActor(logoImage);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
         stage.addActor(nextBtn);
