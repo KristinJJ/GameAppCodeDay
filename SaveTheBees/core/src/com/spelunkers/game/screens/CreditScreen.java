@@ -50,7 +50,7 @@ public class CreditScreen extends ScreenAdapter {
         // So much work for a button...
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) + 150);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -88,7 +88,10 @@ public class CreditScreen extends ScreenAdapter {
 
 
         //credits
-        String musicCredit = "\"The Cannery\" by Kevin MacLeod\n\n\t\t\"Happy Bee\" by Kevin MacLeod\n\n\t\t\"Move Forward\" by Kevin MacLeod \n\n\";
+        String musicCredit = "\t\tMenu Screen - \"The Cannery\" by Kevin MacLeod\n\n" +
+                             "\t\tPlay Screen - \"Happy Bee\" by Kevin MacLeod\n\n" +
+                             "\t\tInstructions/Credits/End Screen - \"Move Forward\" by Kevin MacLeod\n\n" +
+                             "\t\tAll music is licensed under the Creative Commons Attribution 3.0 Unported license\n\n";
 
         String text = "\n" +
                 "Credits\n\n" +
@@ -98,14 +101,14 @@ public class CreditScreen extends ScreenAdapter {
                 "\tLily Aguirre\n" +
                 "\tMonica King\n" +
                 "\tJardi Martinez\n\n" +
-                "\nAdditional Credits\n" +
-                "\tMusic:\n" +
-                "\t\t" + musicCredit +
+                "\nAdditional Credits\n\n" +
+                "\tMusic:\n\n" +
+                musicCredit +
                 "\tArt:\n\n" +
                 "\t\t'art credit goes here'\n\n";
 
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 6));
+        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 10));
 
 
         stage.addActor(background);
