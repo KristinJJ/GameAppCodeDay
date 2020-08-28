@@ -42,7 +42,7 @@ public class EndScreen extends ScreenAdapter {
         this.beeHivePollen = scoreboard.getBeeHivePollenCount();
         this.beePollen = scoreboard.getBeePollenCount();
         this.beeHealth = scoreboard.getBeeHealth();
-
+gi
         this.game = game;
         this.level = level;
         this.passedStatus = Boolean.FALSE;
