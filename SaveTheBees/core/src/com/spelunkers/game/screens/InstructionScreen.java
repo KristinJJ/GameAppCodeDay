@@ -92,7 +92,7 @@ public class InstructionScreen extends ScreenAdapter {
         String text = "\n" +
                 "Instructions\n\n\n" +
                 "- Use Arrow Keys to move the Bee\n\n" +
-                "- Pressing the Spacebar will give your Bee a Speed Boost\n\n" +
+                "- Pressing the Spacebar will give your Bee a Speed Boost / Dash\n\n" +
                 "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
                 "- Move to the hive and click to deposit the Pollen\n\n" +
                 "- The Pollen that is being carried by the Bee, but has not been deposited,\n" +

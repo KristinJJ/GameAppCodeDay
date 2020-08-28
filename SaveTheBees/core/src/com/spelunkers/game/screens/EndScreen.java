@@ -60,7 +60,7 @@ public class EndScreen extends ScreenAdapter {
         // So much work for a button...
         Button playBtn = new TextButton("Play Again", skin, "small");
         playBtn.setSize(120, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) - (playBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 200);
+        playBtn.setPosition(((BeesGame.WIDTH / 4) * 3 - (playBtn.getWidth() / 2)), (BeesGame.HEIGHT / 2) - 200);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
@@ -78,7 +78,7 @@ public class EndScreen extends ScreenAdapter {
         // button to go back to the menu
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) - (menuBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 300);
+        menuBtn.setPosition((BeesGame.WIDTH / 4) * 3 - (menuBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -90,6 +90,24 @@ public class EndScreen extends ScreenAdapter {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new MenuScreen(game));
+            }
+        });
+
+        // button to go to the Next Level
+        Button nextBtn = new TextButton("Next Level", skin, "small");
+        nextBtn.setSize(120, 50);
+        nextBtn.setPosition((BeesGame.WIDTH / 4) * 3 - (nextBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 100);
+        nextBtn.setTransform(true);
+        nextBtn.scaleBy(0.5f);
+        nextBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new PlayScreen(game));
             }
         });
 
@@ -134,15 +152,16 @@ public class EndScreen extends ScreenAdapter {
                                         (beeHivePollen + (beePollen / 2) + beeHealth));
 
         Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
+        scoreBoard.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 4));
 
         stage.addActor(background);
         stage.addActor(scoreBoard);
-        stage.addActor(playBtn);
-        stage.addActor(menuBtn);
-        stage.addActor(logoImage);
+        //stage.addActor(logoImage);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
+        stage.addActor(nextBtn);
+        stage.addActor(playBtn);
+        stage.addActor(menuBtn);
     }
 
     @Override
