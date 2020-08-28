@@ -4,10 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
@@ -21,6 +26,8 @@ import com.spelunkers.game.sprites.Timer;
 import com.spelunkers.game.sprites.Water;
 import com.spelunkers.game.sprites.YellowFlower;
 import com.spelunkers.game.sprites.Beehive;
+
+import java.util.Locale;
 
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
@@ -39,6 +46,7 @@ public class PlayScreen extends ScreenAdapter{
     private int computerHP;
     private Timer timer;
     private Skin skin;
+    private int pollenGoal = 10;
 
     public PlayScreen(BeesGame game) {
         this.game = game;
@@ -101,6 +109,15 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
+        //Pollen goal label
+        Texture lblBackground = new Texture("scoreboard-singlecell.png");
+        Image lblBox = new Image();
+        lblBox.setSize(200f, 50f);
+        lblBox.setPosition(300f, BeesGame.HEIGHT - lblBox.getHeight());
+        lblBox.setDrawable(new TextureRegionDrawable(new TextureRegion(lblBackground)));
+        Label pollenGoalLbl = new Label(String.format(Locale.getDefault(), "Pollen Goal: %d", pollenGoal), skin);
+        pollenGoalLbl.setPosition(320, BeesGame.HEIGHT - lblBox.getHeight() + 15);
+
         // Starting the timer
         timer = new Timer(skin);
 
@@ -108,6 +125,9 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(stream);
         stage.addActor(scoreboard);
         stage.addActor(timer);
+
+        stage.addActor(lblBox);
+        stage.addActor(pollenGoalLbl);
 
         stage.addActor(aiBees);
 
