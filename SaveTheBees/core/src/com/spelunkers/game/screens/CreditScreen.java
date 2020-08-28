@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
+import com.spelunkers.game.sprites.BlackSquare;
 
 
 public class CreditScreen extends ScreenAdapter {
@@ -26,7 +27,6 @@ public class CreditScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
-
 
     public CreditScreen(BeesGame game) {
         this.game = game;
@@ -109,6 +109,7 @@ public class CreditScreen extends ScreenAdapter {
 
 
         stage.addActor(background);
+        stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
