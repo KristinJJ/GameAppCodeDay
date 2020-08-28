@@ -95,7 +95,7 @@ public class CreditScreen extends ScreenAdapter {
         String artWorkCredit =  "\t\tBanner - \"yellow melt paint\" from Pngegg.com\n\n" +
                                 "\t\tBanner - \"three bees flying around hive\" from Pngegg.com\n\n" +
                                 "\t\tPlayer Bee - \"three yellow-and-black bees illustration\" from Pngegg.com - modified\n\n" +
-                                "\t\tComputer Bee - ai-bee credit goes here, I can't find the source :(\n\n" +
+                                "\t\tComputer Bee - \"bee and honey combs\" from Pngegg.com - modified\n\n" +
                                 "\t\tAll non-original artwork is licensed under a Non-Commercial license";
 
         String text = "\n" +
@@ -113,7 +113,7 @@ public class CreditScreen extends ScreenAdapter {
 
 
         stage.addActor(background);
-        stage.addActor(new BlackSquare(90f, 20f, 810f, 610f));
+        stage.addActor(new BlackSquare(60f, 20f, 870f, 610f));
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
