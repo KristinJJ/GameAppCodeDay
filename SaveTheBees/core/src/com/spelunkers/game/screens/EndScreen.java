@@ -123,7 +123,6 @@ public class EndScreen extends ScreenAdapter {
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
         //scoreboard
-        // do something with the high score here
         String scoreText = "Scoreboard\n\n" +
                 "\nPlayer" +
                 "\n________________" +
@@ -170,7 +169,6 @@ public class EndScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         //background.dispose();
-        //playBtn.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();
