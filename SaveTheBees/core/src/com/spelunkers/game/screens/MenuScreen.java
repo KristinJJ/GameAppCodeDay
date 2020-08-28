@@ -201,20 +201,20 @@ public class MenuScreen extends ScreenAdapter {
 
         Texture leftYellowBee4 = new Texture("leftYellowBee.png");
         Image leftYellowBeeImage4 = new Image();
-        leftYellowBeeImage4.setSize(30, 30);
-        leftYellowBeeImage4.setPosition((50),(200));
+        leftYellowBeeImage4.setSize(40, 40);
+        leftYellowBeeImage4.setPosition((460),(190));
         leftYellowBeeImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee4)));
 
         Texture leftYellowBee5 = new Texture("leftYellowBee.png");
         Image leftYellowBeeImage5 = new Image();
-        leftYellowBeeImage5.setSize(30, 30);
-        leftYellowBeeImage5.setPosition((50),(200));
+        leftYellowBeeImage5.setSize(25, 25);
+        leftYellowBeeImage5.setPosition((300),(150));
         leftYellowBeeImage5.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee5)));
 
         Texture leftYellowBee6 = new Texture("leftYellowBee.png");
         Image leftYellowBeeImage6 = new Image();
-        leftYellowBeeImage6.setSize(30, 30);
-        leftYellowBeeImage6.setPosition((50),(200));
+        leftYellowBeeImage6.setSize(20, 20);
+        leftYellowBeeImage6.setPosition((830),(100));
         leftYellowBeeImage6.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee6)));
 
 
@@ -311,6 +311,12 @@ public class MenuScreen extends ScreenAdapter {
         blackBeeYellowImage9.setPosition((0),(890));
         blackBeeYellowImage9.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee9)));
 
+        Texture yellowBlackBee10 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage10 = new Image();
+        blackBeeYellowImage10.setSize(40, 40);
+        blackBeeYellowImage10.setPosition((540),(815));
+        blackBeeYellowImage10.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee10)));
+
         //grass
         Texture tallGrass = new Texture("pngegg.png");
         Image tallGrassImage = new Image();
@@ -386,6 +392,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(blackBeeYellowImage7);
         stage.addActor(blackBeeYellowImage8);
         stage.addActor(blackBeeYellowImage9);
+        stage.addActor(blackBeeYellowImage10);
         stage.addActor(cuteBeeImage1);
         //stage.addActor(endBtn); // This is temporary to get to end screen
     }
