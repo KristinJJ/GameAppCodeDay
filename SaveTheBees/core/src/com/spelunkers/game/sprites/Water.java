@@ -31,17 +31,5 @@ public class Water extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         sprite.draw(batch);
-
-        batch.end();
-        /// temporary just to make sure the circle is the right size and position
-/*
-        ShapeRenderer shapeRenderer = new ShapeRenderer();
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(0.3f, 0.75f, 0.9f, 1f);
-        shapeRenderer.circle(sprite.getX() + sprite.getWidth() * 0.35f, sprite.getY() + sprite.getHeight() * 0.35f, sprite.getHeight() * 0.4f);
-        shapeRenderer.end();
- */
-
-        batch.begin();
     }
 }

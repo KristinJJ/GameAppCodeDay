@@ -138,6 +138,7 @@ public class Bee extends Actor {
     public void act(float delta) {
         if (isPoisoned()) {
             health -= POISON_HIT * delta;
+            //setImage("cuteBeeTrimmed (copy).png", SCALE);
         }
 
         // Update bee new position after motion keys
