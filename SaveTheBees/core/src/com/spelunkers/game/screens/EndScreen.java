@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
+import com.spelunkers.game.sprites.Scoreboard;
 
 
 public class EndScreen extends ScreenAdapter {
@@ -27,19 +28,14 @@ public class EndScreen extends ScreenAdapter {
     private Stage stage;
     private Music music;
 
-    private int playerPollenCount;
-    private int playerPesticideCount;
-    private int playerHP;
-/*
-    private int computerPollenCount;
-    private int computerPesticideCount;
-    private int computerHP;*/
+    private int beeHivePollen;
+    private int beePollen;
+    private int beeHealth;
 
-
-    public EndScreen(BeesGame game, int playerPollenCount, int playerPesticideCount, int playerHP) {
-        this.playerPollenCount = playerPollenCount;
-        this.playerPesticideCount = playerPesticideCount;
-        this.playerHP = playerHP;
+    public EndScreen(BeesGame game, Scoreboard scoreboard) {
+        this.beeHivePollen = scoreboard.getBeeHivePollenCount();
+        this.beePollen = scoreboard.getBeePollenCount();
+        this.beeHealth = scoreboard.getBeeHealth();
 
         this.game = game;
         background = new Background();
@@ -121,11 +117,11 @@ public class EndScreen extends ScreenAdapter {
         String scoreText = "Scoreboard\n\n" +
                 "\nPlayer" +
                 "\n________________" +
-                "\nBee Hive Count : " + playerPesticideCount +
+                "\nBee Hive Count : " + beeHivePollen +
                 "\n________________" +
-                "\nBee Pollen Count : " + playerPollenCount +
+                "\nBee Pollen Count : " + beePollen +
                 "\n________________" +
-                "\nHP : " + playerHP;
+                "\nHP : " + beeHealth;
 
         Label scoreBoard = new Label(scoreText, skin);
         scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));

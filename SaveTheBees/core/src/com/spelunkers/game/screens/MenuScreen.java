@@ -19,7 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
-
+import com.spelunkers.game.sprites.Scoreboard;
 
 
 public class MenuScreen extends ScreenAdapter {
@@ -27,9 +27,6 @@ public class MenuScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
-    private int playerPollenCount;
-    private int playerPesticideCount;
-    private int playerHP;
 
 
     public MenuScreen(BeesGame game) {
@@ -39,9 +36,6 @@ public class MenuScreen extends ScreenAdapter {
         music.setVolume((float) 0.2);
         music.setLooping(true);
         music.play();
-        this.playerPollenCount = 0;
-        this.playerPesticideCount = 0;
-        this.playerHP = 0;
     }
 
     @Override
@@ -93,21 +87,6 @@ public class MenuScreen extends ScreenAdapter {
                 return true;
             }
         });
-
-        // ---------   Temporary button to get to the end Screen -----------------------------------
-        Button endBtn = new TextButton("The End", skin, "small");
-        endBtn.setSize(100, 50);
-        endBtn.setPosition((BeesGame.WIDTH / 1.5f) + 100, (BeesGame.HEIGHT / 2f) - 200);
-        endBtn.setTransform(true);
-        endBtn.scaleBy(0.5f);
-        endBtn.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP));
-                return true;
-            }
-        });
-        // -----------------------------------------------------------------------------------------
 
         // Here goes our logo
         Texture logo = new Texture("SaveTheBees-Logo.png");
