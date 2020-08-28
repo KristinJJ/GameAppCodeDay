@@ -128,7 +128,7 @@ public class MenuScreen extends ScreenAdapter {
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(BeesGame.WIDTH, 300);
+        honeyImage.setSize(BeesGame.WIDTH, (BeesGame.HEIGHT / 10) * 3);
         honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 

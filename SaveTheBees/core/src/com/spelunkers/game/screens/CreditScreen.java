@@ -75,8 +75,8 @@ public class CreditScreen extends ScreenAdapter {
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(800, 300);
-        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2) + (logoImage.getHeight() / 3));
+        honeyImage.setSize(BeesGame.WIDTH, (BeesGame.HEIGHT / 10) * 3);
+        honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
