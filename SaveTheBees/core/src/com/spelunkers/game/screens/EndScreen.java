@@ -32,6 +32,7 @@ public class EndScreen extends ScreenAdapter {
     private Background background;
     private Stage stage;
     private Music music;
+    private Boolean passedStatus;
 
     private int beeHivePollen;
     private int beePollen;
@@ -44,6 +45,7 @@ public class EndScreen extends ScreenAdapter {
 
         this.game = game;
         this.level = level;
+        this.passedStatus = Boolean.FALSE;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
         music.setVolume((float) 0.2);
@@ -137,26 +139,44 @@ public class EndScreen extends ScreenAdapter {
                                 "\n" +
                                 "\nBee Pollen Count / 2 : %d" +
                                 "\n" +
+                                "\nTotal Pollen Count : %.2f" +
+                                "\n\t+" +
                                 "\nBee Health : %.2f" +
                                 "\n" +
                                 "\nTotal Score : %.2f";
-        String scoreText = String.format(Locale.getDefault(),
+        float pollenTotal = beeHivePollen + (beePollen / 2);
+        String totalScoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
                                         beeHivePollen,
                                         beePollen / 2,
+                                        pollenTotal,
                                         beeHealth,
-                                        (beeHivePollen + (beePollen / 2) + beeHealth));
+                                        pollenTotal + beeHealth);
 
-        Label scoreBoard = new Label(scoreText, skin);
+        Label scoreBoard = new Label(totalScoreText, skin);
         scoreBoard.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 4));
+
+        // passed the level pollen goal or not
+        if (pollenTotal >= level.getPollenGoal()) {
+            this.passedStatus = Boolean.TRUE;
+        }
 
         stage.addActor(background);
         stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(scoreBoard);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
-        stage.addActor(nextBtn);
-        stage.addActor(playBtn);
+        if (passedStatus) {
+            Label passedCongrats = new Label("Congrats, you passed the level!", skin);
+            passedCongrats.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 6));
+            stage.addActor(passedCongrats);
+            stage.addActor(nextBtn);
+        } else {
+            Label tryAgain = new Label("Sorry, your bee did not collect enough pollen. Try again!", skin);
+            tryAgain.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 6));
+            stage.addActor(tryAgain);
+            stage.addActor(playBtn);
+        }
         stage.addActor(menuBtn);
     }
 
