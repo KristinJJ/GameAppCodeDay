@@ -109,10 +109,10 @@ public class CreditScreen extends ScreenAdapter {
 
 
         stage.addActor(background);
-        stage.addActor(menuBtn);
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
+        stage.addActor(menuBtn);
     }
 
     @Override
