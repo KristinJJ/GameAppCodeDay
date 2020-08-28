@@ -43,8 +43,12 @@ public abstract class Flower extends Actor {
     }
 
     public int harvestPollen() {
-        pollinated = false;
-        return pollenCount;
+        if (!pollinated) {
+            return 0;
+        } else {
+            pollinated = false;
+            return pollenCount;
+        }
     }
 
     public int getPollenCount() {
