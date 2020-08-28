@@ -155,6 +155,12 @@ public class MenuScreen extends ScreenAdapter {
         blueCircleFlowerImage.setPosition((0),(85));
         blueCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower)));
 
+        Texture blueShortFlower2 = new Texture("blueCircleFlower.png");
+        Image blueCircleFlowerImage2 = new Image();
+        blueCircleFlowerImage2.setSize(140, 140);
+        blueCircleFlowerImage2.setPosition((800),(0));
+        blueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower2)));
+
         //green flower picture
         Texture greenCircleFlower = new Texture("greenCircleFlower.png");
         Image greenCircleFlowerImage = new Image();
@@ -276,6 +282,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(hiveBeesImage);
         stage.addActor(tallGrassImage);
         stage.addActor(blueCircleFlowerImage);
+        stage.addActor(blueCircleFlowerImage2);
         stage.addActor(lightBlueFlowerImage);
         stage.addActor(greenCircleFlowerImage);
         stage.addActor(darkPinkCircleFlowerImage);
