@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
+import com.spelunkers.game.sprites.BlackSquare;
 import com.spelunkers.game.sprites.Scoreboard;
 
 import java.util.Locale;
@@ -147,6 +148,7 @@ public class EndScreen extends ScreenAdapter {
         scoreBoard.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 4));
 
         stage.addActor(background);
+        stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(scoreBoard);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
