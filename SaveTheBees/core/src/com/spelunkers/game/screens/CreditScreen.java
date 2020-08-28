@@ -92,24 +92,28 @@ public class CreditScreen extends ScreenAdapter {
                              "\t\tInstructions/Credits/End Screen - \"Move Forward\" by Kevin MacLeod\n\n" +
                              "\t\tAll music is licensed under the Creative Commons Attribution 3.0 Unported license\n\n";
 
+        String artWorkCredit =  "\t\tBanner - \"yellow melt paint\" from Pngegg.com\n\n" +
+                                "\t\tBanner - \"three bees flying around hive\" from Pngegg.com\n\n" +
+                                "\t\tPlayer Bee - \"three yellow-and-black bees illustration\" from Pngegg.com - modified\n\n" +
+                                "\t\tComputer Bee - ai-bee credit goes here, I can't find the source :(\n\n" +
+                                "\t\tAll non-original artwork is licensed under a Non-Commercial license";
+
         String text = "\n" +
                 "Spelunkers Studios\n\n" +
-                "\tLily Aguirre, Erica Chong, Kristin Jue, Monica King, Jardi Martinez, Obaid Sidiqi\n\n" +
+                "\tLily Aguirre, Wooseok Byeoun, Erica Chong,\n" +
+                "\tKristin Jue, Monica King, Jardi Martinez, Obaid Sidiqi\n\n" +
                 "\nAdditional Credits\n\n" +
                 "\tMusic:\n\n" +
                 musicCredit +
                 "\tArt:\n\n" +
-                "\t\t'honey credit goes here'\n\n" +
-                "\t\t'bee credits goes here'\n\n" +
-                "\t\t'other bees credit goes here'\n\n" +
-                "\t\t'other art credit goes here'\n\n";
+                artWorkCredit;
 
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 14));
+        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 25));
 
 
         stage.addActor(background);
-        stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
+        stage.addActor(new BlackSquare(90f, 20f, 810f, 610f));
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
