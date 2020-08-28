@@ -187,6 +187,37 @@ public class MenuScreen extends ScreenAdapter {
         leftYellowBeeImage.setPosition((50),(200));
         leftYellowBeeImage.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee)));
 
+        Texture leftYellowBee2 = new Texture("leftYellowBee.png");
+        Image leftYellowBeeImage2 = new Image();
+        leftYellowBeeImage2.setSize(30, 30);
+        leftYellowBeeImage2.setPosition((50),(200));
+        leftYellowBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee2)));
+
+        Texture leftYellowBee3 = new Texture("leftYellowBee.png");
+        Image leftYellowBeeImage3 = new Image();
+        leftYellowBeeImage3.setSize(50, 50);
+        leftYellowBeeImage3.setPosition((740),(210));
+        leftYellowBeeImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee3)));
+
+        Texture leftYellowBee4 = new Texture("leftYellowBee.png");
+        Image leftYellowBeeImage4 = new Image();
+        leftYellowBeeImage4.setSize(30, 30);
+        leftYellowBeeImage4.setPosition((50),(200));
+        leftYellowBeeImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee4)));
+
+        Texture leftYellowBee5 = new Texture("leftYellowBee.png");
+        Image leftYellowBeeImage5 = new Image();
+        leftYellowBeeImage5.setSize(30, 30);
+        leftYellowBeeImage5.setPosition((50),(200));
+        leftYellowBeeImage5.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee5)));
+
+        Texture leftYellowBee6 = new Texture("leftYellowBee.png");
+        Image leftYellowBeeImage6 = new Image();
+        leftYellowBeeImage6.setSize(30, 30);
+        leftYellowBeeImage6.setPosition((50),(200));
+        leftYellowBeeImage6.setDrawable(new TextureRegionDrawable(new TextureRegion(leftYellowBee6)));
+
+
         //Bees looking at the right
         Texture yellowBee = new Texture("yellowBee.png");
         Image yellowBeeImage = new Image();
@@ -208,8 +239,8 @@ public class MenuScreen extends ScreenAdapter {
 
         Texture yellowBee4 = new Texture("yellowBee.png");
         Image yellowBeeImage4 = new Image();
-        yellowBeeImage4.setSize(50, 50);
-        yellowBeeImage4.setPosition((800),(230));
+        yellowBeeImage4.setSize(60, 60);
+        yellowBeeImage4.setPosition((120),(230));
         yellowBeeImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee4)));
 
         Texture yellowBee5 = new Texture("yellowBee.png");
@@ -225,7 +256,6 @@ public class MenuScreen extends ScreenAdapter {
         yellowBeeImage6.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee6)));
 
 
-
         //BlackBees
         Texture yellowBlackBee = new Texture("blackBeeYellow.png");
         Image blackBeeYellowImage = new Image();
@@ -236,7 +266,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture yellowBlackBee2 = new Texture("blackBeeYellow.png");
         Image blackBeeYellowImage2 = new Image();
         blackBeeYellowImage2.setSize(40, 40);
-        blackBeeYellowImage2.setPosition((150),(125));
+        blackBeeYellowImage2.setPosition((190),(125));
         blackBeeYellowImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee2)));
 
         Texture yellowBlackBee3 = new Texture("blackBeeYellow.png");
@@ -325,6 +355,11 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(greenCircleFlowerImage);
         stage.addActor(darkPinkCircleFlowerImage);
         stage.addActor(leftYellowBeeImage);
+        stage.addActor(leftYellowBeeImage2);
+        stage.addActor(leftYellowBeeImage3);
+        stage.addActor(leftYellowBeeImage4);
+        stage.addActor(leftYellowBeeImage5);
+        stage.addActor(leftYellowBeeImage6);
         stage.addActor(yellowBeeImage);
         stage.addActor(yellowBeeImage2);
         stage.addActor(yellowBeeImage3);

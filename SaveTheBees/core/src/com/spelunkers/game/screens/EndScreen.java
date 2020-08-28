@@ -119,9 +119,11 @@ public class EndScreen extends ScreenAdapter {
                 "\n________________" +
                 "\nBee Hive Count : " + beeHivePollen +
                 "\n________________" +
-                "\nBee Pollen Count : " + beePollen +
+                "\nBee Pollen Count / 2 : " + beePollen / 2 +
                 "\n________________" +
-                "\nHP : " + beeHealth;
+                "\nHP : " + beeHealth +
+                "\n________________" +
+                "\nTotal Score : " + (beeHivePollen + (beePollen / 2) + beeHealth) ;
 
         Label scoreBoard = new Label(scoreText, skin);
         scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
