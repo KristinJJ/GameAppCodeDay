@@ -94,18 +94,16 @@ public class CreditScreen extends ScreenAdapter {
                              "\t\tAll music is licensed under the Creative Commons Attribution 3.0 Unported license\n\n";
 
         String text = "\n" +
-                "Credits\n\n" +
-                "\tKristin Jue\n" +
-                "\tErica Chong\n" +
-                "\tObaid Sidiqi\n" +
-                "\tLily Aguirre\n" +
-                "\tMonica King\n" +
-                "\tJardi Martinez\n\n" +
+                "Spelunkers Studios\n\n" +
+                "\tLily Aguirre, Erica Chong, Kristin Jue, Monica King, Jardi Martinez, Obaid Sidiqi\n\n" +
                 "\nAdditional Credits\n\n" +
                 "\tMusic:\n\n" +
                 musicCredit +
                 "\tArt:\n\n" +
-                "\t\t'art credit goes here'\n\n";
+                "\t\t'honey credit goes here'\n\n";
+                "\t\t'bee credits goes here'\n\n";
+                "\t\t'other bees credit goes here'\n\n";
+                "\t\t'other art credit goes here'\n\n";
 
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 10));
