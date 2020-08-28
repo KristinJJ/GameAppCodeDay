@@ -130,8 +130,8 @@ public class MenuScreen extends ScreenAdapter {
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(800, 300);
-        honeyImage.setPosition((0),(BeesGame.HEIGHT / 2f) + (logoImage.getHeight() / 3f));
+        honeyImage.setSize(BeesGame.WIDTH, 300);
+        honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
         //HoneyHive picture
@@ -180,7 +180,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture indigoCircleFlower = new Texture("indigoCircleFlower.png");
         Image indigoCircleFlowerImage = new Image();
         indigoCircleFlowerImage.setSize(120, 120);
-        indigoCircleFlowerImage.setPosition((480),(0));
+        indigoCircleFlowerImage.setPosition((480),20);
         indigoCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(indigoCircleFlower)));
 
         //Yellow flower picture
@@ -240,7 +240,7 @@ public class MenuScreen extends ScreenAdapter {
         //grass
         Texture tallGrass = new Texture("pngegg.png");
         Image tallGrassImage = new Image();
-        tallGrassImage.setSize(800, 180);
+        tallGrassImage.setSize(BeesGame.WIDTH, 180);
         tallGrassImage.setPosition((0),(0));
         tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
 
@@ -260,7 +260,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture cuteBee3 = new Texture("cuteBeeHorizontalTrimed.png");
         Image cuteBeeImage3 = new Image();
         cuteBeeImage3.setSize(145, 145);
-        cuteBeeImage3.setPosition((550),(520));
+        cuteBeeImage3.setPosition(600f,(520));
         cuteBeeImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee3)));
 
         //credits

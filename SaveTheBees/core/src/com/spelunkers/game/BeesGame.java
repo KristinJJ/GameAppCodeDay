@@ -8,8 +8,8 @@ public class BeesGame extends Game {
 	private SpriteBatch batch; // we only need one.
 
 	public static final String TITLE = "Save The Bees!";
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 800;
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 1000;
 	
 	@Override
 	public void create () {
