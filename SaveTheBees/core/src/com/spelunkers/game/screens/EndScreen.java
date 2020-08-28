@@ -129,7 +129,7 @@ public class EndScreen extends ScreenAdapter {
         String scoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
                                         beeHivePollen,
-                                        beePollen,
+                                        beePollen / 2,
                                         beeHealth,
                                         (beeHivePollen + (beePollen / 2) + beeHealth));
 

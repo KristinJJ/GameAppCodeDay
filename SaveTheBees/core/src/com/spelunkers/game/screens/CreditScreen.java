@@ -98,14 +98,14 @@ public class CreditScreen extends ScreenAdapter {
                 "    Jardi Martinez\n" +
                 "\nAdditional Credits\n\n" +
                 "    Music:\n\n" +
-                "         \"The Cannery\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\n\\n\" +\n" +
-                "         \"Happy Bee\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\\n\\n\" +\n" +
-                "         \"Move Forward\" by Kevin MacLeod is licensed under the Creative Commons Attribution 3.0 Unported license\\n\\n\" +\n\n" +
+                "         \"The Cannery\" by Kevin MacLeod\n\n\"" +
+                "         \"Happy Bee\" by Kevin MacLeod\n\n\"" +
+                "         \"Move Forward\" by Kevin MacLeod \n\n\"" +
                 "    Art:\n\n" +
                 "        'art credit goes here'\n\n";
 
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 4), (BeesGame.HEIGHT / 6));
+        credits.setPosition((BeesGame.WIDTH / 10), (BeesGame.HEIGHT / 6));
 
 
         stage.addActor(background);
