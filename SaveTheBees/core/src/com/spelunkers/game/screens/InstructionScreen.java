@@ -21,31 +21,14 @@ import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
 
 
-public class EndScreen extends ScreenAdapter {
+public class InstructionScreen extends ScreenAdapter {
     private BeesGame game;
     private Background background;
     private Stage stage;
     private Music music;
 
-    private int playerPollenCount;
-    private int playerPesticideCount;
-    private int playerHP;
 
-    private int computerPollenCount;
-    private int computerPesticideCount;
-    private int computerHP;
-
-
-    public EndScreen(BeesGame game, int playerPollenCount, int playerPesticideCount, int playerHP,
-            int computerPollenCount, int computerPesticideCount, int computerHP) {
-        this.playerPollenCount = playerPollenCount;
-        this.playerPesticideCount = playerPesticideCount;
-        this.playerHP = playerHP;
-
-        this.computerPollenCount = computerPollenCount;
-        this.computerPesticideCount = computerPesticideCount;
-        this.computerHP = computerHP;
-
+    public InstructionScreen(BeesGame game) {
         this.game = game;
         background = new Background();
         music = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod ~ Move Forward.mp3"));
@@ -65,24 +48,6 @@ public class EndScreen extends ScreenAdapter {
         Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         // So much work for a button...
-        Button playBtn = new TextButton("Play Again", skin, "small");
-        playBtn.setSize(120, 50);
-        playBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
-        playBtn.setTransform(true);
-        playBtn.scaleBy(0.5f);
-        playBtn.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game));
-            }
-        });
-
-        // button to go back to the menu
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
         menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
@@ -122,32 +87,24 @@ public class EndScreen extends ScreenAdapter {
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2) + (hiveBeesImage.getHeight() / 3));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
-        //scoreboard
-        String scoreText = "Scoreboard\n\n" +
-                "\nPlayer" +
-                "\n________________" +
-                "\nPesticide Count : " + playerPesticideCount +
-                "\n________________" +
-                "\nPollen Count : " + playerPollenCount +
-                "\n________________" +
-                "\nHP : " + playerHP +
 
-                "\n\n\nComputer" +
-                "\n________________" +
-                "\nPesticide Count : " + computerPesticideCount +
-                "\n________________" +
-                "\nPollen Count : " + computerPollenCount +
-                "\n________________" +
-                "\nHP : " + computerHP ;
+        //instructions
+        String text = "\n" +
+                "Instructions\n\n\n" +
+                "- Use arrow keys to move the Bee\n\n" +
+                "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
+                "- Move to the hive and click to deposit the Pollen \n\n" +
+                "- There is a chance the Pollen you've collected has Pesticide on it\n\n" +
+                "- If you get Poisoned from the Pesticide, move to the Water \n" +
+                "  and click to wash the Pesticide off\n\n";
 
-        Label scoreBoard = new Label(scoreText, skin);
-        scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));
+        Label credits = new Label(text, skin);
+        credits.setPosition((BeesGame.WIDTH / 8), BeesGame.HEIGHT / 4);
+
 
         stage.addActor(background);
-        stage.addActor(scoreBoard);
-        stage.addActor(playBtn);
         stage.addActor(menuBtn);
-        stage.addActor(logoImage);
+        stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
     }
@@ -169,6 +126,7 @@ public class EndScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         //background.dispose();
+        //playBtn.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();

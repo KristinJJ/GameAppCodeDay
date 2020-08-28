@@ -50,7 +50,7 @@ public class CreditScreen extends ScreenAdapter {
         // So much work for a button...
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -72,7 +72,6 @@ public class CreditScreen extends ScreenAdapter {
         logoImage.setPosition((BeesGame.WIDTH / 2) - (logoImage.getWidth() / 2),(BeesGame.HEIGHT / 2) - (logoImage.getHeight() / 3));
         logoImage.setDrawable(new TextureRegionDrawable(new TextureRegion(logo)));
 
-
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
@@ -90,19 +89,25 @@ public class CreditScreen extends ScreenAdapter {
 
         //credits
         String text = "\n" +
-               "    Kristin Jue\n" +
-               "    Erica Chong\n" +
-               "    Obaid Sidiqi\n" +
-               "    Lily Aguirre\n" +
-               "    Monica King\n" +
-               "    Jardi Martinez\n";
+                "Credits\n\n" +
+                "    Kristin Jue\n" +
+                "    Erica Chong\n" +
+                "    Obaid Sidiqi\n" +
+                "    Lily Aguirre\n" +
+                "    Monica King\n" +
+                "    Jardi Martinez\n" +
+                "\nAdditional Credits\n\n" +
+                "    Music:\n\n" +
+                "        'music credit goes here'\n\n" +
+                "    Art:\n\n" +
+                "        'art credit goes here'\n\n";
+
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
+        credits.setPosition((BeesGame.WIDTH / 4), (BeesGame.HEIGHT / 6));
 
 
         stage.addActor(background);
         stage.addActor(menuBtn);
-        stage.addActor(logoImage);
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
@@ -125,7 +130,6 @@ public class CreditScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         //background.dispose();
-        //playBtn.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();

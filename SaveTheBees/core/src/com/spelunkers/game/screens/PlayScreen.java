@@ -126,7 +126,7 @@ public class PlayScreen extends ScreenAdapter{
             game.setScreen(new EndScreen(game, bee.getPollenCount(), 0, bee.getHealth(), 0, 0, 0));
         }
 
-        //boing when playerbee hits aibee
+        //boing when playerbee hits aiBee
         Group aiBees = (Group)stage.getRoot().findActor("aiBees");
         for (Actor actor : aiBees.getChildren()) {
             Bee ai = (Bee)actor;

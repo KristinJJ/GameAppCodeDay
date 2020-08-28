@@ -78,13 +78,26 @@ public class MenuScreen extends ScreenAdapter {
 
         Button creditsBtn = new TextButton("Credits", skin, "small");
         creditsBtn.setSize(100, 40);
-        creditsBtn.setPosition((BeesGame.WIDTH / 2f - 70), (BeesGame.HEIGHT / 2f) - 250);
+        creditsBtn.setPosition((BeesGame.WIDTH / 2f + 20), (BeesGame.HEIGHT / 2f) - 250);
         creditsBtn.setTransform(true);
         creditsBtn.scaleBy(0.5f);
         creditsBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new CreditScreen(game));
+                return true;
+            }
+        });
+
+        Button instructBtn = new TextButton("Instructions", skin, "small");
+        instructBtn.setSize(120, 40);
+        instructBtn.setPosition((BeesGame.WIDTH / 2f - 180), (BeesGame.HEIGHT / 2f) - 250);
+        instructBtn.setTransform(true);
+        instructBtn.scaleBy(0.5f);
+        instructBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new InstructionScreen(game));
                 return true;
             }
         });
@@ -281,8 +294,9 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(lightBlueCircleFlowerImage2);
         stage.addActor(cuteBeeImage3);
         stage.addActor(playBtn);
+        stage.addActor(instructBtn);
         stage.addActor(creditsBtn);
-        stage.addActor(endBtn); // This is temporary to get to end screen
+        //stage.addActor(endBtn); // This is temporary to get to end screen
     }
 
     @Override
@@ -302,7 +316,6 @@ public class MenuScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         //background.dispose();
-        //playBtn.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();
