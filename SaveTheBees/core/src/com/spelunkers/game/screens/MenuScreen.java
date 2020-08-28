@@ -225,20 +225,26 @@ public class MenuScreen extends ScreenAdapter {
         Texture yellowBee2 = new Texture("yellowBee.png");
         Image yellowBeeImage2 = new Image();
         yellowBeeImage2.setSize(40, 40);
-        yellowBeeImage2.setPosition((350),(125));
+        yellowBeeImage2.setPosition((400),(100));
         yellowBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee2)));
 
         Texture yellowBee3 = new Texture("yellowBee.png");
         Image yellowBeeImage3 = new Image();
-        yellowBeeImage3.setSize(40, 40);
-        yellowBeeImage3.setPosition((350),(125));
+        yellowBeeImage3.setSize(30, 30);
+        yellowBeeImage3.setPosition((520),(180));
         yellowBeeImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee3)));
 
         Texture yellowBee4 = new Texture("yellowBee.png");
         Image yellowBeeImage4 = new Image();
-        yellowBeeImage4.setSize(40, 40);
-        yellowBeeImage4.setPosition((350),(125));
+        yellowBeeImage4.setSize(50, 50);
+        yellowBeeImage4.setPosition((800),(230));
         yellowBeeImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee4)));
+
+        Texture yellowBee5 = new Texture("yellowBee.png");
+        Image yellowBeeImage5 = new Image();
+        yellowBeeImage5.setSize(30, 30);
+        yellowBeeImage5.setPosition((905),(80));
+        yellowBeeImage5.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee5)));
 
 
 
@@ -345,6 +351,7 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(yellowBeeImage2);
         stage.addActor(yellowBeeImage3);
         stage.addActor(yellowBeeImage4);
+        stage.addActor(yellowBeeImage5);
         stage.addActor(credits);
         stage.addActor(orangeCircleFlowerImage);
         stage.addActor(cuteBeeImage2);
