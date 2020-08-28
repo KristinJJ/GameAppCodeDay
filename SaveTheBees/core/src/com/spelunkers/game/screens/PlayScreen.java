@@ -141,7 +141,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Checking if time is over
         if (timer.timeOver()) {
-            game.setScreen(new EndScreen(game, bee.getPollenCount(), 0, bee.getHealth()));
+            game.setScreen(new EndScreen(game, scoreboard));
         }
 
         //boing when playerbee hits aiBee
@@ -182,7 +182,7 @@ public class PlayScreen extends ScreenAdapter{
 
     // Call this whenever you want to switch to the EndScreen
     void goToEndScreen() {
-        game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP));
+        game.setScreen(new EndScreen(game, scoreboard));
     }
 
     @Override

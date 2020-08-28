@@ -46,6 +46,18 @@ public class Scoreboard extends Actor {
         beeHealth.setPosition(sprite.getX() + 15, sprite.getY() + 15);
     }
 
+    public int getBeeHivePollenCount() {
+        return this.beehive.getPollenCount();
+    }
+
+    public int getBeePollenCount() {
+        return this.bee.getPollenCount();
+    }
+
+    public int getBeeHealth() {
+        return this.bee.getHealth();
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
         sprite.draw(batch);
