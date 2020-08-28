@@ -17,8 +17,8 @@ public class Timer extends Label {
 
     private static float DEFAULT_MAX_TIME = 10;
 
-    public Timer() {
-        super("Remaining Time:", new Skin(Gdx.files.internal("skin/glassy-ui.json")));
+    public Timer(Skin skin) {
+        super("Remaining Time:", skin);
         sprite = new Sprite(new Texture("scoreboard-singlecell.png"));
         maxTime = DEFAULT_MAX_TIME;
         setPosition(20,BeesGame.HEIGHT - 35f);

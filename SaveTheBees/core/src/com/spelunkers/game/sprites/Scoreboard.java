@@ -7,6 +7,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.spelunkers.game.BeesGame;
+
+import java.util.Locale;
 
 public class Scoreboard extends Actor {
     private Sprite sprite;
@@ -19,34 +22,28 @@ public class Scoreboard extends Actor {
 
     private final float SCALE = 0.25f;
 
-    public Scoreboard(Bee bee, Beehive beehive) {
-        Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+    private static final String BEEHIVE_PC_LABEL = "Beehive Pollen: %d";
+    private static final String BEE_PC_LABEL = "Bee Pollen: %d";
+    private static final String BEE_HEALTH_LABEL = "Bee Health: %d";
 
+    public Scoreboard(Bee bee, Beehive beehive, Skin skin) {
 
         sprite = new Sprite(new Texture("scoreboard.png"));
-        sprite.setPosition(400, 500);
-        sprite.setScale(SCALE);
+        sprite.setSize(sprite.getWidth() * SCALE + 50, sprite.getHeight() * SCALE);
+        sprite.setPosition(BeesGame.WIDTH - sprite.getWidth(), BeesGame.HEIGHT - sprite.getHeight());
+        //sprite.setScale(SCALE);
 
         this.bee = bee;
         this.beehive = beehive;
 
-        beehivePollenCount = new Label(String.valueOf(beehive.getPollenCount()), skin);
-        beehivePollenCount.setPosition(sprite.getX() + 255, sprite.getY() + 265);
+        beehivePollenCount = new Label(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount()), skin);
+        beehivePollenCount.setPosition(sprite.getX() + 15, sprite.getY() + 85);
 
-        beePollenCount = new Label(String.valueOf(bee.getPollenCount()), skin);
-        beePollenCount.setPosition(sprite.getX() + 255, sprite.getY() + 230);
+        beePollenCount = new Label(String.format(Locale.getDefault(), BEE_PC_LABEL, bee.getPollenCount()), skin);
+        beePollenCount.setPosition(sprite.getX() + 15, sprite.getY() + 50);
 
-        beeHealth = new Label(String.valueOf(bee.getHealth()), skin);
-        beeHealth.setPosition(sprite.getX() + 255, sprite.getY() + 190);
-    }
-
-    public void update() {
-        //gets data from bee & beehive, changes what is displayed
-        beehivePollenCount.setText(String.valueOf(beehive.getPollenCount()));
-
-        beePollenCount.setText(String.valueOf(bee.getPollenCount()));
-
-        beeHealth.setText(String.valueOf(bee.getHealth()));
+        beeHealth = new Label(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()), skin);
+        beeHealth.setPosition(sprite.getX() + 15, sprite.getY() + 15);
     }
 
     @Override
@@ -55,5 +52,13 @@ public class Scoreboard extends Actor {
         beehivePollenCount.draw(batch, parentAlpha);
         beePollenCount.draw(batch, parentAlpha);
         beeHealth.draw(batch, parentAlpha);
+    }
+
+    @Override
+    public void act(float delta) {
+        beehivePollenCount.setText(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount()));
+        beePollenCount.setText(String.format(Locale.getDefault(), BEE_PC_LABEL, bee.getPollenCount()));
+        beeHealth.setText(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()));
+        super.act(delta);
     }
 }

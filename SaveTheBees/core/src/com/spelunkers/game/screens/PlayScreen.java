@@ -42,6 +42,7 @@ public class PlayScreen extends ScreenAdapter{
 
     public PlayScreen(BeesGame game) {
         this.game = game;
+        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
         music_level.setLooping(true);
@@ -80,7 +81,7 @@ public class PlayScreen extends ScreenAdapter{
 
         beehive = new Beehive();
         stream = new Water();
-        scoreboard = new Scoreboard(bee, beehive);
+        scoreboard = new Scoreboard(bee, beehive, skin);
 
         flowerList = new Flower[15];
 
@@ -101,7 +102,7 @@ public class PlayScreen extends ScreenAdapter{
         }
 
         // Starting the timer
-        timer = new Timer();
+        timer = new Timer(skin);
 
         stage.addActor(beehive);
         stage.addActor(stream);
@@ -138,21 +139,18 @@ public class PlayScreen extends ScreenAdapter{
         //wash in the water
         if(bee.getBody().overlaps(stream.getBody())){
             bee.wash();
-            scoreboard.update();
         }
 
         //pollinate from flowers
         for(Flower aFlower : flowerList) {
             if(bee.getBody().overlaps(aFlower.getBody())) {
                 bee.drawPollen(aFlower);
-                scoreboard.update();
             }
         }
 
         //deposit pollen at beehive
         if(bee.getBody().overlaps(beehive.getBody())) {
             bee.depositPollen(beehive);
-            scoreboard.update();
         }
 
         stage.draw();

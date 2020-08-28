@@ -2,9 +2,12 @@ package com.spelunkers.game.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.spelunkers.game.BeesGame;
 
 public class Beehive extends Actor {
 
@@ -14,8 +17,9 @@ public class Beehive extends Actor {
 
     public Beehive() {
         sprite = new Sprite(new Texture("beehive.png"));
-        sprite.setPosition(-200.0f, 400f);
-        sprite.setScale(SCALE);
+        sprite.setSize(sprite.getWidth() * SCALE, sprite.getHeight() * SCALE);
+        sprite.setPosition(0f, BeesGame.HEIGHT - sprite.getHeight());
+        //sprite.setScale(SCALE);
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
     }
 
@@ -24,7 +28,9 @@ public class Beehive extends Actor {
     }
 
     public Circle getBody() {
-        return new Circle(sprite.getX(), sprite.getY(), 20);
+        return new Circle(sprite.getX() + sprite.getWidth() * 0.43f,
+                          sprite.getY() + sprite.getHeight() * 0.35f,
+                      sprite.getHeight() * 0.3f);
     }
 
     public int getPollenCount() {
@@ -33,6 +39,16 @@ public class Beehive extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        sprite.draw(batch);
+        sprite.draw(batch, parentAlpha);
+        batch.end();
+        /// temporary just to make sure the circle is the right size and position
+        /*
+        ShapeRenderer shapeRenderer = new ShapeRenderer();
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        shapeRenderer.setColor(0.3f, 0.75f, 0.9f, 0.01f);
+        shapeRenderer.circle(sprite.getX() + sprite.getWidth() * 0.43f, sprite.getY() + sprite.getHeight() * 0.35f, sprite.getHeight() * 0.3f);
+        shapeRenderer.end();
+         */
+        batch.begin();
     }
 }
