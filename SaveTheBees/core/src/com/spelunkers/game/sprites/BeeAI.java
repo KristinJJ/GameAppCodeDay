@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveByAction;
+import com.spelunkers.game.BeesGame;
 
 import java.util.Random;
 
@@ -16,7 +17,7 @@ public class BeeAI extends Bee {
     public BeeAI() {
         //super("yellowBee.png");
         setImage("yellowBee.png", 0.15f);
-        setPosition(200, 200);
+        setPosition(RANDOM.nextFloat() * (BeesGame.WIDTH - 100), RANDOM.nextFloat() * (BeesGame.HEIGHT - 100));
     }
 
     @Override

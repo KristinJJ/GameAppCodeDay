@@ -12,9 +12,11 @@ public abstract class Flower extends Actor {
     private int pollenCount;
     private boolean pollinated;
     private boolean poisoned;
+    private float timeSinceEmptied;
 
     private static final float SCALE = 0.125f;
-    private static final float POLLENSCALE = .12f; //.20f;
+    private static final float POLLEN_SCALE = .12f; //.20f;
+    private static final float POLLINATION_TIME = 2f;
 
     public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
         pollinated = true;
@@ -38,7 +40,7 @@ public abstract class Flower extends Actor {
 
         centerSprite = new Sprite(new Texture(pollenImageName));
         centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.5f, randomY + flowerSprite.getHeight() / 2.5f);
-        centerSprite.setSize(centerSprite.getWidth() * POLLENSCALE, centerSprite.getHeight() * POLLENSCALE);
+        centerSprite.setSize(centerSprite.getWidth() * POLLEN_SCALE, centerSprite.getHeight() * POLLEN_SCALE);
 
     }
 
@@ -47,6 +49,7 @@ public abstract class Flower extends Actor {
             return 0;
         } else {
             pollinated = false;
+            timeSinceEmptied = 0;
             return pollenCount;
         }
     }
@@ -73,7 +76,11 @@ public abstract class Flower extends Actor {
 
     @Override
     public void act(float delta) {
-        //do nothing
+        if (timeSinceEmptied > POLLINATION_TIME * pollenCount) {
+            pollinated = true;
+        } else {
+            timeSinceEmptied += delta;
+        }
     }
 
 }
