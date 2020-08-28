@@ -138,22 +138,16 @@ public class EndScreen extends ScreenAdapter {
                                 "\n" +
                                 "\nBee Pollen Count / 2 : %d" +
                                 "\n" +
-                                "\nTotal Pollen Count : %.2f" +
-                                "\n\t+" +
-                                "\nBee Health : %.2f" +
-                                "\n" +
-                                "\nTotal Score : %.2f";
+                                "\nTotal Pollen Count : %.2f" + " / " + level.getPollenGoal();
         float pollenTotal = beeHivePollen + (beePollen / 2);
         String totalScoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
                                         beeHivePollen,
                                         beePollen / 2,
-                                        pollenTotal,
-                                        beeHealth,
-                                        pollenTotal + beeHealth);
+                                        pollenTotal);
 
         Label scoreBoard = new Label(totalScoreText, skin);
-        scoreBoard.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 4));
+        scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
 
         // passed the level pollen goal or not
         if (pollenTotal >= level.getPollenGoal()) {
@@ -167,12 +161,12 @@ public class EndScreen extends ScreenAdapter {
         stage.addActor(hiveBeesImage);
         if (passedStatus) {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
-            passedCongrats.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 6));
+            passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(passedCongrats);
             stage.addActor(nextBtn);
         } else {
             Label tryAgain = new Label("Sorry, your bee did not collect enough pollen. Try again!", skin);
-            tryAgain.setPosition(BeesGame.WIDTH / 4, (BeesGame.HEIGHT / 6));
+            tryAgain.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(tryAgain);
             stage.addActor(playBtn);
         }
