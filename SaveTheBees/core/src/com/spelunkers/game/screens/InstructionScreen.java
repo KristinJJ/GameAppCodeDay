@@ -93,10 +93,13 @@ public class InstructionScreen extends ScreenAdapter {
                 "Instructions\n\n\n" +
                 "- Use arrow keys to move the Bee\n\n" +
                 "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
-                "- Move to the hive and click to deposit the Pollen \n\n" +
-                "- There is a chance the Pollen you've collected has Pesticide on it\n\n" +
+                "- Move to the hive and click to deposit the Pollen\n\n" +
+                "- The Pollen that is being carried by the Bee but has not been deposited \n" +
+                "      will only count for half points when the Timer runs out\n\n" +
+                "- There is a chance the Pollen you've collected has Pesticide on it \n" +
+                "      when it translucent\n\n" +
                 "- If you get Poisoned from the Pesticide, move to the Water \n" +
-                "  and click to wash the Pesticide off\n\n";
+                "      and click to wash the Pesticide off\n\n";
 
         Label credits = new Label(text, skin);
         credits.setPosition((BeesGame.WIDTH / 8), BeesGame.HEIGHT / 4);
