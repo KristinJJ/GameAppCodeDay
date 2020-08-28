@@ -120,6 +120,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Starting the timer
         timer = new Timer(skin);
+        timer.setMaxTime(20f);
 
         stage.addActor(beehive);
         stage.addActor(stream);
@@ -152,6 +153,7 @@ public class PlayScreen extends ScreenAdapter{
             Bee ai = (Bee)actor;
             if (bee.getBody().overlaps(ai.getBody())) {
                 bee.moveBy(Bee.SPEED * -bee.getXdir() * delta * 10f, Bee.SPEED * -bee.getYdir() * delta * 10f);
+                bee.emptyPockets(); // Bee looses its pollen :-(
                 ai.moveBy(Bee.SPEED * bee.getXdir() * delta * 10f, Bee.SPEED * bee.getYdir() * delta * 10f);
             }
         }

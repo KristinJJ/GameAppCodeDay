@@ -15,12 +15,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.sprites.Background;
-import com.spelunkers.game.sprites.Bee;
 
 
 
@@ -130,7 +128,7 @@ public class MenuScreen extends ScreenAdapter {
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(BeesGame.WIDTH, 300);
+        honeyImage.setSize(BeesGame.WIDTH, (BeesGame.HEIGHT / 10) * 3);
         honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
@@ -387,7 +385,6 @@ public class MenuScreen extends ScreenAdapter {
 
     @Override
     public void dispose() {
-        //background.dispose();
         game.dispose();
         stage.dispose();
         music.dispose();

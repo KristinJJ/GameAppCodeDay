@@ -61,7 +61,7 @@ public class Bee extends Actor {
         emptyPockets();
     }
 
-    private void emptyPockets() {
+    public void emptyPockets() {
         pollenCount = 0;
         //add code to remove graphics of bee holding pollen
     }
