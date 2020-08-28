@@ -24,7 +24,7 @@ public class Scoreboard extends Actor {
 
     private static final String BEEHIVE_PC_LABEL = "Beehive Pollen: %d";
     private static final String BEE_PC_LABEL = "Bee Pollen: %d";
-    private static final String BEE_HEALTH_LABEL = "Bee Health: %d";
+    private static final String BEE_HEALTH_LABEL = "Bee Health: %.2f";
 
     public Scoreboard(Bee bee, Beehive beehive, Skin skin) {
 
@@ -54,7 +54,7 @@ public class Scoreboard extends Actor {
         return this.bee.getPollenCount();
     }
 
-    public int getBeeHealth() {
+    public float getBeeHealth() {
         return this.bee.getHealth();
     }
 

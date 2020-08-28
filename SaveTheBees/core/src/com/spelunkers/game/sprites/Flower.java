@@ -69,6 +69,10 @@ public abstract class Flower extends Actor {
         return pollinated;
     }
 
+    public boolean isPoisoned() {
+        return poisoned;
+    }
+
     public Circle getBody() {
         return new Circle(centerSprite.getX(), centerSprite.getY(), 5);
     }

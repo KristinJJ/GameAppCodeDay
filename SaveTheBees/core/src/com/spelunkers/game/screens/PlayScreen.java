@@ -164,6 +164,9 @@ public class PlayScreen extends ScreenAdapter{
         for(Flower aFlower : flowerList) {
             if(bee.getBody().overlaps(aFlower.getBody())) {
                 bee.drawPollen(aFlower);
+                if(aFlower.isPoisoned()) {
+                    bee.becomePoisoned();
+                }
             }
         }
 

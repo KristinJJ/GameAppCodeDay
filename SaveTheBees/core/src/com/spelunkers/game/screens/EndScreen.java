@@ -30,7 +30,7 @@ public class EndScreen extends ScreenAdapter {
 
     private int beeHivePollen;
     private int beePollen;
-    private int beeHealth;
+    private float beeHealth;
 
     public EndScreen(BeesGame game, Scoreboard scoreboard) {
         this.beeHivePollen = scoreboard.getBeeHivePollenCount();

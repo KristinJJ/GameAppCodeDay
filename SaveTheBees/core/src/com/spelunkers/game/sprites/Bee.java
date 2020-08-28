@@ -2,7 +2,6 @@ package com.spelunkers.game.sprites;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -14,8 +13,8 @@ import com.badlogic.gdx.graphics.GL20;
 
 public class Bee extends Actor {
     private int pollenCount;
-    private boolean poisonStatus;
-    private int health;
+    private boolean poisoned;
+    private float health;
 
     private int xDir;
     private int yDir;
@@ -26,10 +25,11 @@ public class Bee extends Actor {
 
     public static final int SPEED = 200;
     private static final float SCALE = 0.25f;
+    private static final float POISON_HIT = 1f;
 
     public Bee() {
         pollenCount = 0;
-        poisonStatus = false;
+        poisoned = false;
         health = 100;
 
         setImage("cuteBeeTrimmed.png", SCALE);
@@ -57,7 +57,7 @@ public class Bee extends Actor {
     }
 
     public void wash() {
-        poisonStatus = false;
+        poisoned = false;
         emptyPockets();
     }
 
@@ -79,12 +79,16 @@ public class Bee extends Actor {
         return pollenCount;
     }
 
-    public int getHealth() {
+    public float getHealth() {
         return health;
     }
 
-    public boolean isPoisonStatus() {
-        return poisonStatus;
+    public void becomePoisoned() {
+        poisoned = true;
+    }
+
+    public boolean isPoisoned() {
+        return poisoned;
     }
 
     public int getXdir() {
@@ -114,7 +118,7 @@ public class Bee extends Actor {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
-        sprite.draw(batch);
+        sprite.draw(batch, health / 100f);
 
         batch.end();
         /// temporary just to make sure the circle is the right size and position
@@ -132,6 +136,10 @@ public class Bee extends Actor {
 
     @Override
     public void act(float delta) {
+        if (isPoisoned()) {
+            health -= POISON_HIT * delta;
+        }
+
         // Update bee new position after motion keys
         // Bee bounces off the walls
         int boost = 1;
