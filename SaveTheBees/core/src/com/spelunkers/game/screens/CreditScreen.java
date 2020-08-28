@@ -50,7 +50,7 @@ public class CreditScreen extends ScreenAdapter {
         // So much work for a button...
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {

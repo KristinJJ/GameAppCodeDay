@@ -50,7 +50,7 @@ public class InstructionScreen extends ScreenAdapter {
         // So much work for a button...
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 200);
+        menuBtn.setPosition((BeesGame.WIDTH / 2) + 100, (BeesGame.HEIGHT / 2) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -88,15 +88,22 @@ public class InstructionScreen extends ScreenAdapter {
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
 
-        //credits
-        String text = "Instructions";
+        //instructions
+        String text = "\n" +
+                "Instructions\n\n\n" +
+                "- Use arrow keys to move the Bee\n\n" +
+                "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
+                "- Move to the hive and click to deposit the Pollen \n\n" +
+                "- There is a chance the Pollen you've collected has Pesticide on it\n\n" +
+                "- If you get Poisoned from the Pesticide, move to the Water \n" +
+                "  and click to wash the Pesticide off\n\n";
+
         Label credits = new Label(text, skin);
-        credits.setPosition((BeesGame.WIDTH / 4) * 3 , 10);
+        credits.setPosition((BeesGame.WIDTH / 8), BeesGame.HEIGHT / 4);
 
 
         stage.addActor(background);
         stage.addActor(menuBtn);
-        //stage.addActor(logoImage);
         stage.addActor(credits);
         stage.addActor(honeyImage);
         stage.addActor(hiveBeesImage);
