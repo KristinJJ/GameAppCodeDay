@@ -30,9 +30,6 @@ public class MenuScreen extends ScreenAdapter {
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
-    private int computerPollenCount;
-    private int computerPesticideCount;
-    private int computerHP;
 
 
     public MenuScreen(BeesGame game) {
@@ -45,9 +42,6 @@ public class MenuScreen extends ScreenAdapter {
         this.playerPollenCount = 0;
         this.playerPesticideCount = 0;
         this.playerHP = 0;
-        this.computerPollenCount = 0;
-        this.computerPesticideCount = 0;
-        this.computerHP = 0;
     }
 
     @Override
@@ -109,8 +103,7 @@ public class MenuScreen extends ScreenAdapter {
         endBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP,
-                        computerPollenCount, computerPesticideCount, computerHP));
+                game.setScreen(new EndScreen(game, playerPollenCount, playerPesticideCount, playerHP));
                 return true;
             }
         });
@@ -135,7 +128,7 @@ public class MenuScreen extends ScreenAdapter {
         //HoneyHive picture
         Texture honeyHive = new Texture("beeHiveTrim.png");
         Image hiveBeesImage = new Image();
-        hiveBeesImage.setSize(300, 300);
+        hiveBeesImage.setSize(350, 350);
         hiveBeesImage.setPosition((0),(BeesGame.HEIGHT / 2f) + (hiveBeesImage.getHeight() / 3f));
         hiveBeesImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honeyHive)));
 
@@ -155,7 +148,7 @@ public class MenuScreen extends ScreenAdapter {
 
         Texture blueShortFlower2 = new Texture("blueCircleFlower.png");
         Image blueCircleFlowerImage2 = new Image();
-        blueCircleFlowerImage2.setSize(140, 140);
+        blueCircleFlowerImage2.setSize(170, 170);
         blueCircleFlowerImage2.setPosition((800),(0));
         blueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower2)));
 
@@ -225,8 +218,28 @@ public class MenuScreen extends ScreenAdapter {
         Texture yellowBee2 = new Texture("yellowBee.png");
         Image yellowBeeImage2 = new Image();
         yellowBeeImage2.setSize(40, 40);
-        yellowBeeImage2.setPosition((350),(125));
+        yellowBeeImage2.setPosition((400),(100));
         yellowBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee2)));
+
+        Texture yellowBee3 = new Texture("yellowBee.png");
+        Image yellowBeeImage3 = new Image();
+        yellowBeeImage3.setSize(30, 30);
+        yellowBeeImage3.setPosition((520),(180));
+        yellowBeeImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee3)));
+
+        Texture yellowBee4 = new Texture("yellowBee.png");
+        Image yellowBeeImage4 = new Image();
+        yellowBeeImage4.setSize(50, 50);
+        yellowBeeImage4.setPosition((800),(230));
+        yellowBeeImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee4)));
+
+        Texture yellowBee5 = new Texture("yellowBee.png");
+        Image yellowBeeImage5 = new Image();
+        yellowBeeImage5.setSize(30, 30);
+        yellowBeeImage5.setPosition((905),(80));
+        yellowBeeImage5.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBee5)));
+
+
 
         //BlackBees
         Texture yellowBlackBee = new Texture("blackBeeYellow.png");
@@ -241,10 +254,52 @@ public class MenuScreen extends ScreenAdapter {
         blackBeeYellowImage2.setPosition((150),(125));
         blackBeeYellowImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee2)));
 
+        Texture yellowBlackBee3 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage3 = new Image();
+        blackBeeYellowImage3.setSize(60, 60);
+        blackBeeYellowImage3.setPosition((750),(890));
+        blackBeeYellowImage3.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee3)));
+
+        Texture yellowBlackBee4 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage4 = new Image();
+        blackBeeYellowImage4.setSize(40, 40);
+        blackBeeYellowImage4.setPosition((920),(250));
+        blackBeeYellowImage4.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee4)));
+
+        Texture yellowBlackBee5 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage5 = new Image();
+        blackBeeYellowImage5.setSize(20, 20);
+        blackBeeYellowImage5.setPosition((820),(115));
+        blackBeeYellowImage5.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee5)));
+
+        Texture yellowBlackBee6 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage6 = new Image();
+        blackBeeYellowImage6.setSize(20, 20);
+        blackBeeYellowImage6.setPosition((620),(115));
+        blackBeeYellowImage6.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee6)));
+
+        Texture yellowBlackBee7 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage7 = new Image();
+        blackBeeYellowImage7.setSize(20, 20);
+        blackBeeYellowImage7.setPosition((500),(100));
+        blackBeeYellowImage7.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee7)));
+
+        Texture yellowBlackBee8 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage8 = new Image();
+        blackBeeYellowImage8.setSize(20, 20);
+        blackBeeYellowImage8.setPosition((450),(60));
+        blackBeeYellowImage8.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee8)));
+
+        Texture yellowBlackBee9 = new Texture("blackBeeYellow.png");
+        Image blackBeeYellowImage9 = new Image();
+        blackBeeYellowImage9.setSize(100, 100);
+        blackBeeYellowImage9.setPosition((0),(890));
+        blackBeeYellowImage9.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowBlackBee9)));
+
         //grass
         Texture tallGrass = new Texture("pngegg.png");
         Image tallGrassImage = new Image();
-        tallGrassImage.setSize(BeesGame.WIDTH, 180);
+        tallGrassImage.setSize(BeesGame.WIDTH, 200);
         tallGrassImage.setPosition((0),(0));
         tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
 
@@ -258,7 +313,7 @@ public class MenuScreen extends ScreenAdapter {
         Texture cuteBee2 = new Texture("cuteBeeTrimmed.png");
         Image cuteBeeImage2 = new Image();
         cuteBeeImage2.setSize(100, 100);
-        cuteBeeImage2.setPosition((680),(630));
+        cuteBeeImage2.setPosition((780),(730));
         cuteBeeImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(cuteBee2)));
 
         Texture cuteBee3 = new Texture("cuteBeeHorizontalTrimed.png");
@@ -286,10 +341,10 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(darkPinkCircleFlowerImage);
         stage.addActor(leftYellowBeeImage);
         stage.addActor(yellowBeeImage);
-        stage.addActor(blackBeeYellowImage);
-        stage.addActor(blackBeeYellowImage2);
-        stage.addActor(cuteBeeImage1);
         stage.addActor(yellowBeeImage2);
+        stage.addActor(yellowBeeImage3);
+        stage.addActor(yellowBeeImage4);
+        stage.addActor(yellowBeeImage5);
         stage.addActor(credits);
         stage.addActor(orangeCircleFlowerImage);
         stage.addActor(cuteBeeImage2);
@@ -301,6 +356,16 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(playBtn);
         stage.addActor(instructBtn);
         stage.addActor(creditsBtn);
+        stage.addActor(blackBeeYellowImage);
+        stage.addActor(blackBeeYellowImage2);
+        stage.addActor(blackBeeYellowImage3);
+        stage.addActor(blackBeeYellowImage4);
+        stage.addActor(blackBeeYellowImage5);
+        stage.addActor(blackBeeYellowImage6);
+        stage.addActor(blackBeeYellowImage7);
+        stage.addActor(blackBeeYellowImage8);
+        stage.addActor(blackBeeYellowImage9);
+        stage.addActor(cuteBeeImage1);
         //stage.addActor(endBtn); // This is temporary to get to end screen
     }
 

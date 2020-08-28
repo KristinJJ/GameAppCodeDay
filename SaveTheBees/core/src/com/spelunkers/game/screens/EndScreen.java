@@ -30,21 +30,16 @@ public class EndScreen extends ScreenAdapter {
     private int playerPollenCount;
     private int playerPesticideCount;
     private int playerHP;
-
+/*
     private int computerPollenCount;
     private int computerPesticideCount;
-    private int computerHP;
+    private int computerHP;*/
 
 
-    public EndScreen(BeesGame game, int playerPollenCount, int playerPesticideCount, int playerHP,
-            int computerPollenCount, int computerPesticideCount, int computerHP) {
+    public EndScreen(BeesGame game, int playerPollenCount, int playerPesticideCount, int playerHP) {
         this.playerPollenCount = playerPollenCount;
         this.playerPesticideCount = playerPesticideCount;
         this.playerHP = playerHP;
-
-        this.computerPollenCount = computerPollenCount;
-        this.computerPesticideCount = computerPesticideCount;
-        this.computerHP = computerHP;
 
         this.game = game;
         background = new Background();
@@ -126,19 +121,11 @@ public class EndScreen extends ScreenAdapter {
         String scoreText = "Scoreboard\n\n" +
                 "\nPlayer" +
                 "\n________________" +
-                "\nPesticide Count : " + playerPesticideCount +
+                "\nBee Hive Count : " + playerPesticideCount +
                 "\n________________" +
-                "\nPollen Count : " + playerPollenCount +
+                "\nBee Pollen Count : " + playerPollenCount +
                 "\n________________" +
-                "\nHP : " + playerHP +
-
-                "\n\n\nComputer" +
-                "\n________________" +
-                "\nPesticide Count : " + computerPesticideCount +
-                "\n________________" +
-                "\nPollen Count : " + computerPollenCount +
-                "\n________________" +
-                "\nHP : " + computerHP ;
+                "\nHP : " + playerHP;
 
         Label scoreBoard = new Label(scoreText, skin);
         scoreBoard.setPosition(100, (BeesGame.HEIGHT / 9));

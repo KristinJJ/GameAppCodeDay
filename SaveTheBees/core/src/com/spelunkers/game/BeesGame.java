@@ -9,7 +9,7 @@ public class BeesGame extends Game {
 
 	public static final String TITLE = "Save The Bees!";
 	public static final int WIDTH = 1000;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 1000;
 	
 	@Override
 	public void create () {
