@@ -161,14 +161,21 @@ public class EndScreen extends ScreenAdapter {
         Texture happyBeeTexture = new Texture("happyCartoonBee.png");
         Image happyBeeBox = new Image();
         happyBeeBox.setSize(220f, 120f);
-        happyBeeBox.setPosition((BeesGame.WIDTH / 10) * 4, BeesGame.HEIGHT / 2);
+        happyBeeBox.setPosition((BeesGame.WIDTH / 10) * 4, (BeesGame.HEIGHT / 10) * 4);
         happyBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(happyBeeTexture)));
+
+        // crown image
+        Texture crownTexture = new Texture("CartoonCrown.png");
+        Image crownBox = new Image();
+        crownBox.setSize(220f, 120f);
+        crownBox.setPosition((BeesGame.WIDTH / 10) * 4, (BeesGame.HEIGHT / 10) * 4);
+        crownBox.setDrawable(new TextureRegionDrawable(new TextureRegion(crownTexture)));
 
         // sad bee image
         Texture angryBeeTexture = new Texture("AngryBee.png");
         Image angryBeeBox = new Image();
         angryBeeBox.setSize(220f, 120f);
-        angryBeeBox.setPosition((BeesGame.WIDTH / 10) * 5, BeesGame.HEIGHT / 2);
+        angryBeeBox.setPosition((BeesGame.WIDTH / 10) * 5, (BeesGame.HEIGHT / 10) * 4);
         angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
 
         stage.addActor(background);
@@ -180,6 +187,7 @@ public class EndScreen extends ScreenAdapter {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
             passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(happyBeeBox);
+            stage.addActor();
             stage.addActor(passedCongrats);
             stage.addActor(nextBtn);
         } else {
