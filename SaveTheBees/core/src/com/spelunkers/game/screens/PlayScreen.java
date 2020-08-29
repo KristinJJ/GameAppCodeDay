@@ -110,10 +110,10 @@ public class PlayScreen extends ScreenAdapter{
         Texture lblBackground = new Texture("scoreboard-singlecell.png");
         Image lblBox = new Image();
         lblBox.setSize(200f, 50f);
-        lblBox.setPosition(300f, BeesGame.HEIGHT - lblBox.getHeight());
+        lblBox.setPosition(240f, BeesGame.HEIGHT - lblBox.getHeight());
         lblBox.setDrawable(new TextureRegionDrawable(new TextureRegion(lblBackground)));
         Label pollenGoalLbl = new Label(String.format(Locale.getDefault(), "Pollen Goal: %d", pollenGoal), skin);
-        pollenGoalLbl.setPosition(320, BeesGame.HEIGHT - lblBox.getHeight() + 15);
+        pollenGoalLbl.setPosition(260, BeesGame.HEIGHT - lblBox.getHeight() + 15);
 
         //Water sign label
         Texture signBackground = new Texture("watersign.png");

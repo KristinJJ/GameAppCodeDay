@@ -28,14 +28,21 @@ public class BeesGame extends Game {
 		completedLevels = new ArrayList<>();
 		skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
+		// Create the list of levels
+		Level level1 = new Level("Piece Of Cake", skin, 15, 5f);
+		Level level2 = new Level("Westward Wind", skin, 20, 6f, 10f, PlayScreen.WindDirection.WEST);
+		Level level3 = new Level("Eastward wind", skin, 30, 6f, 10, PlayScreen.WindDirection.EAST);
+		Level level4 = new Level("Tornado", skin, 15, 7f, 20f, PlayScreen.WindDirection.RANDOM);
+		Level level5 = new Level("Strong wind", skin, 15, 7f, 25f, PlayScreen.WindDirection.NORTH);
+		Level level6 = new Level("Strong pesticide", skin, 20, 8f, 25f, PlayScreen.WindDirection.SOUTH);
 		// Create the stack of levels push hardest levels in first
 		levels = new Stack<>();
-		levels.push(new Level("Strong pesticide", skin, 20, 8f, 25f, PlayScreen.WindDirection.SOUTH));
-		levels.push(new Level("Strong wind", skin, 15, 7f, 25f, PlayScreen.WindDirection.NORTH));
-		levels.push(new Level("Tornado", skin, 15, 7f, 20f, PlayScreen.WindDirection.RANDOM));
-		levels.push(new Level("Eastward wind", skin, 30, 6f, 10, PlayScreen.WindDirection.EAST));
-		levels.push(new Level("Westward Wind", skin, 20, 6f, 10f, PlayScreen.WindDirection.WEST));
-		levels.push(new Level("Piece Of Cake", skin, 15, 5f));
+		levels.push(level6);
+		levels.push(level5);
+		levels.push(level4);
+		levels.push(level3);
+		levels.push(level2);
+		levels.push(level1);
 
 		setScreen(new MenuScreen(this));
 	}
