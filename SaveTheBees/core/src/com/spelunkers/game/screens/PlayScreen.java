@@ -29,6 +29,7 @@ import com.spelunkers.game.sprites.YellowFlower;
 import com.spelunkers.game.sprites.Beehive;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class PlayScreen extends ScreenAdapter{
     private BeesGame game;
@@ -43,6 +44,11 @@ public class PlayScreen extends ScreenAdapter{
     private Skin skin;
     private int pollenGoal;
     private Level level;
+
+
+    private static final Random RANDOMIZER = new Random();
+
+    public enum WindDirection {EAST, WEST, NORTH, SOUTH, RANDOM}
 
     public PlayScreen(BeesGame game, Level level) {
         this.game = game;
@@ -127,6 +133,28 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Gdx.graphics.getDeltaTime());
+
+
+        if (level.hasWind()) {
+            switch (level.getWindDir()) {
+                case EAST:
+                    bee.moveBy(-level.getWindSpeed() * delta, 0);
+                    break;
+                case WEST:
+                    bee.moveBy(level.getWindSpeed() * delta, 0);
+                    break;
+                case SOUTH:
+                    bee.moveBy(0, -level.getWindSpeed() * delta);
+                    break;
+                case NORTH:
+                    bee.moveBy(0, level.getWindSpeed() * delta);
+                    break;
+                case RANDOM:
+                    int xDir = RANDOMIZER.nextInt(3) - 1;
+                    int yDir = RANDOMIZER.nextInt(3) - 1;
+                    bee.moveBy(xDir * level.getWindSpeed() * delta, yDir * level.getWindSpeed() * delta);
+            }
+        }
 
         // Checking if time is over or bee is dead
         if (timer.timeOver() || bee.getHealth() <= 0) {

@@ -1,36 +1,41 @@
 package com.spelunkers.game.sprites;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.spelunkers.game.BeesGame;
-
-import java.util.Locale;
+import com.spelunkers.game.screens.PlayScreen.WindDirection;
 
 public class Level {
 
-    private int beePollenGoal;
+    private int pollenGoal;
     private double pesticideRate;
-    private double wind;
+    private float windSpeed;
+    private WindDirection windDir;
 
-    public Level(int beePollenGoal, double pesticideRate, double wind) {
-        this.beePollenGoal = beePollenGoal;
+
+    public Level(int pollenGoal, double pesticideRate, float windSpeed, WindDirection windDir) {
+        this.pollenGoal = pollenGoal;
         this.pesticideRate = pesticideRate;
-        this.wind = wind;
+        this.windSpeed = windSpeed;
+        this.windDir = windDir;
+    }
+
+    public Level(int pollenGoal, double pesticideRate) {
+        this(pollenGoal, pesticideRate, 0.0f, WindDirection.WEST);
     }
 
     public int getPollenGoal() {
-        return this.beePollenGoal;
+        return this.pollenGoal;
     }
 
     public double getPesticideRate() {
         return this.pesticideRate;
     }
 
-    public double getWind() {
-        return this.wind;
+    public float getWindSpeed() {
+        return this.windSpeed;
     }
+
+    public WindDirection getWindDir() {
+        return windDir;
+    }
+
+    public boolean hasWind() { return windSpeed > 0; }
 }

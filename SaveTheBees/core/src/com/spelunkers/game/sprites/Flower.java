@@ -13,6 +13,7 @@ public abstract class Flower extends Actor {
     private Sprite centerSprite;
     private int pollenCount;
     private boolean pollinated;
+    private int poisonRate;
     private boolean poisoned;
     private float timeToPoison;
     private float timeSinceEmptied;
@@ -21,10 +22,13 @@ public abstract class Flower extends Actor {
     private static final float SCALE = 0.125f;
     private static final float POLLEN_SCALE = .12f; //.20f;
     private static final float POLLINATION_TIME = 2f;
+    private static final float DEFAULT_TIME_TO_POISON = 5f;
+    private static final int DEFAULT_POISON_RATE = 30;
     private static final Random RANDOM = new Random();
 
-    public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
-        timeToPoison = 5f;
+    public Flower(String flowerImageName, int pollenCount, String pollenImageName, int poisonRate) {
+        timeToPoison = DEFAULT_TIME_TO_POISON;
+        this.poisonRate = poisonRate;
 
         pollinated = true;
         poisoned = false;
@@ -48,7 +52,10 @@ public abstract class Flower extends Actor {
         centerSprite = new Sprite(new Texture(pollenImageName));
         centerSprite.setPosition(randomX + flowerSprite.getWidth() / 2.5f, randomY + flowerSprite.getHeight() / 2.5f);
         centerSprite.setSize(centerSprite.getWidth() * POLLEN_SCALE, centerSprite.getHeight() * POLLEN_SCALE);
+    }
 
+    public Flower(String flowerImageName, int pollenCount, String pollenImageName) {
+        this(flowerImageName, pollenCount, pollenImageName, DEFAULT_POISON_RATE);
     }
 
     public int harvestPollen() {
@@ -96,8 +103,8 @@ public abstract class Flower extends Actor {
         }
 
         if (timeSinceLastPoisoned > timeToPoison) {
-            int randomInt = RANDOM.nextInt(10);
-            poisoned = randomInt < 2;
+            int randomInt = RANDOM.nextInt(100) + 1;
+            poisoned = randomInt < poisonRate;
             timeSinceLastPoisoned = 0;
         } else {
             timeSinceLastPoisoned += delta;

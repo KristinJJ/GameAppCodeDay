@@ -19,7 +19,7 @@ public class Pollen extends Actor {
 
     private static final float SCALE = 0.07f;
     private static final float FALL_RATE = -150f;
-    private static final float FADING_RATE = 2f;
+    private static final float FADING_RATE = 50f;
 
     public Pollen() {
         pollen1 = new Sprite(new Texture("pollenBall.png"));
