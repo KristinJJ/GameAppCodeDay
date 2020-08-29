@@ -141,7 +141,7 @@ public class EndScreen extends ScreenAdapter {
                                 "\nBee Pollen Count / 2 : %d" +
                                 "\n" +
                                 "\nBee Hive Pollen Count : %d" + " / " + level.getPollenGoal();
-        //float pollenTotal = beeHivePollen + (beePollen / 2);
+
         String totalScoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
                                         beeHealth,
@@ -157,6 +157,20 @@ public class EndScreen extends ScreenAdapter {
             game.getLevels().pop();
         }
 
+        // happy bee image
+        Texture happyBeeTexture = new Texture("happyCartoonBee.png");
+        Image happyBeeBox = new Image();
+        happyBeeBox.setSize(220f, 120f);
+        happyBeeBox.setPosition((BeesGame.WIDTH / 10) * 4, BeesGame.HEIGHT / 2);
+        happyBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(happyBeeTexture)));
+
+        // sad bee image
+        Texture angryBeeTexture = new Texture("AngryBee.png");
+        Image angryBeeBox = new Image();
+        angryBeeBox.setSize(220f, 120f);
+        angryBeeBox.setPosition((BeesGame.WIDTH / 10) * 5, BeesGame.HEIGHT / 2);
+        angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
+
         stage.addActor(background);
         stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(scoreBoard);
@@ -165,12 +179,14 @@ public class EndScreen extends ScreenAdapter {
         if (passedStatus) {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
             passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+            stage.addActor(happyBeeBox);
             stage.addActor(passedCongrats);
             stage.addActor(nextBtn);
         } else {
             Label tryAgain = new Label("Sorry, your bee did not collect enough pollen,\n" +
                                             "or got too sick from the Pesticide. Try again!", skin);
             tryAgain.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+            stage.addActor(angryBeeBox);
             stage.addActor(tryAgain);
             stage.addActor(playBtn);
         }
