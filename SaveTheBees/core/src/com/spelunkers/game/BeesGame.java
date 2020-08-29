@@ -22,6 +22,8 @@ public class BeesGame extends Game {
 
 		// Create the stack of levels push hardest levels in first
 		levels = new Stack<Level>();
+		levels.push(new Level(20, 35, 25f, PlayScreen.WindDirection.SOUTH));
+		levels.push(new Level(15, 35, 25f, PlayScreen.WindDirection.NORTH));
 		levels.push(new Level(15, 30, 20f, PlayScreen.WindDirection.RANDOM));
 		levels.push(new Level(30, 30, 10, PlayScreen.WindDirection.EAST));
 		levels.push(new Level(20, 25, 10f, PlayScreen.WindDirection.WEST));
