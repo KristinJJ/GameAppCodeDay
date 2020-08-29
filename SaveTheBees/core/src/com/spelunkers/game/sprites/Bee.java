@@ -146,23 +146,14 @@ public class Bee extends Actor {
         sickBee.draw(batch);
         sprite.draw(batch, health / 100f);
 
-
-        batch.end();
-        /// temporary just to make sure the circle is the right size and position
-        /*
-        shapeRenderer.setColor(Color.BLACK);
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.setColor(0.3f, 0.75f, 0.9f, 0.01f);
-        shapeRenderer.circle(body.x, body.y, body.radius);
-        shapeRenderer.end();
-         */
-
-        batch.begin();
-
     }
 
     @Override
     public void act(float delta) {
+
+        // Set pollen alpha color according to the pollen quantity
+        pollen.setAlpha(Math.min(1f, pollenCount / 10f));
+
         if (isPoisoned()) {
             health -= POISON_HIT * delta;
             //setImage("cuteBeeTrimmed (copy).png", SCALE);
