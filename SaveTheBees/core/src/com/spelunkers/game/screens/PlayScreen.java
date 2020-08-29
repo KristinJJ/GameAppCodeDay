@@ -129,7 +129,8 @@ public class PlayScreen extends ScreenAdapter{
         stage.act(Gdx.graphics.getDeltaTime());
 
         // Checking if time is over
-        if (timer.timeOver()) {
+
+        if (bee.getHealth() <= 0 || timer.timeOver()) {
             game.setScreen(new EndScreen(game, level, scoreboard));
         }
 
