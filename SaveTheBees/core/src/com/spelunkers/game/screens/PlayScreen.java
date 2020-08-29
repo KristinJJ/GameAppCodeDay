@@ -128,12 +128,12 @@ public class PlayScreen extends ScreenAdapter{
 
         stage.act(Gdx.graphics.getDeltaTime());
 
-        // Checking if time is over
-        if (timer.timeOver()) {
-            game.setScreen(new EndScreen(game, level, scoreboard));
+        // Checking if time is over or bee is dead
+        if (timer.timeOver() || bee.getHealth() <= 0) {
+            goToEndScreen();
         }
 
-        //boing when playerbee hits aiBee
+        // boing when playerbee hits aiBee
         Group aiBees = (Group)stage.getRoot().findActor("aiBees");
         for (Actor actor : aiBees.getChildren()) {
             Bee ai = (Bee)actor;
@@ -144,13 +144,13 @@ public class PlayScreen extends ScreenAdapter{
             }
         }
 
-        //wash in the water
-        if(bee.getBody().overlaps(stream.getBody())){
+        // wash in the water
+        if (bee.getBody().overlaps(stream.getBody())){
             bee.wash();
         }
 
         //pollinate from flowers
-        for(Flower aFlower : flowerList) {
+        for (Flower aFlower : flowerList) {
             if(bee.getBody().overlaps(aFlower.getBody())) {
                 bee.drawPollen(aFlower);
                 if(aFlower.isPoisoned()) {
@@ -159,8 +159,8 @@ public class PlayScreen extends ScreenAdapter{
             }
         }
 
-        //deposit pollen at beehive
-        if(bee.getBody().overlaps(beehive.getBody())) {
+        // deposit pollen at beehive
+        if (bee.getBody().overlaps(beehive.getBody())) {
             bee.depositPollen(beehive);
         }
 
