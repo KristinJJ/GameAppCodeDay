@@ -76,7 +76,7 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game, level));
+                    game.setScreen(new PlayScreen(game, game.getLevels().peek()));
             }
         });
 
@@ -112,7 +112,9 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new PlayScreen(game, level));
+                if (!game.getLevels().empty()) {
+                    game.setScreen(new PlayScreen(game, game.getLevels().peek()));
+                }
             }
         });
 
@@ -152,6 +154,7 @@ public class EndScreen extends ScreenAdapter {
         // passed the level pollen goal or not
         if ((beeHivePollen>= level.getPollenGoal()) && beeHealth > 0 ) {
             this.passedStatus = Boolean.TRUE;
+            game.getLevels().pop();
         }
 
         stage.addActor(background);
