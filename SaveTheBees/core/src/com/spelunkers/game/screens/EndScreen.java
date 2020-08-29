@@ -189,6 +189,7 @@ public class EndScreen extends ScreenAdapter {
                 stage.addActor(passedCongrats);
                 stage.addActor(nextBtn);
             } else {
+
                 Label wonCongrats = new Label("Congrats, you won the Game and Saved the Bees!", skin);
                 wonCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
                 stage.addActor(wonCongrats);
