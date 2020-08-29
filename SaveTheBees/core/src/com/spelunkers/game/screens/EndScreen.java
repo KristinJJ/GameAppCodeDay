@@ -187,7 +187,7 @@ public class EndScreen extends ScreenAdapter {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
             passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(happyBeeBox);
-            stage.addActor();
+            stage.addActor(crownBox);
             stage.addActor(passedCongrats);
             stage.addActor(nextBtn);
         } else {
