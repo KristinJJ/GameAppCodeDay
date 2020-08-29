@@ -63,11 +63,11 @@ public class BeeAI extends Bee {
             moveBy(0, -speedY * delta);
         }
 
-        if (speedX > 0 && getX() > getStage().getWidth() - sprite.getWidth()) {
+        if (speedX > 0 && getX() > getStage().getWidth() - getSprite().getWidth()) {
             moveBy(-speedX * delta, 0);
         }
 
-        if (speedY > 0 && getY() > getStage().getHeight() - sprite.getHeight()) {
+        if (speedY > 0 && getY() > getStage().getHeight() - getSprite().getHeight()) {
             moveBy(0, -speedY * delta);
         }
 

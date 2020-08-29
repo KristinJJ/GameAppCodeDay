@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -19,7 +20,8 @@ public class Bee extends Actor {
     private int xDir;
     private int yDir;
 
-    protected Sprite sprite;
+    private Sprite sprite;
+    private Sprite sickBee;
     private Circle body;
     private ShapeRenderer shapeRenderer;
 
@@ -40,9 +42,15 @@ public class Bee extends Actor {
     }
 
     public void setImage(String internalPicPath, float scale) {
+        // Healthy bee image
         sprite = new Sprite(new Texture(internalPicPath));
         sprite.setSize(sprite.getWidth() * scale, sprite.getHeight() * scale);
         sprite.setOrigin(0, 0);
+
+        // Sick bee image
+        sickBee = new Sprite(new Texture("sickCuteBee.png"));
+        sickBee.setSize(sickBee.getWidth() * scale, sickBee.getHeight() * scale);
+
         setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
     }
@@ -99,6 +107,8 @@ public class Bee extends Actor {
         return yDir;
     }
 
+    public Sprite getSprite() { return sprite; };
+
     public boolean hitWall() {
         float x = getX();
         float y = getY();
@@ -109,6 +119,7 @@ public class Bee extends Actor {
     @Override
     protected void positionChanged() {
         sprite.setPosition(getX(), getY());
+        sickBee.setPosition(getX(), getY());
         body.setPosition(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2);
         super.positionChanged();
     }
@@ -118,7 +129,9 @@ public class Bee extends Actor {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
+        sickBee.draw(batch);
         sprite.draw(batch, health / 100f);
+
 
         batch.end();
         /// temporary just to make sure the circle is the right size and position
