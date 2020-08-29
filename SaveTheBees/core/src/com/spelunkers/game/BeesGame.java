@@ -26,7 +26,7 @@ public class BeesGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		completedLevels = new ArrayList<>();
-		skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+		skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
 
 		// Create the stack of levels push hardest levels in first
 		levels = new Stack<>();

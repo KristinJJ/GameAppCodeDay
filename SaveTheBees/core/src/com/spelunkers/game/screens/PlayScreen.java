@@ -54,7 +54,7 @@ public class PlayScreen extends ScreenAdapter{
         this.game = game;
         this.level = level;
         this.pollenGoal = level.getPollenGoal();
-        skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+        skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
         music_level.setLooping(true);
