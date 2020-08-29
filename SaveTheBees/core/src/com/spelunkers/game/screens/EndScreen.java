@@ -147,7 +147,7 @@ public class EndScreen extends ScreenAdapter {
                                         pollenTotal);
 
         Label scoreBoard = new Label(totalScoreText, skin);
-        scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
+        scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 3));
 
         // passed the level pollen goal or not
         if (pollenTotal >= level.getPollenGoal()) {
