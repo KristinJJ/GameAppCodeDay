@@ -55,6 +55,7 @@ public class PlayScreen extends ScreenAdapter{
         this.level = level;
 
         skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
+        //skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
         textureBar.setMinSize(5, 50f);

@@ -171,7 +171,7 @@ public class EndScreen extends ScreenAdapter {
         // sad bee image
         Texture angryBeeTexture = new Texture("AngryBee.png");
         Image angryBeeBox = new Image();
-        angryBeeBox.setSize(220f, 120f);
+        angryBeeBox.setSize(215f, 160f);
         angryBeeBox.setPosition((BeesGame.WIDTH / 10f) * 5, (BeesGame.HEIGHT / 10f) * 4);
         angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
 
