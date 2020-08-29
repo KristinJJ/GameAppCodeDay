@@ -114,10 +114,10 @@ public class PlayScreen extends ScreenAdapter{
         Texture signBackground = new Texture("watersign.png");
         Image signBox = new Image();
         signBox.setSize(220f, 50f);
-        signBox.setPosition(700f, BeesGame.HEIGHT / 4);
+        signBox.setPosition(700f, BeesGame.HEIGHT / 4f);
         signBox.setDrawable(new TextureRegionDrawable(new TextureRegion(signBackground)));
-        Label signLbl = new Label(String.format(Locale.getDefault(), "Wash your Bee Here!"), skin);
-        signLbl.setPosition(720, BeesGame.HEIGHT / 4 + 15);
+        Label signLbl = new Label("Wash your Bee Here!", skin);
+        signLbl.setPosition(720, BeesGame.HEIGHT / 4f + 15);
 
         // Starting the timer
         timer = new Timer(skin);

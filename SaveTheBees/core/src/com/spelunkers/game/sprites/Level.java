@@ -5,19 +5,19 @@ import com.spelunkers.game.screens.PlayScreen.WindDirection;
 public class Level {
 
     private int pollenGoal;
-    private double pesticideRate;
+    private int pesticideRate;
     private float windSpeed;
     private WindDirection windDir;
 
 
-    public Level(int pollenGoal, double pesticideRate, float windSpeed, WindDirection windDir) {
+    public Level(int pollenGoal, int pesticideRate, float windSpeed, WindDirection windDir) {
         this.pollenGoal = pollenGoal;
         this.pesticideRate = pesticideRate;
         this.windSpeed = windSpeed;
         this.windDir = windDir;
     }
 
-    public Level(int pollenGoal, double pesticideRate) {
+    public Level(int pollenGoal, int pesticideRate) {
         this(pollenGoal, pesticideRate, 0.0f, WindDirection.WEST);
     }
 
@@ -25,7 +25,7 @@ public class Level {
         return this.pollenGoal;
     }
 
-    public double getPesticideRate() {
+    public int getPesticideRate() {
         return this.pesticideRate;
     }
 
