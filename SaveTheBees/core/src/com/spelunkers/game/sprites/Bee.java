@@ -151,12 +151,17 @@ public class Bee extends Actor {
     @Override
     public void act(float delta) {
 
+        if (pollenCount == 0) {
+            pollen.setFalling(false); // Nothing to drop
+        }
+
         // Set pollen alpha color according to the pollen quantity
-        pollen.setAlpha(Math.min(1f, pollenCount / 10f));
+        if (!pollen.isFalling()) {
+            pollen.setAlpha(Math.min(1f, pollenCount / 10f));
+        }
 
         if (isPoisoned()) {
             health -= POISON_HIT * delta;
-            //setImage("cuteBeeTrimmed (copy).png", SCALE);
         }
 
         // Update bee new position after motion keys

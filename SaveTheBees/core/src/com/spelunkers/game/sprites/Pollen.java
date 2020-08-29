@@ -1,11 +1,13 @@
 package com.spelunkers.game.sprites;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.spelunkers.game.BeesGame;
 
 public class Pollen extends Actor {
@@ -17,7 +19,7 @@ public class Pollen extends Actor {
 
     private static final float SCALE = 0.07f;
     private static final float FALL_RATE = -150f;
-    private static final float FADING_RATE = 0.5f;
+    private static final float FADING_RATE = 2f;
 
     public Pollen() {
         pollen1 = new Sprite(new Texture("pollenBall.png"));
@@ -41,6 +43,14 @@ public class Pollen extends Actor {
 
     public void setAlpha(float alpha) {
         this.alpha = alpha;
+    }
+
+    public boolean isFalling() {
+        return isFalling;
+    }
+
+    public void setFalling(boolean falling) {
+        isFalling = falling;
     }
 
     @Override
