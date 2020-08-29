@@ -290,6 +290,7 @@ public class EndScreen extends ScreenAdapter {
             stage.addActor(playBtn);
         }
         stage.addActor(menuBtn);
+        stage.addActor(level);
     }
 
     @Override
