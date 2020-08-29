@@ -26,7 +26,7 @@ public class BeesGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		completedLevels = new ArrayList<>();
-		skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+		skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
 
 		// Create the list of levels
 		Level level1 = new Level("Piece Of Cake", skin, 15, 5f);
