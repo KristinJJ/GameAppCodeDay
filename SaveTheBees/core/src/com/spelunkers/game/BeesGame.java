@@ -22,12 +22,12 @@ public class BeesGame extends Game {
 
 		// Create the stack of levels push hardest levels in first
 		levels = new Stack<Level>();
-		levels.push(new Level(20, 35, 25f, PlayScreen.WindDirection.SOUTH));
-		levels.push(new Level(15, 35, 25f, PlayScreen.WindDirection.NORTH));
-		levels.push(new Level(15, 30, 20f, PlayScreen.WindDirection.RANDOM));
-		levels.push(new Level(30, 30, 10, PlayScreen.WindDirection.EAST));
-		levels.push(new Level(20, 25, 10f, PlayScreen.WindDirection.WEST));
-		levels.push(new Level(15, 20));
+		levels.push(new Level("Strong pesticide", 20, 8f, 25f, PlayScreen.WindDirection.SOUTH));
+		levels.push(new Level("Strong wind", 15, 7f, 25f, PlayScreen.WindDirection.NORTH));
+		levels.push(new Level("Tornado", 15, 7f, 20f, PlayScreen.WindDirection.RANDOM));
+		levels.push(new Level("Eastward wind",30, 6f, 10, PlayScreen.WindDirection.EAST));
+		levels.push(new Level("Westward Wind", 20, 6f, 10f, PlayScreen.WindDirection.WEST));
+		levels.push(new Level("Piece Of Cake", 15, 5f));
 
 		setScreen(new MenuScreen(this));
 	}
@@ -40,4 +40,4 @@ public class BeesGame extends Game {
 	public Stack<Level> getLevels() {
 		return levels;
 	}
-}
+} 

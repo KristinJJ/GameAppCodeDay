@@ -24,6 +24,7 @@ public class Bee extends Actor {
     private Sprite sickBee;
     private Circle body;
     private Pollen pollen;
+    private float pesticideRate;
     private ShapeRenderer shapeRenderer;
 
     public static final int SPEED = 200;
@@ -34,6 +35,7 @@ public class Bee extends Actor {
         pollenCount = 0;
         poisoned = false;
         health = 100;
+        pesticideRate = POISON_HIT;
 
         setImage("cuteBeeTrimmed.png", SCALE);
         pollen = new Pollen();
@@ -119,6 +121,10 @@ public class Bee extends Actor {
         return pollen;
     }
 
+    public void setPesticideRate(float pesticideRate) {
+        this.pesticideRate = pesticideRate;
+    }
+
     public Sprite getSprite() { return sprite; };
 
     public boolean hitWall() {
@@ -161,7 +167,7 @@ public class Bee extends Actor {
         }
 
         if (isPoisoned()) {
-            health -= POISON_HIT * delta;
+            health -= pesticideRate * delta;
         }
 
         // Update bee new position after motion keys

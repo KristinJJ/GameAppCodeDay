@@ -73,6 +73,7 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(background); //set it and forget it
 
         bee = new Bee();
+        bee.setPesticideRate(level.getPesticideRate());
 
         Group aiBees = new Group();
         aiBees.setName("aiBees");
