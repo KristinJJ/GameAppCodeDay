@@ -110,17 +110,28 @@ public class PlayScreen extends ScreenAdapter{
         Label pollenGoalLbl = new Label(String.format(Locale.getDefault(), "Pollen Goal: %d", pollenGoal), skin);
         pollenGoalLbl.setPosition(320, BeesGame.HEIGHT - lblBox.getHeight() + 15);
 
+        //Water sign label
+        Texture signBackground = new Texture("watersign.png");
+        Image signBox = new Image();
+        signBox.setSize(220f, 50f);
+        signBox.setPosition(700f, BeesGame.HEIGHT / 4);
+        signBox.setDrawable(new TextureRegionDrawable(new TextureRegion(signBackground)));
+        Label signLbl = new Label(String.format(Locale.getDefault(), "Wash your Bee Here!"), skin);
+        signLbl.setPosition(720, BeesGame.HEIGHT / 4 + 15);
+
         // Starting the timer
         timer = new Timer(skin);
         timer.setMaxTime(30f);
 
-         stage.addActor(beehive);
+        stage.addActor(beehive);
         stage.addActor(stream);
         stage.addActor(scoreboard);
         stage.addActor(timer);
 
         stage.addActor(lblBox);
         stage.addActor(pollenGoalLbl);
+        stage.addActor(signBox);
+        stage.addActor(signLbl);
 
         stage.addActor(aiBees);
 
