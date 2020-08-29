@@ -150,7 +150,7 @@ public class EndScreen extends ScreenAdapter {
         scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 3));
 
         // passed the level pollen goal or not
-        if (pollenTotal >= level.getPollenGoal()) {
+        if ((pollenTotal >= level.getPollenGoal()) && beeHealth > 0 ) {
             this.passedStatus = Boolean.TRUE;
         }
 
@@ -165,7 +165,8 @@ public class EndScreen extends ScreenAdapter {
             stage.addActor(passedCongrats);
             stage.addActor(nextBtn);
         } else {
-            Label tryAgain = new Label("Sorry, your bee did not collect enough pollen. Try again!", skin);
+            Label tryAgain = new Label("Sorry, your bee did not collect enough pollen,\n" +
+                                            "or got too sick from the Pesticide. Try again!", skin);
             tryAgain.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(tryAgain);
             stage.addActor(playBtn);
