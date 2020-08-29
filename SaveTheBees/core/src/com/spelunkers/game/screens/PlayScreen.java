@@ -47,7 +47,7 @@ public class PlayScreen extends ScreenAdapter{
 
 
     private static final Random RANDOMIZER = new Random();
-    private static final float DEFAULT_PLAY_TIME = 30f;
+    private static final float DEFAULT_PLAY_TIME = 10f;
     public enum WindDirection {EAST, WEST, NORTH, SOUTH, RANDOM}
 
     public PlayScreen(BeesGame game, Level level) {
