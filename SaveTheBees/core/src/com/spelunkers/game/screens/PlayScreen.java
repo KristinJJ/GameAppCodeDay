@@ -3,6 +3,7 @@ package com.spelunkers.game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -28,7 +30,6 @@ import com.spelunkers.game.sprites.Water;
 import com.spelunkers.game.sprites.YellowFlower;
 import com.spelunkers.game.sprites.Beehive;
 
-import java.util.Locale;
 import java.util.Random;
 
 public class PlayScreen extends ScreenAdapter{
@@ -42,19 +43,27 @@ public class PlayScreen extends ScreenAdapter{
     private Scoreboard scoreboard;
     private Timer timer;
     private Skin skin;
-    private int pollenGoal;
     private Level level;
-
+    private ProgressBar pollenProgress;
 
     private static final Random RANDOMIZER = new Random();
-    private static final float DEFAULT_PLAY_TIME = 10f;
+    private static final float DEFAULT_PLAY_TIME = 30f;
     public enum WindDirection {EAST, WEST, NORTH, SOUTH, RANDOM}
 
     public PlayScreen(BeesGame game, Level level) {
         this.game = game;
         this.level = level;
-        this.pollenGoal = level.getPollenGoal();
+
         skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
+
+        TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
+        textureBar.setMinSize(5, 50f);
+        ProgressBar.ProgressBarStyle barStyle = new ProgressBar.ProgressBarStyle(skin.newDrawable("white", Color.DARK_GRAY), textureBar);
+        barStyle.knobBefore = barStyle.knob;
+        pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
+        pollenProgress.setWidth(225);
+        pollenProgress.setPosition(225, BeesGame.HEIGHT - pollenProgress.getHeight());
+
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
         music_level.setLooping(true);
@@ -102,19 +111,6 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
-        //Level label
-//        Label levelLbl = new Label("Level: " + level.getName(), skin);
-//        levelLbl.setPosition(550, BeesGame.HEIGHT - levelLbl.getHeight());
-
-        //Pollen goal label
-        Texture lblBackground = new Texture("scoreboard-singlecell.png");
-        Image lblBox = new Image();
-        lblBox.setSize(200f, 50f);
-        lblBox.setPosition(240f, BeesGame.HEIGHT - lblBox.getHeight());
-        lblBox.setDrawable(new TextureRegionDrawable(new TextureRegion(lblBackground)));
-        Label pollenGoalLbl = new Label(String.format(Locale.getDefault(), "Pollen Goal: %d", pollenGoal), skin);
-        pollenGoalLbl.setPosition(260, BeesGame.HEIGHT - lblBox.getHeight() + 15);
-
         //Water sign label
         Texture signBackground = new Texture("watersign.png");
         Image signBox = new Image();
@@ -134,8 +130,7 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(timer);
 
         stage.addActor(level);
-        stage.addActor(lblBox);
-        stage.addActor(pollenGoalLbl);
+        stage.addActor(pollenProgress);
         stage.addActor(signBox);
         stage.addActor(signLbl);
 
@@ -150,7 +145,6 @@ public class PlayScreen extends ScreenAdapter{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Gdx.graphics.getDeltaTime());
-
 
         if (level.hasWind()) {
             switch (level.getWindDir()) {
@@ -207,6 +201,7 @@ public class PlayScreen extends ScreenAdapter{
         // deposit pollen at beehive
         if (bee.getBody().overlaps(beehive.getBody())) {
             bee.depositPollen(beehive);
+            pollenProgress.setValue((float)beehive.getPollenCount());
         }
 
         stage.draw();
