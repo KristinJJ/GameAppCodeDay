@@ -3,6 +3,7 @@ package com.spelunkers.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.spelunkers.game.screens.MenuScreen;
 import com.spelunkers.game.screens.PlayScreen;
@@ -26,7 +27,7 @@ public class BeesGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		completedLevels = new ArrayList<>();
-		skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
+		skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
 		// Create the stack of levels push hardest levels in first
 		levels = new Stack<>();
