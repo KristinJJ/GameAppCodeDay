@@ -175,6 +175,82 @@ public class EndScreen extends ScreenAdapter {
         angryBeeBox.setPosition((BeesGame.WIDTH / 10) * 5, (BeesGame.HEIGHT / 10) * 4);
         angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
 
+        //Light Blue flower picture
+        Texture lightBlueFlower = new Texture("lightBlueCircleFlower.png");
+        Image lightBlueFlowerImage = new Image();
+        lightBlueFlowerImage.setSize(90, 90);
+        lightBlueFlowerImage.setPosition((0),(0));
+        lightBlueFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueFlower)));
+
+        //Blue flower picture
+        Texture blueShortFlower = new Texture("blueCircleFlower.png");
+        Image blueCircleFlowerImage = new Image();
+        blueCircleFlowerImage.setSize(80, 80);
+        blueCircleFlowerImage.setPosition((0),(85));
+        blueCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower)));
+
+        Texture blueShortFlower2 = new Texture("blueCircleFlower.png");
+        Image blueCircleFlowerImage2 = new Image();
+        blueCircleFlowerImage2.setSize(170, 170);
+        blueCircleFlowerImage2.setPosition((800),(0));
+        blueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(blueShortFlower2)));
+
+        //green flower picture
+        Texture greenCircleFlower = new Texture("greenCircleFlower.png");
+        Image greenCircleFlowerImage = new Image();
+        greenCircleFlowerImage.setSize(90, 90);
+        greenCircleFlowerImage.setPosition((370),(20));
+        greenCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(greenCircleFlower)));
+
+        //Dark Pink flower picture
+        Texture darkPinkCircleFlower = new Texture("darkPinkFlowers.png");
+        Image darkPinkCircleFlowerImage = new Image();
+        darkPinkCircleFlowerImage.setSize(90, 90);
+        darkPinkCircleFlowerImage.setPosition((90),(0));
+        darkPinkCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower)));
+
+        //Orange flower picture
+        Texture orangeCircleFlower = new Texture("orangeCircleFlower.png");
+        Image orangeCircleFlowerImage = new Image();
+        orangeCircleFlowerImage.setSize(135, 135);
+        orangeCircleFlowerImage.setPosition((190),(0));
+        orangeCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(orangeCircleFlower)));
+
+        //Indigo flower picture
+        Texture indigoCircleFlower = new Texture("indigoCircleFlower.png");
+        Image indigoCircleFlowerImage = new Image();
+        indigoCircleFlowerImage.setSize(120, 120);
+        indigoCircleFlowerImage.setPosition((480),20);
+        indigoCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(indigoCircleFlower)));
+
+        //Yellow flower picture
+        Texture yellowCircleFlower = new Texture("yellowCircleFlower.png");
+        Image yellowCircleFlowerImage = new Image();
+        yellowCircleFlowerImage.setSize(90, 90);
+        yellowCircleFlowerImage.setPosition((600),(0));
+        yellowCircleFlowerImage.setDrawable(new TextureRegionDrawable(new TextureRegion(yellowCircleFlower)));
+
+        //Dark Pink on the right flower picture
+        Texture darkPinkCircleFlower2 = new Texture("darkPinkFlowers.png");
+        Image darkPinkCircleFlowerImage2 = new Image();
+        darkPinkCircleFlowerImage2.setSize(110, 110);
+        darkPinkCircleFlowerImage2.setPosition((690),(0));
+        darkPinkCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(darkPinkCircleFlower2)));
+
+        //light blue on the right flower picture
+        Texture lightBlueCircleFlower2 = new Texture("lightBlueCircleFlower.png");
+        Image lightBlueCircleFlowerImage2 = new Image();
+        lightBlueCircleFlowerImage2.setSize(75, 75);
+        lightBlueCircleFlowerImage2.setPosition((720),(95));
+        lightBlueCircleFlowerImage2.setDrawable(new TextureRegionDrawable(new TextureRegion(lightBlueCircleFlower2)));
+
+        //grass
+        Texture tallGrass = new Texture("pngegg.png");
+        Image tallGrassImage = new Image();
+        tallGrassImage.setSize(BeesGame.WIDTH, 200);
+        tallGrassImage.setPosition((0),(0));
+        tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
+
         stage.addActor(background);
         stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(scoreBoard);
@@ -182,7 +258,7 @@ public class EndScreen extends ScreenAdapter {
         stage.addActor(hiveBeesImage);
         if (passedStatus) {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
-            passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+            passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
             stage.addActor(happyBeeBox);
             stage.addActor(crownBox);
             if (!game.getLevels().empty()) {
@@ -191,8 +267,19 @@ public class EndScreen extends ScreenAdapter {
             } else {
 
                 Label wonCongrats = new Label("Congrats, you won the Game and Saved the Bees!", skin);
-                wonCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+                wonCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
                 stage.addActor(wonCongrats);
+                stage.addActor(tallGrassImage);
+                stage.addActor(blueCircleFlowerImage);
+                stage.addActor(blueCircleFlowerImage2);
+                stage.addActor(lightBlueFlowerImage);
+                stage.addActor(greenCircleFlowerImage);
+                stage.addActor(darkPinkCircleFlowerImage);
+                stage.addActor(orangeCircleFlowerImage);
+                stage.addActor(indigoCircleFlowerImage);
+                stage.addActor(yellowCircleFlowerImage);
+                stage.addActor(darkPinkCircleFlowerImage2);
+                stage.addActor(lightBlueCircleFlowerImage2);
             }
         } else {
             Label tryAgain = new Label("Sorry, your bee did not collect enough pollen,\n" +
