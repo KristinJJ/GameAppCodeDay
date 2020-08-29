@@ -138,14 +138,11 @@ public class EndScreen extends ScreenAdapter {
                                 "\n" +
                                 "\nBee Health : %.2f" +
                                 "\n" +
-                                "\nBee Pollen Count / 2 : %d" +
-                                "\n" +
                                 "\nBee Hive Pollen Count : %d" + " / " + level.getPollenGoal();
 
         String totalScoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
                                         beeHealth,
-                                        beePollen / 2,
                                         beeHivePollen);
 
         Label scoreBoard = new Label(totalScoreText, skin);
@@ -188,8 +185,14 @@ public class EndScreen extends ScreenAdapter {
             passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(happyBeeBox);
             stage.addActor(crownBox);
-            stage.addActor(passedCongrats);
-            stage.addActor(nextBtn);
+            if (!game.getLevels().empty()) {
+                stage.addActor(passedCongrats);
+                stage.addActor(nextBtn);
+            } else {
+                Label wonCongrats = new Label("Congrats, you won the Game and Saved the Bees!", skin);
+                wonCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+                stage.addActor(wonCongrats);
+            }
         } else {
             Label tryAgain = new Label("Sorry, your bee did not collect enough pollen,\n" +
                                             "or got too sick from the Pesticide. Try again!", skin);

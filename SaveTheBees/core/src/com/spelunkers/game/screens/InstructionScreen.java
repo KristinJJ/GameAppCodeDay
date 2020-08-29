@@ -96,12 +96,10 @@ public class InstructionScreen extends ScreenAdapter {
                 "- Pressing the Spacebar will give your Bee a Speed Boost / Dash\n\n" +
                 "- Collect the Goal Amount of Pollen before the Timer is up!\n\n" +
                 "- Move to the Hive to deposit the Pollen\n\n" +
-                "- The Pollen that is being carried by the Bee, but has not been deposited,\n" +
-                "  \twill only count for half points when the Timer runs out\n\n" +
                 "- If the Bee touches a Computer Bee, the Bee will lose the Pollen it's carrying\n\n" +
                 "- There is a chance the Pollen you've collected has Pesticide on it\n" +
                 "  \twhen it the Flower the Pollen is produced from is see-through\n\n" +
-                "- When Poisoned, you will lose HP rapidly until you become Un-poisoned\n\n" +
+                "- When Poisoned, you will lose HP rapidly and turn Blue until you become Un-poisoned\n\n" +
                 "- If you get Poisoned from the Pesticide, move to the Water\n" +
                 "  \tto wash the Pesticide off and become Un-poisoned\n\n";
 
