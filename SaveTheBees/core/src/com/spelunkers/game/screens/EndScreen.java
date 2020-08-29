@@ -65,7 +65,7 @@ public class EndScreen extends ScreenAdapter {
         // So much work for a button...
         Button playBtn = new TextButton("Play Again", skin, "small");
         playBtn.setSize(120, 50);
-        playBtn.setPosition(((BeesGame.WIDTH / 4) * 3 - (playBtn.getWidth() / 2)), (BeesGame.HEIGHT / 2) - 200);
+        playBtn.setPosition(((BeesGame.WIDTH / 4f) * 3 - (playBtn.getWidth() / 2)), (BeesGame.HEIGHT / 2f) - 200);
         playBtn.setTransform(true);
         playBtn.scaleBy(0.5f);
         playBtn.addListener(new InputListener() {
@@ -83,7 +83,7 @@ public class EndScreen extends ScreenAdapter {
         // button to go back to the menu
         Button menuBtn = new TextButton("Menu", skin, "small");
         menuBtn.setSize(120, 50);
-        menuBtn.setPosition((BeesGame.WIDTH / 4) * 3 - (menuBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 300);
+        menuBtn.setPosition((BeesGame.WIDTH / 4f) * 3 - (menuBtn.getWidth() / 2), (BeesGame.HEIGHT / 2f) - 300);
         menuBtn.setTransform(true);
         menuBtn.scaleBy(0.5f);
         menuBtn.addListener(new InputListener() {
@@ -101,7 +101,7 @@ public class EndScreen extends ScreenAdapter {
         // button to go to the Next Level
         Button nextBtn = new TextButton("Next Level", skin, "small");
         nextBtn.setSize(120, 50);
-        nextBtn.setPosition((BeesGame.WIDTH / 4) * 3 - (nextBtn.getWidth() / 2), (BeesGame.HEIGHT / 2) - 100);
+        nextBtn.setPosition((BeesGame.WIDTH / 4f) * 3 - (nextBtn.getWidth() / 2), (BeesGame.HEIGHT / 2f) - 100);
         nextBtn.setTransform(true);
         nextBtn.scaleBy(0.5f);
         nextBtn.addListener(new InputListener() {
@@ -121,7 +121,7 @@ public class EndScreen extends ScreenAdapter {
         //Honey picture
         Texture honey = new Texture("honey.png");
         Image honeyImage = new Image();
-        honeyImage.setSize(BeesGame.WIDTH, (BeesGame.HEIGHT / 10) * 3);
+        honeyImage.setSize(BeesGame.WIDTH, (BeesGame.HEIGHT / 10f) * 3);
         honeyImage.setPosition(0f,BeesGame.HEIGHT - honeyImage.getHeight());
         honeyImage.setDrawable(new TextureRegionDrawable(new TextureRegion(honey)));
 
@@ -146,7 +146,7 @@ public class EndScreen extends ScreenAdapter {
                                         beeHivePollen);
 
         Label scoreBoard = new Label(totalScoreText, skin);
-        scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 3));
+        scoreBoard.setPosition(BeesGame.WIDTH / 6f, (BeesGame.HEIGHT / 3f));
 
         // passed the level pollen goal or not
         if ((beeHivePollen>= level.getPollenGoal()) && beeHealth > 0 ) {
@@ -158,21 +158,21 @@ public class EndScreen extends ScreenAdapter {
         Texture happyBeeTexture = new Texture("happyCartoonBee.png");
         Image happyBeeBox = new Image();
         happyBeeBox.setSize(220f, 120f);
-        happyBeeBox.setPosition((BeesGame.WIDTH / 10) * 4, (BeesGame.HEIGHT / 10) * 4);
+        happyBeeBox.setPosition((BeesGame.WIDTH / 10f) * 4, (BeesGame.HEIGHT / 10f) * 4);
         happyBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(happyBeeTexture)));
 
         // crown image
         Texture crownTexture = new Texture("CartoonCrown.png");
         Image crownBox = new Image();
         crownBox.setSize(220f, 120f);
-        crownBox.setPosition((BeesGame.WIDTH / 20) * 9, (BeesGame.HEIGHT / 20) * 9);
+        crownBox.setPosition((BeesGame.WIDTH / 20f) * 9, (BeesGame.HEIGHT / 20f) * 9);
         crownBox.setDrawable(new TextureRegionDrawable(new TextureRegion(crownTexture)));
 
         // sad bee image
         Texture angryBeeTexture = new Texture("AngryBee.png");
         Image angryBeeBox = new Image();
         angryBeeBox.setSize(220f, 120f);
-        angryBeeBox.setPosition((BeesGame.WIDTH / 10) * 5, (BeesGame.HEIGHT / 10) * 4);
+        angryBeeBox.setPosition((BeesGame.WIDTH / 10f) * 5, (BeesGame.HEIGHT / 10f) * 4);
         angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
 
         //Light Blue flower picture
@@ -258,7 +258,7 @@ public class EndScreen extends ScreenAdapter {
         stage.addActor(hiveBeesImage);
         if (passedStatus) {
             Label passedCongrats = new Label("Congrats, you passed the level!", skin);
-            passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
+            passedCongrats.setPosition(BeesGame.WIDTH / 6f, (BeesGame.HEIGHT / 4f));
             stage.addActor(happyBeeBox);
             stage.addActor(crownBox);
             if (game.hasNextLevel()) {
@@ -267,7 +267,7 @@ public class EndScreen extends ScreenAdapter {
             } else {
 
                 Label wonCongrats = new Label("Congrats, you won the Game and Saved the Bees!", skin);
-                wonCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 4));
+                wonCongrats.setPosition(BeesGame.WIDTH / 6f, (BeesGame.HEIGHT / 4f));
                 stage.addActor(wonCongrats);
                 stage.addActor(tallGrassImage);
                 stage.addActor(blueCircleFlowerImage);
@@ -284,7 +284,7 @@ public class EndScreen extends ScreenAdapter {
         } else {
             Label tryAgain = new Label("Sorry, your bee did not collect enough pollen,\n" +
                                             "or got too sick from the Pesticide. Try again!", skin);
-            tryAgain.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
+            tryAgain.setPosition(BeesGame.WIDTH / 6f, (BeesGame.HEIGHT / 6f));
             stage.addActor(angryBeeBox);
             stage.addActor(tryAgain);
             stage.addActor(playBtn);

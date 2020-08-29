@@ -47,7 +47,7 @@ public class PlayScreen extends ScreenAdapter{
 
 
     private static final Random RANDOMIZER = new Random();
-
+    private static final float DEFAULT_PLAY_TIME = 30f;
     public enum WindDirection {EAST, WEST, NORTH, SOUTH, RANDOM}
 
     public PlayScreen(BeesGame game, Level level) {
@@ -126,7 +126,7 @@ public class PlayScreen extends ScreenAdapter{
 
         // Starting the timer
         timer = new Timer(skin);
-        timer.setMaxTime(30f);
+        timer.setMaxTime(DEFAULT_PLAY_TIME);
 
         stage.addActor(beehive);
         stage.addActor(stream);

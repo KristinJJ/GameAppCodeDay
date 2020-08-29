@@ -13,6 +13,7 @@ public class BeesGame extends Game {
 	private SpriteBatch batch; // we only need one.
 	private Stack<Level> levels;
 	private ArrayList<Level> completedLevels;
+	private int nextLevelIdx;
 
 	public static final String TITLE = "Save The Bees!";
 	public static final int WIDTH = 1000;
@@ -40,15 +41,11 @@ public class BeesGame extends Game {
 		batch.dispose();
 	}
 
-//	public Stack<Level> getLevels() {
-//		return levels;
-//	}
-
 	public Level nextLevel() {
 		if (hasNextLevel()) {
 			return levels.peek();
 		} else {
-			return completedLevels.get(0);
+			return completedLevels.get(nextLevelIdx);
 		}
 	}
 
@@ -57,6 +54,12 @@ public class BeesGame extends Game {
 	}
 
 	public void passCurrentLevel() {
-		completedLevels.add(levels.pop());
+		if (hasNextLevel()) {
+			completedLevels.add(levels.pop());
+		} else if (nextLevelIdx < completedLevels.size() - 1){
+			nextLevelIdx += 1;
+		} else {
+			nextLevelIdx = 0;
+		}
 	}
 }
