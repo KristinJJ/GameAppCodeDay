@@ -171,7 +171,7 @@ public class EndScreen extends ScreenAdapter {
         // sad bee image
         Texture angryBeeTexture = new Texture("AngryBee.png");
         Image angryBeeBox = new Image();
-        angryBeeBox.setSize(220f, 120f);
+        angryBeeBox.setSize(215f, 160f);
         angryBeeBox.setPosition((BeesGame.WIDTH / 10f) * 5, (BeesGame.HEIGHT / 10f) * 4);
         angryBeeBox.setDrawable(new TextureRegionDrawable(new TextureRegion(angryBeeTexture)));
 
@@ -251,6 +251,10 @@ public class EndScreen extends ScreenAdapter {
         tallGrassImage.setPosition((0),(0));
         tallGrassImage.setDrawable(new TextureRegionDrawable(new TextureRegion(tallGrass)));
 
+        // Level label
+        Label levelLbl = new Label(level.getText(), skin);
+        levelLbl.setPosition(BeesGame.WIDTH / 6f, BeesGame.HEIGHT / 4.7f);
+
         stage.addActor(background);
         stage.addActor(new BlackSquare(90f, 90f, 810f, 525f));
         stage.addActor(scoreBoard);
@@ -290,7 +294,7 @@ public class EndScreen extends ScreenAdapter {
             stage.addActor(playBtn);
         }
         stage.addActor(menuBtn);
-        stage.addActor(level);
+        stage.addActor(levelLbl);
     }
 
     @Override

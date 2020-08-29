@@ -10,22 +10,30 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.spelunkers.game.BeesGame;
 import com.spelunkers.game.screens.PlayScreen.WindDirection;
 
+import java.util.Locale;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Level extends Label {
 
     private String name;
     private int pollenGoal;
     private float pesticideRate;
     private float windSpeed;
+    private int number;
     private WindDirection windDir;
     private Sprite sprite;
 
-    public Level(String name, Skin skin, int pollenGoal, float pesticideRate, float windSpeed, WindDirection windDir) {
-        super("Level: " + name, skin);
+    private static final AtomicInteger count = new AtomicInteger(0);
 
-        setPosition(550, BeesGame.HEIGHT - 35f);
+    public Level(String name, Skin skin, int pollenGoal, float pesticideRate, float windSpeed, WindDirection windDir) {
+        super("", skin);
+        number = count.incrementAndGet();
+        setText(String.format(Locale.getDefault(), "Level %d: %s", number, name));
+
+        setPosition(470, BeesGame.HEIGHT - 25f);
         sprite = new Sprite(new Texture("scoreboard-singlecell.png"));
-        sprite.setSize(230f, 50f);
-        sprite.setPosition(530, BeesGame.HEIGHT - sprite.getHeight());
+        sprite.setSize(300f, 50f);
+        sprite.setPosition(450, BeesGame.HEIGHT - sprite.getHeight());
 
         this.name = name;
         this.pollenGoal = pollenGoal;
@@ -59,6 +67,8 @@ public class Level extends Label {
     }
 
     public boolean hasWind() { return windSpeed > 0; }
+
+    public int getNumber() { return number; }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
