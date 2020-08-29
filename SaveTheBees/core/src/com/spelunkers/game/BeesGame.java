@@ -6,11 +6,13 @@ import com.spelunkers.game.screens.MenuScreen;
 import com.spelunkers.game.screens.PlayScreen;
 import com.spelunkers.game.sprites.Level;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class BeesGame extends Game {
 	private SpriteBatch batch; // we only need one.
 	private Stack<Level> levels;
+	private ArrayList<Level> completedLevels;
 
 	public static final String TITLE = "Save The Bees!";
 	public static final int WIDTH = 1000;
@@ -19,9 +21,10 @@ public class BeesGame extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		completedLevels = new ArrayList<>();
 
 		// Create the stack of levels push hardest levels in first
-		levels = new Stack<Level>();
+		levels = new Stack<>();
 //		levels.push(new Level("Strong pesticide", 20, 8f, 25f, PlayScreen.WindDirection.SOUTH));
 //		levels.push(new Level("Strong wind", 15, 7f, 25f, PlayScreen.WindDirection.NORTH));
 //		levels.push(new Level("Tornado", 15, 7f, 20f, PlayScreen.WindDirection.RANDOM));
@@ -37,7 +40,23 @@ public class BeesGame extends Game {
 		batch.dispose();
 	}
 
-	public Stack<Level> getLevels() {
-		return levels;
+//	public Stack<Level> getLevels() {
+//		return levels;
+//	}
+
+	public Level nextLevel() {
+		if (hasNextLevel()) {
+			return levels.peek();
+		} else {
+			return completedLevels.get(0);
+		}
+	}
+
+	public boolean hasNextLevel() {
+		return !levels.isEmpty();
+	}
+
+	public void passCurrentLevel() {
+		completedLevels.add(levels.pop());
 	}
 }

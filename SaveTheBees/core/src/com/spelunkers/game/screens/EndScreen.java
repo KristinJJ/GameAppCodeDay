@@ -76,7 +76,7 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                    game.setScreen(new PlayScreen(game, game.getLevels().peek()));
+                    game.setScreen(new PlayScreen(game, game.nextLevel()));
             }
         });
 
@@ -112,9 +112,9 @@ public class EndScreen extends ScreenAdapter {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (!game.getLevels().empty()) {
-                    game.setScreen(new PlayScreen(game, game.getLevels().peek()));
-                }
+               // if (!game.getLevels().empty()) {
+                    game.setScreen(new PlayScreen(game, game.nextLevel()));
+               // }
             }
         });
 
@@ -151,7 +151,7 @@ public class EndScreen extends ScreenAdapter {
         // passed the level pollen goal or not
         if ((beeHivePollen>= level.getPollenGoal()) && beeHealth > 0 ) {
             this.passedStatus = Boolean.TRUE;
-            game.getLevels().pop();
+            game.passCurrentLevel();
         }
 
         // happy bee image
@@ -185,7 +185,7 @@ public class EndScreen extends ScreenAdapter {
             passedCongrats.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 6));
             stage.addActor(happyBeeBox);
             stage.addActor(crownBox);
-            if (!game.getLevels().empty()) {
+            if (game.hasNextLevel()) {
                 stage.addActor(passedCongrats);
                 stage.addActor(nextBtn);
             } else {

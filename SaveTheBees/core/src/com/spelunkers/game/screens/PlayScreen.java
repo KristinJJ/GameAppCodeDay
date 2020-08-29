@@ -102,6 +102,10 @@ public class PlayScreen extends ScreenAdapter{
             stage.addActor(flowerList[flowerNum]);
         }
 
+        //Level label
+        Label levelLbl = new Label("Level: " + level.getName(), skin);
+        levelLbl.setPosition(550, BeesGame.HEIGHT - levelLbl.getHeight());
+
         //Pollen goal label
         Texture lblBackground = new Texture("scoreboard-singlecell.png");
         Image lblBox = new Image();
@@ -129,6 +133,7 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(scoreboard);
         stage.addActor(timer);
 
+        stage.addActor(levelLbl);
         stage.addActor(lblBox);
         stage.addActor(pollenGoalLbl);
         stage.addActor(signBox);

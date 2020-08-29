@@ -23,6 +23,10 @@ public class Level {
         this(name, pollenGoal, pesticideRate, 0.0f, WindDirection.WEST);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPollenGoal() {
         return this.pollenGoal;
     }
