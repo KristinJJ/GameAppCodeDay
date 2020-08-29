@@ -134,23 +134,23 @@ public class EndScreen extends ScreenAdapter {
         String scoreFormatter = "Scoreboard\n\n" +
                                 "\nPlayer" +
                                 "\n" +
-                                "\nBee Hive Count : %d" +
+                                "\nBee Health : %.2f" +
                                 "\n" +
                                 "\nBee Pollen Count / 2 : %d" +
                                 "\n" +
-                                "\nTotal Pollen Count : %.2f" + " / " + level.getPollenGoal();
-        float pollenTotal = beeHivePollen + (beePollen / 2);
+                                "\nBee Hive Pollen Count : %d" + " / " + level.getPollenGoal();
+        //float pollenTotal = beeHivePollen + (beePollen / 2);
         String totalScoreText = String.format(Locale.getDefault(),
                                         scoreFormatter,
-                                        beeHivePollen,
+                                        beeHealth,
                                         beePollen / 2,
-                                        pollenTotal);
+                                        beeHivePollen);
 
         Label scoreBoard = new Label(totalScoreText, skin);
         scoreBoard.setPosition(BeesGame.WIDTH / 6, (BeesGame.HEIGHT / 3));
 
         // passed the level pollen goal or not
-        if ((pollenTotal >= level.getPollenGoal()) && beeHealth > 0 ) {
+        if ((beeHivePollen>= level.getPollenGoal()) && beeHealth > 0 ) {
             this.passedStatus = Boolean.TRUE;
         }
 
