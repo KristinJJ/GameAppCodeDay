@@ -23,6 +23,7 @@ public class Bee extends Actor {
     private Sprite sprite;
     private Sprite sickBee;
     private Circle body;
+    private Pollen pollen;
     private ShapeRenderer shapeRenderer;
 
     public static final int SPEED = 200;
@@ -35,6 +36,8 @@ public class Bee extends Actor {
         health = 100;
 
         setImage("cuteBeeTrimmed.png", SCALE);
+        pollen = new Pollen();
+        setPollenPosition();
 
         setTouchable(Touchable.enabled);
         shapeRenderer = new ShapeRenderer();
@@ -55,6 +58,10 @@ public class Bee extends Actor {
         body = new Circle(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2, sprite.getHeight() * 0.50f);
     }
 
+    private void setPollenPosition() {
+        pollen.setPosition(getX(), getY() - 15);
+    }
+
     public void drawPollen(Flower flower) {
         pollenCount += flower.harvestPollen();
     }
@@ -72,6 +79,7 @@ public class Bee extends Actor {
     public void emptyPockets() {
         pollenCount = 0;
         //add code to remove graphics of bee holding pollen
+        pollen.drop(Gdx.graphics.getDeltaTime());
     }
 
     public void stop() {
@@ -107,6 +115,10 @@ public class Bee extends Actor {
         return yDir;
     }
 
+    public Pollen getPollen() {
+        return pollen;
+    }
+
     public Sprite getSprite() { return sprite; };
 
     public boolean hitWall() {
@@ -120,6 +132,7 @@ public class Bee extends Actor {
     protected void positionChanged() {
         sprite.setPosition(getX(), getY());
         sickBee.setPosition(getX(), getY());
+        setPollenPosition();
         body.setPosition(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2);
         super.positionChanged();
     }
@@ -129,6 +142,7 @@ public class Bee extends Actor {
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 
+        pollen.draw(batch, parentAlpha);
         sickBee.draw(batch);
         sprite.draw(batch, health / 100f);
 

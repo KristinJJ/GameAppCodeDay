@@ -18,6 +18,7 @@ public class BeeAI extends Bee {
         //super("yellowBee.png");
         setImage("yellowBee.png", 0.15f);
         setPosition(RANDOM.nextFloat() * (BeesGame.WIDTH - 100), RANDOM.nextFloat() * (BeesGame.HEIGHT - 100));
+        getPollen().setVisible(false);
     }
 
     @Override
