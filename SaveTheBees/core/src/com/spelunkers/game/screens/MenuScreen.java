@@ -397,7 +397,6 @@ public class MenuScreen extends ScreenAdapter {
         stage.addActor(blackBeeYellowImage9);
         stage.addActor(blackBeeYellowImage10);
         stage.addActor(cuteBeeImage1);
-        //stage.addActor(endBtn); // This is temporary to get to end screen
     }
 
     @Override
