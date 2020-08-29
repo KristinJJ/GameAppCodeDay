@@ -168,7 +168,7 @@ public class EndScreen extends ScreenAdapter {
         Texture crownTexture = new Texture("CartoonCrown.png");
         Image crownBox = new Image();
         crownBox.setSize(220f, 120f);
-        crownBox.setPosition((BeesGame.WIDTH / 10) * 4, (BeesGame.HEIGHT / 10) * 4);
+        crownBox.setPosition((BeesGame.WIDTH / 20) * 9, (BeesGame.HEIGHT / 20) * 9);
         crownBox.setDrawable(new TextureRegionDrawable(new TextureRegion(crownTexture)));
 
         // sad bee image
