@@ -30,10 +30,10 @@ public class Level extends Label {
         number = count.incrementAndGet();
         setText(String.format(Locale.getDefault(), "Level %d: %s", number, name));
 
-        setPosition(470, BeesGame.HEIGHT - 25f);
+        setPosition(30, BeesGame.HEIGHT - 25f);
         sprite = new Sprite(new Texture("scoreboard-singlecell.png"));
         sprite.setSize(300f, 50f);
-        sprite.setPosition(450, BeesGame.HEIGHT - sprite.getHeight());
+        sprite.setPosition(0, BeesGame.HEIGHT - sprite.getHeight());
 
         this.name = name;
         this.pollenGoal = pollenGoal;

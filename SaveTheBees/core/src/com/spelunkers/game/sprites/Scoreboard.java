@@ -1,6 +1,5 @@
 package com.spelunkers.game.sprites;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -46,6 +45,10 @@ public class Scoreboard extends Actor {
 
         beeHealth = new Label(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()), skin);
         beeHealth.setPosition(sprite.getX() + 15, sprite.getY() + 15);
+    }
+
+    public float getScoreboardWidth() {
+        return sprite.getWidth();
     }
 
     public int getBeeHivePollenCount() {

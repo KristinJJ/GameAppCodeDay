@@ -43,6 +43,7 @@ public class PlayScreen extends ScreenAdapter{
     private Scoreboard scoreboard;
     private Timer timer;
     private Skin skin;
+    private Skin lightSkin;
     private Level level;
     private ProgressBar pollenProgress;
 
@@ -55,17 +56,7 @@ public class PlayScreen extends ScreenAdapter{
         this.level = level;
 
         skin = new Skin(Gdx.files.internal("darkSkin/cloud-form-ui.json"));
-        //skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
-
-        TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
-        textureBar.setMinSize(5, 50f);
-        ProgressBar.ProgressBarStyle barStyle = new ProgressBar.ProgressBarStyle(skin.newDrawable("white", Color.DARK_GRAY), textureBar);
-        barStyle.knobBefore = barStyle.knob;
-        pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
-        pollenProgress.setWidth(225);
-        pollenProgress.setPosition(225, BeesGame.HEIGHT - pollenProgress.getHeight());
-        Color barColor = pollenProgress.getColor();
-        pollenProgress.setColor(barColor.r, barColor.g, barColor.b, 0.75f);
+        lightSkin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
 
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
@@ -96,6 +87,17 @@ public class PlayScreen extends ScreenAdapter{
         stream = new Water();
         scoreboard = new Scoreboard(bee, beehive, level, skin);
 
+        TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
+        textureBar.setMinSize(5, 50f);
+        ProgressBar.ProgressBarStyle barStyle = new ProgressBar.ProgressBarStyle(skin.newDrawable("white", Color.DARK_GRAY), textureBar);
+        barStyle.knobBefore = barStyle.knob;
+        pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
+        pollenProgress.setWidth(225);
+        pollenProgress.setPosition(BeesGame.WIDTH - (pollenProgress.getWidth() + scoreboard.getScoreboardWidth()),
+                                   BeesGame.HEIGHT - pollenProgress.getHeight());
+        Color barColor = pollenProgress.getColor();
+        pollenProgress.setColor(barColor.r, barColor.g, barColor.b, 0.75f);
+
         flowerList = new Flower[15];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
@@ -120,7 +122,7 @@ public class PlayScreen extends ScreenAdapter{
         signBox.setSize(230f, 50f);
         signBox.setPosition(700f, BeesGame.HEIGHT / 4f);
         signBox.setDrawable(new TextureRegionDrawable(new TextureRegion(signBackground)));
-        Label signLbl = new Label("Wash your Bee Here !", skin);
+        Label signLbl = new Label("Wash your Bee Here !", lightSkin);
         signLbl.setPosition(720, BeesGame.HEIGHT / 4f + 15);
 
         // Starting the timer

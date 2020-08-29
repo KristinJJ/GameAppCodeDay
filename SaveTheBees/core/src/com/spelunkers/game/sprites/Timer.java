@@ -23,9 +23,9 @@ public class Timer extends Label {
         super("Remaining Time:", skin);
         sprite = new Sprite(new Texture("scoreboard-singlecell.png"));
         maxTime = DEFAULT_MAX_TIME;
-        setPosition(20,BeesGame.HEIGHT - 35f);
+        setPosition(320,BeesGame.HEIGHT - 35f);
         sprite.setSize(230f, 50f);
-        sprite.setPosition(0, BeesGame.HEIGHT - sprite.getHeight());
+        sprite.setPosition(300, BeesGame.HEIGHT - sprite.getHeight());
     }
 
     public void setMaxTime(float maxTime) {
