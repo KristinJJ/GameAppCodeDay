@@ -64,6 +64,8 @@ public class PlayScreen extends ScreenAdapter{
         pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
         pollenProgress.setWidth(225);
         pollenProgress.setPosition(225, BeesGame.HEIGHT - pollenProgress.getHeight());
+        Color barColor = pollenProgress.getColor();
+        pollenProgress.setColor(barColor.r, barColor.g, barColor.b, 0.75f);
 
         music_level = Gdx.audio.newMusic(Gdx.files.internal("Kevin MacLeod - Happy Bee (Background Gaming Music).mp3"));
         music_level.setVolume((float) 0.2);
@@ -92,7 +94,7 @@ public class PlayScreen extends ScreenAdapter{
 
         beehive = new Beehive();
         stream = new Water();
-        scoreboard = new Scoreboard(bee, beehive, skin);
+        scoreboard = new Scoreboard(bee, beehive, level, skin);
 
         flowerList = new Flower[15];
 

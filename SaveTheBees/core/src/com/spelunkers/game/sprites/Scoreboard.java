@@ -15,6 +15,7 @@ public class Scoreboard extends Actor {
     private Sprite sprite;
     private Bee bee;
     private Beehive beehive;
+    private Level level;
 
     private Label beehivePollenCount;
     private Label beePollenCount;
@@ -22,11 +23,11 @@ public class Scoreboard extends Actor {
 
     private final float SCALE = 0.25f;
 
-    private static final String BEEHIVE_PC_LABEL = "Beehive Pollen: %d";
+    private static final String BEEHIVE_PC_LABEL = "Beehive Pollen: %d / %d";
     private static final String BEE_PC_LABEL = "Bee Pollen: %d";
     private static final String BEE_HEALTH_LABEL = "Bee Health: %.2f";
 
-    public Scoreboard(Bee bee, Beehive beehive, Skin skin) {
+    public Scoreboard(Bee bee, Beehive beehive, Level level, Skin skin) {
 
         sprite = new Sprite(new Texture("scoreboard.png"));
         sprite.setSize(sprite.getWidth() * SCALE + 50, sprite.getHeight() * SCALE);
@@ -35,8 +36,9 @@ public class Scoreboard extends Actor {
 
         this.bee = bee;
         this.beehive = beehive;
+        this.level = level;
 
-        beehivePollenCount = new Label(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount()), skin);
+        beehivePollenCount = new Label(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount(), level.getPollenGoal()), skin);
         beehivePollenCount.setPosition(sprite.getX() + 15, sprite.getY() + 85);
 
         beePollenCount = new Label(String.format(Locale.getDefault(), BEE_PC_LABEL, bee.getPollenCount()), skin);
@@ -68,7 +70,7 @@ public class Scoreboard extends Actor {
 
     @Override
     public void act(float delta) {
-        beehivePollenCount.setText(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount()));
+        beehivePollenCount.setText(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount(), level.getPollenGoal()));
         beePollenCount.setText(String.format(Locale.getDefault(), BEE_PC_LABEL, bee.getPollenCount()));
         beeHealth.setText(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()));
         super.act(delta);
