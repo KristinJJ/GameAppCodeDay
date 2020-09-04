@@ -1,11 +1,16 @@
 package com.spelunkers.game.sprites;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.spelunkers.game.BeesGame;
 
 import java.util.Locale;
@@ -19,6 +24,7 @@ public class Scoreboard extends Actor {
     private Label beehivePollenCount;
     private Label beePollenCount;
     private Label beeHealth;
+    private ProgressBar pollenProgress;
 
     private final float SCALE = 0.25f;
 
@@ -45,6 +51,18 @@ public class Scoreboard extends Actor {
 
         beeHealth = new Label(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()), skin);
         beeHealth.setPosition(sprite.getX() + 15, sprite.getY() + 15);
+
+        // Pollen progress bar
+        TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
+        textureBar.setMinSize(5, 50f);
+        ProgressBar.ProgressBarStyle barStyle = new ProgressBar.ProgressBarStyle(skin.newDrawable("white", Color.DARK_GRAY), textureBar);
+        barStyle.knobBefore = barStyle.knob;
+        pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
+        pollenProgress.setWidth(250);
+        pollenProgress.setPosition(BeesGame.WIDTH - (pollenProgress.getWidth() + sprite.getWidth()),
+                BeesGame.HEIGHT - pollenProgress.getHeight());
+        Color barColor = pollenProgress.getColor();
+        pollenProgress.setColor(barColor.r, barColor.g, barColor.b, 0.75f);
     }
 
     public float getScoreboardWidth() {
@@ -69,6 +87,7 @@ public class Scoreboard extends Actor {
         beehivePollenCount.draw(batch, parentAlpha);
         beePollenCount.draw(batch, parentAlpha);
         beeHealth.draw(batch, parentAlpha);
+        pollenProgress.draw(batch, parentAlpha);
     }
 
     @Override
@@ -76,6 +95,7 @@ public class Scoreboard extends Actor {
         beehivePollenCount.setText(String.format(Locale.getDefault(), BEEHIVE_PC_LABEL, beehive.getPollenCount(), level.getPollenGoal()));
         beePollenCount.setText(String.format(Locale.getDefault(), BEE_PC_LABEL, bee.getPollenCount()));
         beeHealth.setText(String.format(Locale.getDefault(), BEE_HEALTH_LABEL, bee.getHealth()));
+        pollenProgress.setValue((float)beehive.getPollenCount());
         super.act(delta);
     }
 }

@@ -45,7 +45,7 @@ public class PlayScreen extends ScreenAdapter{
     private Skin skin;
     private Skin lightSkin;
     private Level level;
-    private ProgressBar pollenProgress;
+
 
     private static final Random RANDOMIZER = new Random();
     private static final float DEFAULT_PLAY_TIME = 30f;
@@ -87,17 +87,6 @@ public class PlayScreen extends ScreenAdapter{
         stream = new Water();
         scoreboard = new Scoreboard(bee, beehive, level, skin);
 
-        TextureRegionDrawable textureBar = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("pollenBar.png"))));
-        textureBar.setMinSize(5, 50f);
-        ProgressBar.ProgressBarStyle barStyle = new ProgressBar.ProgressBarStyle(skin.newDrawable("white", Color.DARK_GRAY), textureBar);
-        barStyle.knobBefore = barStyle.knob;
-        pollenProgress = new ProgressBar(0f, level.getPollenGoal(), 0.5f, false, barStyle);
-        pollenProgress.setWidth(225);
-        pollenProgress.setPosition(BeesGame.WIDTH - (pollenProgress.getWidth() + scoreboard.getScoreboardWidth()),
-                                   BeesGame.HEIGHT - pollenProgress.getHeight());
-        Color barColor = pollenProgress.getColor();
-        pollenProgress.setColor(barColor.r, barColor.g, barColor.b, 0.75f);
-
         flowerList = new Flower[15];
 
         for(int flowerNum = 0; flowerNum < flowerList.length; flowerNum++) {
@@ -135,7 +124,7 @@ public class PlayScreen extends ScreenAdapter{
         stage.addActor(timer);
 
         stage.addActor(level);
-        stage.addActor(pollenProgress);
+        //stage.addActor(pollenProgress);
         stage.addActor(signBox);
         stage.addActor(signLbl);
 
@@ -206,7 +195,6 @@ public class PlayScreen extends ScreenAdapter{
         // deposit pollen at beehive
         if (bee.getBody().overlaps(beehive.getBody())) {
             bee.depositPollen(beehive);
-            pollenProgress.setValue((float)beehive.getPollenCount());
         }
 
         stage.draw();
